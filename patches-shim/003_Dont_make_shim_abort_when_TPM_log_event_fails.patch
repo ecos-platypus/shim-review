@@ -1,0 +1,34 @@
+# See https://github.com/rhboot/shim/commit/11740ea761ac5a1eb84c865edbdcd750f2a8b04f
+--- a/tpm.c
++++ b/tpm.c
+@@ -10,6 +10,7 @@ typedef struct {
+ 
+ UINTN measuredcount = 0;
+ VARIABLE_RECORD *measureddata = NULL;
++static BOOLEAN tpm_defective = FALSE;
+ 
+ static BOOLEAN tpm_present(efi_tpm_protocol_t *tpm)
+ {
+@@ -18,6 +19,9 @@ static BOOLEAN tpm_present(efi_tpm_protocol_t *tpm)
+ 	UINT32 flags;
+ 	EFI_PHYSICAL_ADDRESS eventlog, lastevent;
+ 
++	if (tpm_defective)
++		return FALSE;
++
+ 	caps.Size = (UINT8)sizeof(caps);
+ 	efi_status = tpm->status_check(tpm, &caps, &flags,
+ 				       &eventlog, &lastevent);
+@@ -192,6 +196,12 @@ static EFI_STATUS tpm_log_event_raw(EFI_PHYSICAL_ADDRESS buf, UINTN size,
+ 				(UINT64)size, TPM_ALG_SHA, event, &eventnum,
+ 				&lastevent);
+ 		}
++		if (efi_status == EFI_UNSUPPORTED) {
++			perror(L"Could not write TPM event: %r. Considering "
++			       "the TPM as defective.\n", efi_status);
++			tpm_defective = TRUE;
++			efi_status = EFI_SUCCESS;
++		}
+ 		FreePool(event);
+ 		return efi_status;
+ 	}

@@ -1,0 +1,23 @@
+--- ./grub-core/gettext/gettext.c
++++ ./grub-core/gettext/gettext.c
+@@ -488,12 +488,16 @@
+ grub_cmd_translate (grub_command_t cmd __attribute__ ((unused)),
+ 		    int argc, char **args)
+ {
+-  if (argc != 1)
++  int i;
++  if (argc < 1)
+     return grub_error (GRUB_ERR_BAD_ARGUMENT, N_("one argument expected"));
+ 
+-  const char *translation;
+-  translation = grub_gettext_translate (args[0]);
+-  grub_printf ("%s\n", translation);
++  for (i = 0; i < argc; i++)
++      {
++      const char *translation;
++      translation = grub_gettext_translate (args[i]);
++      grub_env_set (args[i],translation);
++      }
+   return 0;
+ }
+ 

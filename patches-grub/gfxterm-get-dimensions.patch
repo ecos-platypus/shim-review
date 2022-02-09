@@ -1,0 +1,55 @@
+--- grub-core/term/gfxterm.c
++++ grub-core/term/gfxterm.c
+@@ -237,9 +237,11 @@ grub_virtual_screen_setup (unsigned int x, unsigned int y,
+    * make sense. Arbitrarily pick half of 80x24. If either dimensions is 0
+    * we would allocate 0 bytes for the text_buffer.
+    */
++/* Interferes with grub_cmd_get_dimensions on small screens
+   if (virtual_screen.columns < 40 || virtual_screen.rows < 12)
+     return grub_error (GRUB_ERR_BAD_FONT,
+ 		       "font: glyphs too large to fit on screen");
++*/
+ 
+   /* Allocate memory for text buffer.  */
+   virtual_screen.text_buffer =
+@@ -1149,12 +1151,40 @@ grub_gfxterm_get_dimensions (unsigned *width, unsigned *height)
+   *height = window.height;
+ }
+ 
++static grub_command_t cmd_get_dimensions;
++
++static grub_err_t
++grub_cmd_get_dimensions (struct grub_command *cmd __attribute__ ((unused)),
++		    int argc __attribute__ ((unused)),
++		    char *argv[] __attribute__ ((unused)))
++{
++  unsigned int width, height;
++	grub_gfxterm_get_dimensions (&width, &height);
++
++  char width_str[11];
++  char height_str[11];
++
++  grub_snprintf (width_str, sizeof (width_str), "%u", width);
++  grub_snprintf (height_str, sizeof (height_str), "%u", height);
++
++  grub_env_set ("dimension_width", width_str);
++  grub_env_set ("dimension_height", height_str);
++
++  grub_env_export ("dimension_width");
++  grub_env_export ("dimension_height");
++
++  return GRUB_ERR_NONE;
++}
++
+ GRUB_MOD_INIT(gfxterm)
+ {
+   grub_term_register_output ("gfxterm", &grub_video_term);
++  cmd_get_dimensions = grub_register_command ("get_dimensions", grub_cmd_get_dimensions,
++			    0, N_("Export window dimensions to dimension_width and dimension_height."));
+ }
+ 
+ GRUB_MOD_FINI(gfxterm)
+ {
+   grub_term_unregister_output (&grub_video_term);
++  grub_unregister_command (cmd_get_dimensions);
+ }

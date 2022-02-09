@@ -1,0 +1,182 @@
+--- ./grub-core/commands/loadenv.c
++++ ./grub-core/commands/loadenv.c
+@@ -154,12 +154,119 @@ set_var (const char *name, const char *value, void *whitelist)
+   return 0;
+ }
+ 
++#define ENVBLOCK_OFFSET 48
++#define ENVBLOCK_MINFREE 56
++#define ENVBLOCK_SECS 4
++#define ENVBLOCK_SIZE (ENVBLOCK_SECS*512)
++
++static grub_envblk_t
++read_env_block (grub_file_t file)
++  {
++  // ignore envblk if the file is not named grubenv
++  char *filename_suffix = grub_strrchr(file->name, '/');
++  if (filename_suffix && grub_strncmp(filename_suffix, "/grubenv", 8))
++      return NULL;
++
++  char *buf;
++  //int   ret ;
++  grub_disk_t disk;
++  grub_disk_addr_t part_start;
++  grub_disk_addr_t part_end;
++  grub_uint64_t disk_size ;
++  grub_envblk_t envblk;
++
++  disk = file->device->disk;
++  part_start = grub_partition_get_start (disk->partition);
++  part_end   = part_start + disk -> partition -> len ;
++  disk_size  = disk -> total_sectors ;
++
++  grub_dprintf ("env", "disk_size = %ld  part_end = %ld\n", disk_size, part_end);
++
++  if (disk->log_sector_size != GRUB_DISK_SECTOR_BITS)
++      {
++      grub_dprintf ("env", "failed disk->log_sector_size = %d != GRUB_DISK_SECTOR_BITS = %d\n", disk->log_sector_size, GRUB_DISK_SECTOR_BITS);
++      return NULL ;
++      }
++
++  if (disk_size - ENVBLOCK_MINFREE < part_end)
++      return NULL ;
++
++
++  buf = grub_malloc (ENVBLOCK_SIZE + 1);
++  if (! buf)
++      return NULL ;
++
++  grub_dprintf ("env", "read block at = %ld  sectors = %d  size = %d\n", disk_size - 40, ENVBLOCK_SECS, ENVBLOCK_SIZE);
++  if ((disk->dev->disk_read) (disk, disk_size - ENVBLOCK_OFFSET, ENVBLOCK_SECS, buf))
++      {
++      grub_dprintf ("env", "read block failed errno=%d\n", grub_errno);
++      grub_free (buf);
++      return NULL ;
++      }
++
++  buf[ENVBLOCK_SIZE] = '\0' ;
++  grub_dprintf ("env", "read block is = %s\n", buf);
++
++  envblk = grub_envblk_open (buf, ENVBLOCK_SIZE);
++  if (! envblk)
++      {
++      grub_free (buf);
++      grub_dprintf ("env", "invalid environment block\n");
++      //grub_error (GRUB_ERR_BAD_FILE_TYPE, "invalid environment block");
++      return NULL ;
++      }
++
++  grub_dprintf ("env", "environment block ok\n");
++  return envblk;
++  }
++
++
++static int
++write_env_block (grub_file_t file, grub_envblk_t envblk)
++  {
++  char *buf;
++  grub_disk_t disk;
++  grub_disk_addr_t part_start;
++  grub_disk_addr_t part_end;
++  grub_uint64_t disk_size ;
++
++  disk = file->device->disk;
++  part_start = grub_partition_get_start (disk->partition);
++  part_end   = part_start + disk -> partition -> len ;
++  disk_size  = disk -> total_sectors ;
++
++  grub_dprintf ("env", "disk_size = %ld  part_end = %ld\n", disk_size, part_end);
++
++  if (disk->log_sector_size != GRUB_DISK_SECTOR_BITS)
++      {
++      grub_dprintf ("env", "failed disk->log_sector_size = %d != GRUB_DISK_SECTOR_BITS = %d\n", disk->log_sector_size, GRUB_DISK_SECTOR_BITS);
++      return 0 ;
++      }
++
++  if (disk_size - ENVBLOCK_MINFREE < part_end)
++      return 0 ;
++
++  buf = grub_envblk_buffer (envblk);
++  grub_dprintf ("env", "write block is = %s\n", buf);
++
++  grub_dprintf ("env", "write block at = %ld  sectors = %d  size = %d\n", disk_size - 40, ENVBLOCK_SECS, ENVBLOCK_SIZE);
++  if ((disk->dev->disk_write) (disk, disk_size - ENVBLOCK_OFFSET, ENVBLOCK_SECS, buf))
++      {
++      grub_dprintf ("env", "write block failed errno=%d\n", grub_errno);
++      return 0 ;
++      }
++
++  grub_dprintf ("env", "environment block ok\n");
++  return 1 ;
++  }
++
+ static grub_err_t
+ grub_cmd_load_env (grub_extcmd_context_t ctxt, int argc, char **args)
+ {
+   struct grub_arg_list *state = ctxt->state;
+   grub_file_t file;
+   grub_envblk_t envblk;
++  grub_envblk_t envblk2 ;
+   grub_env_whitelist_t whitelist;
+ 
+   whitelist.len = argc;
+@@ -173,10 +280,21 @@
+   if (! file)
+     return grub_errno;
+ 
++  // file must exists
+   envblk = read_envblk_file (file);
+-  if (! envblk)
++
++  // block data is optional (used by sx)
++  envblk2 = read_env_block (file) ;
++
++  if (!envblk && !envblk2)
+     goto fail;
+ 
++  if (envblk && envblk2)
++      grub_envblk_close (envblk);
++
++  if (envblk2)
++    envblk = envblk2 ;
++
+   /* argc > 0 indicates caller provided a whitelist of variables to read. */
+   grub_envblk_iterate (envblk, argc > 0 ? &whitelist : 0, set_var);
+   grub_envblk_close (envblk);
+@@ -382,6 +500,7 @@
+   struct grub_arg_list *state = ctxt->state;
+   grub_file_t file;
+   grub_envblk_t envblk;
++  grub_envblk_t envblk2;
+   struct grub_cmd_save_env_ctx ctx = {
+     .head = 0,
+     .tail = 0
+@@ -412,6 +531,18 @@
+   if (check_blocklists (envblk, ctx.head, file))
+     goto fail;
+ 
++  // block data is optional (used by sx)
++  envblk2 = read_env_block (file) ;
++
++  if (!envblk && !envblk2)
++    goto fail;
++
++  if (envblk && envblk2)
++      grub_envblk_close (envblk);
++
++  if (envblk2)
++    envblk = envblk2 ;
++
+   while (argc)
+     {
+       const char *value;
+@@ -432,7 +563,8 @@
+       args++;
+     }
+ 
+-  write_blocklists (envblk, ctx.head, file);
++  if (!write_env_block (file, envblk))
++    write_blocklists (envblk, ctx.head, file);
+ 
+  fail:
+   if (envblk)

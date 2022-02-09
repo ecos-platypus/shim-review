@@ -1,0 +1,31 @@
+--- ./grub-core/normal/main.c
++++ ./grub-core/normal/main.c
+@@ -302,6 +302,9 @@
+   grub_boot_time ("Entering normal mode");
+   nested_level++;
+   grub_normal_execute (config, 0, 0);
++
++  grub_fatal (N_("normal_execute failed")) ;
++
+   grub_boot_time ("Entering shell");
+   grub_cmdline_run (0, 1);
+   nested_level--;
+--- ./grub-core/normal/menu.c
++++ ./grub-core/normal/menu.c
+@@ -894,6 +894,8 @@
+       autoboot = 0;
+       grub_print_error ();
+ 
++      break ; // don't check password on ESC (exit normal mode to shell is forbidden in main.c)
++      /*
+       if (grub_normal_exit_level)
+ 	break;
+ 
+@@ -906,6 +908,7 @@
+ 	}
+ 
+       break;
++      */
+     }
+ 
+   return err1;
