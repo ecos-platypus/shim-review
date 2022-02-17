@@ -1,19 +1,6 @@
 --- a/shim.c
 +++ b/shim.c
-@@ -1365,6 +1365,7 @@ get_load_option_optional_data(UINT8 *data, UINTN data_size,
- 	return EFI_SUCCESS;
- }
- 
-+/* Comment out unused function
- static int is_our_path(EFI_LOADED_IMAGE *li, CHAR16 *path)
- {
- 	CHAR16 *dppath = NULL;
-@@ -1393,12 +1394,14 @@ done:
- 	FreePool(PathName);
- 	return ret;
- }
-+*/
- 
+@@ -1161,15 +1161,19 @@ EFI_STATUS init_grub(EFI_HANDLE image_handle)
  /*
   * Check the load options to specify the second stage loader
   */
@@ -23,27 +10,20 @@
 +/* Comment out unused variables
  	EFI_STATUS efi_status;
  	EFI_LOADED_IMAGE *li = NULL;
- 	CHAR16 *start = NULL;
-@@ -1406,6 +1409,7 @@ EFI_STATUS set_second_stage (EFI_HANDLE image_handle)
- 	CHAR16 *loader_str = NULL;
- 	UINTN loader_len = 0;
- 	unsigned int i;
 +*/
- 	UINTN second_stage_len;
  
- 	second_stage_len = (StrLen(DEFAULT_LOADER) + 1) * sizeof(CHAR16);
-@@ -1418,6 +1422,8 @@ EFI_STATUS set_second_stage (EFI_HANDLE image_handle)
+ 	second_stage = DEFAULT_LOADER;
  	load_options = NULL;
  	load_options_size = 0;
  
 +// Disable dynamic second stage loader detection, always load the default loader
 +#if 0
- 	efi_status = gBS->HandleProtocol(image_handle, &LoadedImageProtocol,
- 					 (void **) &li);
+ 	efi_status = BS->HandleProtocol(image_handle, &LoadedImageProtocol,
+ 					(void **) &li);
  	if (EFI_ERROR(efi_status)) {
-@@ -1614,6 +1620,7 @@ EFI_STATUS set_second_stage (EFI_HANDLE image_handle)
- 		load_options = remaining_size ? start + (loader_len/2) : NULL;
- 		load_options_size = remaining_size;
+@@ -1193,6 +1197,7 @@ EFI_STATUS set_second_stage (EFI_HANDLE image_handle)
+ 		perror (L"Failed to get load options: %r\n", efi_status);
+ 		return efi_status;
  	}
 +#endif
  

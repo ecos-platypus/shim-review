@@ -1,18 +1,18 @@
-Sending build context to Docker daemon  3.228MB
-Step 1/27 : FROM debian:bullseye
+Sending build context to Docker daemon  4.112MB
+Step 1/22 : FROM debian:bullseye
 bullseye: Pulling from library/debian
 Digest: sha256:fb45fd4e25abe55a656ca69a7bef70e62099b8bb42a279a5e0ea4ae1ab410e0d
 Status: Image is up to date for debian:bullseye
  ---> 04fbdaf87a6a
-Step 2/27 : RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential         bsdmainutils         ca-certificates git         libnss3-tools pesign         dos2unix         && rm -rf /var/lib/apt/lists/*
- ---> Running in 629f0490cc0e
+Step 2/22 : RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential         bsdmainutils         ca-certificates git         libnss3-tools pesign         dos2unix         && rm -rf /var/lib/apt/lists/*
+ ---> Running in b65c55c93c7a
 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
-Get:2 http://deb.debian.org/debian bullseye-updates InRelease [39.4 kB]
-Get:3 http://security.debian.org/debian-security bullseye-security InRelease [44.1 kB]
+Get:2 http://security.debian.org/debian-security bullseye-security InRelease [44.1 kB]
+Get:3 http://deb.debian.org/debian bullseye-updates InRelease [39.4 kB]
 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8183 kB]
-Get:5 http://security.debian.org/debian-security bullseye-security/main amd64 Packages [116 kB]
+Get:5 http://security.debian.org/debian-security bullseye-security/main amd64 Packages [119 kB]
 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [2596 B]
-Fetched 8501 kB in 3s (3362 kB/s)
+Fetched 8504 kB in 2s (3580 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -60,73 +60,73 @@ The following NEW packages will be installed:
 0 upgraded, 78 newly installed, 0 to remove and 0 not upgraded.
 Need to get 85.7 MB of archives.
 After this operation, 342 MB of additional disk space will be used.
-Get:1 http://security.debian.org/debian-security bullseye-security/main amd64 bsdextrautils amd64 2.36.1-8+deb11u1 [145 kB]
-Get:2 http://deb.debian.org/debian bullseye/main amd64 perl-modules-5.32 all 5.32.1-4+deb11u2 [2823 kB]
+Get:1 http://deb.debian.org/debian bullseye/main amd64 perl-modules-5.32 all 5.32.1-4+deb11u2 [2823 kB]
+Get:2 http://security.debian.org/debian-security bullseye-security/main amd64 bsdextrautils amd64 2.36.1-8+deb11u1 [145 kB]
 Get:3 http://security.debian.org/debian-security bullseye-security/main amd64 linux-libc-dev amd64 5.10.92-1 [1446 kB]
-Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 libnss3 amd64 2:3.61-1+deb11u2 [1306 kB]
+Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 libexpat1 amd64 2.2.10-2+deb11u1 [97.4 kB]
 Get:5 http://deb.debian.org/debian bullseye/main amd64 libgdbm6 amd64 1.19-2 [64.9 kB]
-Get:6 http://deb.debian.org/debian bullseye/main amd64 libgdbm-compat4 amd64 1.19-2 [44.7 kB]
-Get:7 http://deb.debian.org/debian bullseye/main amd64 libperl5.32 amd64 5.32.1-4+deb11u2 [4106 kB]
-Get:8 http://security.debian.org/debian-security bullseye-security/main amd64 libnss3-tools amd64 2:3.61-1+deb11u2 [1027 kB]
-Get:9 http://deb.debian.org/debian bullseye/main amd64 perl amd64 5.32.1-4+deb11u2 [293 kB]
-Get:10 http://deb.debian.org/debian bullseye/main amd64 readline-common all 8.1-1 [73.7 kB]
-Get:11 http://deb.debian.org/debian bullseye/main amd64 libreadline8 amd64 8.1-1 [169 kB]
-Get:12 http://deb.debian.org/debian bullseye/main amd64 bzip2 amd64 1.0.8-4 [49.3 kB]
-Get:13 http://deb.debian.org/debian bullseye/main amd64 openssl amd64 1.1.1k-1+deb11u1 [851 kB]
-Get:14 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
-Get:15 http://deb.debian.org/debian bullseye/main amd64 xz-utils amd64 5.2.5-2 [220 kB]
-Get:16 http://deb.debian.org/debian bullseye/main amd64 binutils-common amd64 2.35.2-2 [2220 kB]
-Get:17 http://deb.debian.org/debian bullseye/main amd64 libbinutils amd64 2.35.2-2 [570 kB]
-Get:18 http://deb.debian.org/debian bullseye/main amd64 libctf-nobfd0 amd64 2.35.2-2 [110 kB]
-Get:19 http://deb.debian.org/debian bullseye/main amd64 libctf0 amd64 2.35.2-2 [53.2 kB]
-Get:20 http://deb.debian.org/debian bullseye/main amd64 binutils-x86-64-linux-gnu amd64 2.35.2-2 [1809 kB]
-Get:21 http://deb.debian.org/debian bullseye/main amd64 binutils amd64 2.35.2-2 [61.2 kB]
-Get:22 http://deb.debian.org/debian bullseye/main amd64 ncal amd64 12.1.7+nmu3 [30.1 kB]
-Get:23 http://deb.debian.org/debian bullseye/main amd64 bsdmainutils all 12.1.7+nmu3 [16.4 kB]
-Get:24 http://deb.debian.org/debian bullseye/main amd64 libc-dev-bin amd64 2.31-13+deb11u2 [275 kB]
-Get:25 http://deb.debian.org/debian bullseye/main amd64 libcrypt-dev amd64 1:4.4.18-4 [104 kB]
-Get:26 http://deb.debian.org/debian bullseye/main amd64 libtirpc-dev amd64 1.3.1-1 [190 kB]
-Get:27 http://deb.debian.org/debian bullseye/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
-Get:28 http://deb.debian.org/debian bullseye/main amd64 libc6-dev amd64 2.31-13+deb11u2 [2344 kB]
-Get:29 http://deb.debian.org/debian bullseye/main amd64 libisl23 amd64 0.23-1 [676 kB]
-Get:30 http://deb.debian.org/debian bullseye/main amd64 libmpfr6 amd64 4.1.0-3 [2012 kB]
-Get:31 http://deb.debian.org/debian bullseye/main amd64 libmpc3 amd64 1.2.0-1 [45.0 kB]
-Get:32 http://deb.debian.org/debian bullseye/main amd64 cpp-10 amd64 10.2.1-6 [8528 kB]
-Get:33 http://deb.debian.org/debian bullseye/main amd64 cpp amd64 4:10.2.1-1 [19.7 kB]
-Get:34 http://deb.debian.org/debian bullseye/main amd64 libcc1-0 amd64 10.2.1-6 [47.0 kB]
-Get:35 http://deb.debian.org/debian bullseye/main amd64 libgomp1 amd64 10.2.1-6 [99.9 kB]
-Get:36 http://deb.debian.org/debian bullseye/main amd64 libitm1 amd64 10.2.1-6 [25.8 kB]
-Get:37 http://deb.debian.org/debian bullseye/main amd64 libatomic1 amd64 10.2.1-6 [9008 B]
-Get:38 http://deb.debian.org/debian bullseye/main amd64 libasan6 amd64 10.2.1-6 [2065 kB]
-Get:39 http://deb.debian.org/debian bullseye/main amd64 liblsan0 amd64 10.2.1-6 [828 kB]
-Get:40 http://deb.debian.org/debian bullseye/main amd64 libtsan0 amd64 10.2.1-6 [2000 kB]
-Get:41 http://deb.debian.org/debian bullseye/main amd64 libubsan1 amd64 10.2.1-6 [777 kB]
-Get:42 http://deb.debian.org/debian bullseye/main amd64 libquadmath0 amd64 10.2.1-6 [145 kB]
-Get:43 http://deb.debian.org/debian bullseye/main amd64 libgcc-10-dev amd64 10.2.1-6 [2328 kB]
-Get:44 http://deb.debian.org/debian bullseye/main amd64 gcc-10 amd64 10.2.1-6 [17.0 MB]
-Get:45 http://deb.debian.org/debian bullseye/main amd64 gcc amd64 4:10.2.1-1 [5192 B]
-Get:46 http://deb.debian.org/debian bullseye/main amd64 libstdc++-10-dev amd64 10.2.1-6 [1741 kB]
-Get:47 http://deb.debian.org/debian bullseye/main amd64 g++-10 amd64 10.2.1-6 [9380 kB]
-Get:48 http://deb.debian.org/debian bullseye/main amd64 g++ amd64 4:10.2.1-1 [1644 B]
-Get:49 http://deb.debian.org/debian bullseye/main amd64 make amd64 4.3-4.1 [396 kB]
-Get:50 http://deb.debian.org/debian bullseye/main amd64 libdpkg-perl all 1.20.9 [1537 kB]
-Get:51 http://deb.debian.org/debian bullseye/main amd64 patch amd64 2.7.6-7 [128 kB]
-Get:52 http://deb.debian.org/debian bullseye/main amd64 dpkg-dev all 1.20.9 [2153 kB]
-Get:53 http://deb.debian.org/debian bullseye/main amd64 build-essential amd64 12.9 [7704 B]
-Get:54 http://deb.debian.org/debian bullseye/main amd64 libckyapplet1 amd64 1.1.0-16 [24.5 kB]
-Get:55 http://deb.debian.org/debian bullseye/main amd64 libpcsclite1 amd64 1.9.1-1 [60.2 kB]
-Get:56 http://deb.debian.org/debian bullseye/main amd64 coolkey amd64 1.1.0-16 [90.5 kB]
-Get:57 http://deb.debian.org/debian bullseye/main amd64 dos2unix amd64 7.4.1-1 [392 kB]
-Get:58 http://deb.debian.org/debian bullseye/main amd64 libbrotli1 amd64 1.0.9-2+b2 [279 kB]
-Get:59 http://deb.debian.org/debian bullseye/main amd64 libsasl2-modules-db amd64 2.1.27+dfsg-2.1 [69.1 kB]
-Get:60 http://deb.debian.org/debian bullseye/main amd64 libsasl2-2 amd64 2.1.27+dfsg-2.1 [106 kB]
-Get:61 http://deb.debian.org/debian bullseye/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3 [232 kB]
-Get:62 http://deb.debian.org/debian bullseye/main amd64 libnghttp2-14 amd64 1.43.0-1 [77.1 kB]
-Get:63 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
-Get:64 http://deb.debian.org/debian bullseye/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
-Get:65 http://deb.debian.org/debian bullseye/main amd64 libssh2-1 amd64 1.9.0-2 [156 kB]
-Get:66 http://deb.debian.org/debian bullseye/main amd64 libcurl3-gnutls amd64 7.74.0-1.3+deb11u1 [338 kB]
-Get:67 http://deb.debian.org/debian bullseye/main amd64 libexpat1 amd64 2.2.10-2 [96.9 kB]
+Get:6 http://security.debian.org/debian-security bullseye-security/main amd64 libnss3 amd64 2:3.61-1+deb11u2 [1306 kB]
+Get:7 http://deb.debian.org/debian bullseye/main amd64 libgdbm-compat4 amd64 1.19-2 [44.7 kB]
+Get:8 http://deb.debian.org/debian bullseye/main amd64 libperl5.32 amd64 5.32.1-4+deb11u2 [4106 kB]
+Get:9 http://security.debian.org/debian-security bullseye-security/main amd64 libnss3-tools amd64 2:3.61-1+deb11u2 [1027 kB]
+Get:10 http://deb.debian.org/debian bullseye/main amd64 perl amd64 5.32.1-4+deb11u2 [293 kB]
+Get:11 http://deb.debian.org/debian bullseye/main amd64 readline-common all 8.1-1 [73.7 kB]
+Get:12 http://deb.debian.org/debian bullseye/main amd64 libreadline8 amd64 8.1-1 [169 kB]
+Get:13 http://deb.debian.org/debian bullseye/main amd64 bzip2 amd64 1.0.8-4 [49.3 kB]
+Get:14 http://deb.debian.org/debian bullseye/main amd64 openssl amd64 1.1.1k-1+deb11u1 [851 kB]
+Get:15 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
+Get:16 http://deb.debian.org/debian bullseye/main amd64 xz-utils amd64 5.2.5-2 [220 kB]
+Get:17 http://deb.debian.org/debian bullseye/main amd64 binutils-common amd64 2.35.2-2 [2220 kB]
+Get:18 http://deb.debian.org/debian bullseye/main amd64 libbinutils amd64 2.35.2-2 [570 kB]
+Get:19 http://deb.debian.org/debian bullseye/main amd64 libctf-nobfd0 amd64 2.35.2-2 [110 kB]
+Get:20 http://deb.debian.org/debian bullseye/main amd64 libctf0 amd64 2.35.2-2 [53.2 kB]
+Get:21 http://deb.debian.org/debian bullseye/main amd64 binutils-x86-64-linux-gnu amd64 2.35.2-2 [1809 kB]
+Get:22 http://deb.debian.org/debian bullseye/main amd64 binutils amd64 2.35.2-2 [61.2 kB]
+Get:23 http://deb.debian.org/debian bullseye/main amd64 ncal amd64 12.1.7+nmu3 [30.1 kB]
+Get:24 http://deb.debian.org/debian bullseye/main amd64 bsdmainutils all 12.1.7+nmu3 [16.4 kB]
+Get:25 http://deb.debian.org/debian bullseye/main amd64 libc-dev-bin amd64 2.31-13+deb11u2 [275 kB]
+Get:26 http://deb.debian.org/debian bullseye/main amd64 libcrypt-dev amd64 1:4.4.18-4 [104 kB]
+Get:27 http://deb.debian.org/debian bullseye/main amd64 libtirpc-dev amd64 1.3.1-1 [190 kB]
+Get:28 http://deb.debian.org/debian bullseye/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+Get:29 http://deb.debian.org/debian bullseye/main amd64 libc6-dev amd64 2.31-13+deb11u2 [2344 kB]
+Get:30 http://deb.debian.org/debian bullseye/main amd64 libisl23 amd64 0.23-1 [676 kB]
+Get:31 http://deb.debian.org/debian bullseye/main amd64 libmpfr6 amd64 4.1.0-3 [2012 kB]
+Get:32 http://deb.debian.org/debian bullseye/main amd64 libmpc3 amd64 1.2.0-1 [45.0 kB]
+Get:33 http://deb.debian.org/debian bullseye/main amd64 cpp-10 amd64 10.2.1-6 [8528 kB]
+Get:34 http://deb.debian.org/debian bullseye/main amd64 cpp amd64 4:10.2.1-1 [19.7 kB]
+Get:35 http://deb.debian.org/debian bullseye/main amd64 libcc1-0 amd64 10.2.1-6 [47.0 kB]
+Get:36 http://deb.debian.org/debian bullseye/main amd64 libgomp1 amd64 10.2.1-6 [99.9 kB]
+Get:37 http://deb.debian.org/debian bullseye/main amd64 libitm1 amd64 10.2.1-6 [25.8 kB]
+Get:38 http://deb.debian.org/debian bullseye/main amd64 libatomic1 amd64 10.2.1-6 [9008 B]
+Get:39 http://deb.debian.org/debian bullseye/main amd64 libasan6 amd64 10.2.1-6 [2065 kB]
+Get:40 http://deb.debian.org/debian bullseye/main amd64 liblsan0 amd64 10.2.1-6 [828 kB]
+Get:41 http://deb.debian.org/debian bullseye/main amd64 libtsan0 amd64 10.2.1-6 [2000 kB]
+Get:42 http://deb.debian.org/debian bullseye/main amd64 libubsan1 amd64 10.2.1-6 [777 kB]
+Get:43 http://deb.debian.org/debian bullseye/main amd64 libquadmath0 amd64 10.2.1-6 [145 kB]
+Get:44 http://deb.debian.org/debian bullseye/main amd64 libgcc-10-dev amd64 10.2.1-6 [2328 kB]
+Get:45 http://deb.debian.org/debian bullseye/main amd64 gcc-10 amd64 10.2.1-6 [17.0 MB]
+Get:46 http://deb.debian.org/debian bullseye/main amd64 gcc amd64 4:10.2.1-1 [5192 B]
+Get:47 http://deb.debian.org/debian bullseye/main amd64 libstdc++-10-dev amd64 10.2.1-6 [1741 kB]
+Get:48 http://deb.debian.org/debian bullseye/main amd64 g++-10 amd64 10.2.1-6 [9380 kB]
+Get:49 http://deb.debian.org/debian bullseye/main amd64 g++ amd64 4:10.2.1-1 [1644 B]
+Get:50 http://deb.debian.org/debian bullseye/main amd64 make amd64 4.3-4.1 [396 kB]
+Get:51 http://deb.debian.org/debian bullseye/main amd64 libdpkg-perl all 1.20.9 [1537 kB]
+Get:52 http://deb.debian.org/debian bullseye/main amd64 patch amd64 2.7.6-7 [128 kB]
+Get:53 http://deb.debian.org/debian bullseye/main amd64 dpkg-dev all 1.20.9 [2153 kB]
+Get:54 http://deb.debian.org/debian bullseye/main amd64 build-essential amd64 12.9 [7704 B]
+Get:55 http://deb.debian.org/debian bullseye/main amd64 libckyapplet1 amd64 1.1.0-16 [24.5 kB]
+Get:56 http://deb.debian.org/debian bullseye/main amd64 libpcsclite1 amd64 1.9.1-1 [60.2 kB]
+Get:57 http://deb.debian.org/debian bullseye/main amd64 coolkey amd64 1.1.0-16 [90.5 kB]
+Get:58 http://deb.debian.org/debian bullseye/main amd64 dos2unix amd64 7.4.1-1 [392 kB]
+Get:59 http://deb.debian.org/debian bullseye/main amd64 libbrotli1 amd64 1.0.9-2+b2 [279 kB]
+Get:60 http://deb.debian.org/debian bullseye/main amd64 libsasl2-modules-db amd64 2.1.27+dfsg-2.1 [69.1 kB]
+Get:61 http://deb.debian.org/debian bullseye/main amd64 libsasl2-2 amd64 2.1.27+dfsg-2.1 [106 kB]
+Get:62 http://deb.debian.org/debian bullseye/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3 [232 kB]
+Get:63 http://deb.debian.org/debian bullseye/main amd64 libnghttp2-14 amd64 1.43.0-1 [77.1 kB]
+Get:64 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
+Get:65 http://deb.debian.org/debian bullseye/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+Get:66 http://deb.debian.org/debian bullseye/main amd64 libssh2-1 amd64 1.9.0-2 [156 kB]
+Get:67 http://deb.debian.org/debian bullseye/main amd64 libcurl3-gnutls amd64 7.74.0-1.3+deb11u1 [338 kB]
 Get:68 http://deb.debian.org/debian bullseye/main amd64 liberror-perl all 0.17029-1 [31.0 kB]
 Get:69 http://deb.debian.org/debian bullseye/main amd64 git-man all 1:2.30.2-1 [1827 kB]
 Get:70 http://deb.debian.org/debian bullseye/main amd64 git amd64 1:2.30.2-1 [5527 kB]
@@ -139,7 +139,7 @@ Get:76 http://deb.debian.org/debian bullseye/main amd64 opensc-pkcs11 amd64 0.21
 Get:77 http://deb.debian.org/debian bullseye/main amd64 opensc amd64 0.21.0-1 [367 kB]
 Get:78 http://deb.debian.org/debian bullseye/main amd64 pesign amd64 0.112-6 [94.0 kB]
 [91mdebconf: delaying package configuration, since apt-utils is not installed
-[0mFetched 85.7 MB in 13s (6818 kB/s)
+[0mFetched 85.7 MB in 7s (12.6 MB/s)
 Selecting previously unselected package perl-modules-5.32.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6653 files and directories currently installed.)
 Preparing to unpack .../00-perl-modules-5.32_5.32.1-4+deb11u2_all.deb ...
@@ -334,8 +334,8 @@ Selecting previously unselected package libcurl3-gnutls:amd64.
 Preparing to unpack .../63-libcurl3-gnutls_7.74.0-1.3+deb11u1_amd64.deb ...
 Unpacking libcurl3-gnutls:amd64 (7.74.0-1.3+deb11u1) ...
 Selecting previously unselected package libexpat1:amd64.
-Preparing to unpack .../64-libexpat1_2.2.10-2_amd64.deb ...
-Unpacking libexpat1:amd64 (2.2.10-2) ...
+Preparing to unpack .../64-libexpat1_2.2.10-2+deb11u1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.2.10-2+deb11u1) ...
 Selecting previously unselected package liberror-perl.
 Preparing to unpack .../65-liberror-perl_0.17029-1_all.deb ...
 Unpacking liberror-perl (0.17029-1) ...
@@ -375,7 +375,7 @@ Unpacking opensc (0.21.0-1) ...
 Selecting previously unselected package pesign.
 Preparing to unpack .../77-pesign_0.112-6_amd64.deb ...
 Unpacking pesign (0.112-6) ...
-Setting up libexpat1:amd64 (2.2.10-2) ...
+Setting up libexpat1:amd64 (2.2.10-2+deb11u1) ...
 Setting up libpsl5:amd64 (0.21.0-1.2) ...
 Setting up libckyapplet1 (1.1.0-16) ...
 Setting up bsdextrautils (2.36.1-8+deb11u1) ...
@@ -468,10 +468,10 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-Removing intermediate container 629f0490cc0e
- ---> 2f6586000aa0
-Step 3/27 : RUN dpkg -l
- ---> Running in 0460549bf114
+Removing intermediate container b65c55c93c7a
+ ---> d9b44caac993
+Step 3/22 : RUN dpkg -l
+ ---> Running in 3b2496194940
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
 |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
@@ -547,7 +547,7 @@ ii  libdebconfclient0:amd64   0.260                          amd64        Debian
 ii  libdpkg-perl              1.20.9                         all          Dpkg perl modules
 ii  libefivar1:amd64          37-6                           amd64        Library to manage UEFI variables
 ii  liberror-perl             0.17029-1                      all          Perl module for error/exception handling in an OO-ish way
-ii  libexpat1:amd64           2.2.10-2                       amd64        XML parsing C library - runtime library
+ii  libexpat1:amd64           2.2.10-2+deb11u1               amd64        XML parsing C library - runtime library
 ii  libext2fs2:amd64          1.46.2-2                       amd64        ext2/ext3/ext4 file system libraries
 ii  libffi7:amd64             3.3-6                          amd64        Foreign Function Interface library runtime
 ii  libgcc-10-dev:amd64       10.2.1-6                       amd64        GCC support library (development files)
@@ -651,98 +651,73 @@ ii  tzdata                    2021a-1+deb11u2                all          time z
 ii  util-linux                2.36.1-8+deb11u1               amd64        miscellaneous system utilities
 ii  xz-utils                  5.2.5-2                        amd64        XZ-format compression utilities
 ii  zlib1g:amd64              1:1.2.11.dfsg-2                amd64        compression library - runtime
-Removing intermediate container 0460549bf114
- ---> d2aab4b22b8a
-Step 4/27 : RUN git clone https://github.com/rhboot/shim.git /shim
- ---> Running in 0fec669ba381
+Removing intermediate container 3b2496194940
+ ---> b9883f8bd5d8
+Step 4/22 : RUN git clone https://github.com/rhboot/shim.git /shim
+ ---> Running in 40a79055880d
 [91mCloning into '/shim'...
-[0mRemoving intermediate container 0fec669ba381
- ---> df0bb502ea4b
-Step 5/27 : WORKDIR /shim
- ---> Running in c53b99b7b1a1
-Removing intermediate container c53b99b7b1a1
- ---> b9f0c5712839
-Step 6/27 : RUN git checkout shim-15.4
- ---> Running in c4c8cd3873a8
-[91mSwitched to a new branch 'shim-15.4'
-[0mBranch 'shim-15.4' set up to track remote branch 'shim-15.4' from 'origin'.
-Removing intermediate container c4c8cd3873a8
- ---> aa1dcfaba6ce
-Step 7/27 : RUN git submodule update --init
- ---> Running in c222ea13fc88
+[0mRemoving intermediate container 40a79055880d
+ ---> c265ca179933
+Step 5/22 : WORKDIR /shim
+ ---> Running in 2b0b05836773
+Removing intermediate container 2b0b05836773
+ ---> f0a52e56a66a
+Step 6/22 : RUN git checkout shim-15.5
+ ---> Running in 67e7c6b0905b
+[91mSwitched to a new branch 'shim-15.5'
+[0mBranch 'shim-15.5' set up to track remote branch 'shim-15.5' from 'origin'.
+Removing intermediate container 67e7c6b0905b
+ ---> 1916f050dff1
+Step 7/22 : RUN git submodule update --init
+ ---> Running in f194a2057c4c
 [91mSubmodule 'gnu-efi' (https://github.com/rhboot/gnu-efi.git) registered for path 'gnu-efi'
 [0m[91mCloning into '/shim/gnu-efi'...
-[0mSubmodule path 'gnu-efi': checked out 'f0f98248649b4b219764bd46854697bcec858081'
-Removing intermediate container c222ea13fc88
- ---> 4cbaf79d9307
-Step 8/27 : COPY .git /tmp/.git
- ---> 4904b088841f
-Step 9/27 : RUN git clone /tmp/.git /shim-review
- ---> Running in 76554b93f037
+[0mSubmodule path 'gnu-efi': checked out 'acc5371207f3041450e1d8ae5b24f6df3e82b152'
+Removing intermediate container f194a2057c4c
+ ---> 96343912f0a3
+Step 8/22 : COPY .git /tmp/.git
+ ---> 1d90b3c70a07
+Step 9/22 : RUN git clone /tmp/.git /shim-review
+ ---> Running in 0c3b81e037d2
 [91mCloning into '/shim-review'...
 [0m[91mdone.
-[0mRemoving intermediate container 76554b93f037
- ---> e04142edba6a
-Step 10/27 : RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
- ---> Running in 266e625aa54d
-Removing intermediate container 266e625aa54d
- ---> c630b0972630
-Step 11/27 : RUN cp /shim-review/sbat.ecos.csv /shim/data/
- ---> Running in c33e090ef371
-Removing intermediate container c33e090ef371
- ---> 66d2ababf6b6
-Step 12/27 : RUN patch < /shim-review/patches-shim/000_mok_allocate_MOK_config_table_as_BootServicesData.patch
- ---> Running in d7bc6e52137c
-patching file mok.c
-Removing intermediate container d7bc6e52137c
- ---> 8c1193cce752
-Step 13/27 : RUN patch < /shim-review/patches-shim/001_Dont_call_QueryVariableInfo_on_EFI_1_10_machines.patch
- ---> Running in 846170c0d639
-patching file mok.c
-Removing intermediate container 846170c0d639
- ---> cc5f319dac33
-Step 14/27 : RUN patch < /shim-review/patches-shim/002_httpboot_Ignore_case_when_checking_HTTP_headers.patch
- ---> Running in cda544fef368
-patching file httpboot.c
-Removing intermediate container cda544fef368
- ---> 9454ffbc3d95
-Step 15/27 : RUN patch < /shim-review/patches-shim/003_Dont_make_shim_abort_when_TPM_log_event_fails.patch
- ---> Running in bc7ce2c3d773
-patching file tpm.c
-Removing intermediate container bc7ce2c3d773
- ---> fb8d77976f2c
-Step 16/27 : RUN patch < /shim-review/patches-shim/004_Fallback_to_default_loader_if_parsed_one_does_not_exist.patch
- ---> Running in 70daf7d846ae
+[0mRemoving intermediate container 0c3b81e037d2
+ ---> 47e4cd489653
+Step 10/22 : RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
+ ---> Running in 23ead8c3fa86
+Removing intermediate container 23ead8c3fa86
+ ---> a63bf68de17a
+Step 11/22 : RUN cp /shim-review/sbat.ecos.csv /shim/data/
+ ---> Running in f67e8357506f
+Removing intermediate container f67e8357506f
+ ---> a488baeaf682
+Step 12/22 : RUN patch < /shim-review/patches-shim/100_disable_allowlist.patch
+ ---> Running in cd880de20876
 patching file shim.c
-Removing intermediate container 70daf7d846ae
- ---> 58456db8fd98
-Step 17/27 : RUN patch < /shim-review/patches-shim/100_disable_allowlist.patch
- ---> Running in 923147b577a1
+Removing intermediate container cd880de20876
+ ---> 156c40b4be77
+Step 13/22 : RUN patch < /shim-review/patches-shim/101_load_default_second_stage.patch
+ ---> Running in 4fb8e868a59a
 patching file shim.c
-Removing intermediate container 923147b577a1
- ---> 19b005d128ba
-Step 18/27 : RUN patch < /shim-review/patches-shim/101_load_default_second_stage.patch
- ---> Running in 525107c21727
-patching file shim.c
-Removing intermediate container 525107c21727
- ---> 47baea5d4131
-Step 19/27 : ENV DEFAULT_LOADER=\\\\ecosx64.efi
- ---> Running in 5432320d5875
-Removing intermediate container 5432320d5875
- ---> 3b45cec4f753
-Step 20/27 : ENV ENABLE_SHIM_CERT=1
- ---> Running in 995880f80070
-Removing intermediate container 995880f80070
- ---> 22075bbc7e5c
-Step 21/27 : ENV VENDOR_CERT_FILE=ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
- ---> Running in 9d6229c9fd28
-Removing intermediate container 9d6229c9fd28
- ---> 394292f0be00
-Step 22/27 : RUN make -j
- ---> Running in c6caaf07160b
-sed	-e "s,@@VERSION@@,15.4," \
+Removing intermediate container 4fb8e868a59a
+ ---> e56bc5c36aee
+Step 14/22 : ENV DEFAULT_LOADER=\\\\ecosx64.efi
+ ---> Running in 24ab400f4483
+Removing intermediate container 24ab400f4483
+ ---> c37b6162a87d
+Step 15/22 : ENV ENABLE_SHIM_CERT=1
+ ---> Running in 3195d07a7132
+Removing intermediate container 3195d07a7132
+ ---> c170cb9cb2a7
+Step 16/22 : ENV VENDOR_CERT_FILE=ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
+ ---> Running in a1e3eb5f2c7b
+Removing intermediate container a1e3eb5f2c7b
+ ---> 3a1c7c29476e
+Step 17/22 : RUN make -j
+ ---> Running in b4425a335aa1
+sed	-e "s,@@VERSION@@,15.5," \
 	-e "s,@@UNAME@@,Linux x86_64 unknown unknown GNU/Linux," \
-	-e "s,@@COMMIT@@,16eeafe28c552bca36953d75581500887631a7f1," \
+	-e "s,@@COMMIT@@,f2c598bb2218da966872ba3e0c6e7e830dca6ef0," \
 	< /shim/version.c.in > version.c
 /shim/make-certs shim shim@xn--u4h.net all codesign 1.3.6.1.4.1.311.10.3.1 </dev/null
 [91mSignature ok
@@ -773,26 +748,28 @@ openssl x509 -outform der -in shim.crt -out shim.cer
 echo "static UINT8 shim_cert[] __attribute__((__unused__)) = {" > shim_cert.h
 hexdump -v -e '1/1 "0x%02x, "' shim.cer >> shim_cert.h
 echo "};" >> shim_cert.h
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o shim.o shim.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o mok.o mok.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o netboot.o netboot.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT -c -o cert.o /shim/cert.S
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o replacements.o replacements.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o tpm.o tpm.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o version.o version.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o errlog.o errlog.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o sbat.o sbat.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o shim.o shim.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o globals.o globals.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o mok.o mok.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o netboot.o netboot.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT -c -o cert.o /shim/cert.S
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o replacements.o replacements.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o tpm.o tpm.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o version.o version.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o errlog.o errlog.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o sbat.o sbat.c
 dos2unix -r -l -F -f -n data/sbat.ecos.csv sbat.ecos.csv
 [91mdos2unix: converting file data/sbat.ecos.csv to file sbat.ecos.csv in Unix format...
 [0mtail -c1 sbat.ecos.csv | read -r _ || echo >> sbat.ecos.csv # ensure a trailing newline
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT -x c -c -o sbat_data.o /dev/null
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT -x c -c -o sbat_data.o /dev/null
 objcopy --add-section .sbat=/shim/data/sbat.csv \
 	--set-section-flags .sbat=contents,alloc,load,readonly,data \
 	sbat_data.o
 objcopy --add-section ".sbat.ecos=sbat.ecos.csv" sbat_data.o
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o pe.o pe.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o httpboot.o httpboot.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o csv.o csv.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o pe.o pe.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o httpboot.o httpboot.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o csv.o csv.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o load-options.o load-options.c
 for i in Hash Hmac Cipher Rand Pk Pem SysCall; do mkdir -p Cryptlib/$i; done
 make TOPDIR=/shim VPATH=/shim/Cryptlib -C Cryptlib -f /shim/Cryptlib/Makefile
 make[1]: Entering directory '/shim/Cryptlib'
@@ -1252,7 +1229,10 @@ ar rcs lib.a configtable.o console.o execute.o guid.o print_crypto.o security_po
 make[1]: Leaving directory '/shim/lib'
 mkdir -p gnu-efi/lib gnu-efi/gnuefi
 make -C gnu-efi \
-	ARCH=x86_64 TOPDIR=/shim/gnu-efi \
+	COMPILER="gcc" \
+	CC="gcc" \
+	ARCH=x86_64 \
+	TOPDIR=/shim/gnu-efi \
 	-f /shim/gnu-efi/Makefile \
 	lib gnuefi inc
 make[1]: Entering directory '/shim/gnu-efi'
@@ -1264,37 +1244,37 @@ make -C /shim/gnu-efi/x86_64/inc -f /shim/gnu-efi//inc/Makefile SRCDIR=/shim/gnu
 make[2]: Entering directory '/shim/gnu-efi/x86_64/inc'
 make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/shim/gnu-efi/x86_64/inc'
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/boxdraw.c -o boxdraw.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/smbios.c -o smbios.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/console.c -o console.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/crc.c -o crc.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/data.c -o data.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/debug.c -o debug.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/dpath.c -o dpath.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/error.c -o error.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/event.c -o event.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/exit.c -o exit.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/guid.c -o guid.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/hand.c -o hand.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/hw.c -o hw.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/init.c -o init.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/lock.c -o lock.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/misc.c -o misc.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/pause.c -o pause.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/print.c -o print.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/sread.c -o sread.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/str.c -o str.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/cmdline.c -o cmdline.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/rtlock.c -o runtime/rtlock.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/efirtlib.c -o runtime/efirtlib.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/rtstr.c -o runtime/rtstr.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/vm.c -o runtime/vm.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/rtdata.c -o runtime/rtdata.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/initplat.c -o x86_64/initplat.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/math.c -o x86_64/math.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/setjmp.S -o x86_64/setjmp.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/callwrap.c -o x86_64/callwrap.o
-gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/efi_stub.S -o x86_64/efi_stub.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/boxdraw.c -o boxdraw.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/smbios.c -o smbios.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/console.c -o console.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/crc.c -o crc.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/data.c -o data.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/debug.c -o debug.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/dpath.c -o dpath.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/error.c -o error.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/event.c -o event.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/exit.c -o exit.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/guid.c -o guid.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/hand.c -o hand.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/hw.c -o hw.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/init.c -o init.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/lock.c -o lock.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/misc.c -o misc.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/pause.c -o pause.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/print.c -o print.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/sread.c -o sread.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/str.c -o str.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/cmdline.c -o cmdline.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/rtlock.c -o runtime/rtlock.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/efirtlib.c -o runtime/efirtlib.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/rtstr.c -o runtime/rtstr.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/vm.c -o runtime/vm.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/runtime/rtdata.c -o runtime/rtdata.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/initplat.c -o x86_64/initplat.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/math.c -o x86_64/math.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/setjmp.S -o x86_64/setjmp.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/callwrap.c -o x86_64/callwrap.o
+gcc -I/shim/gnu-efi//lib -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//lib/x86_64/efi_stub.S -o x86_64/efi_stub.o
 gcc-ar rv -U libefi.a boxdraw.o smbios.o console.o crc.o data.o debug.o dpath.o error.o event.o exit.o guid.o hand.o hw.o init.o lock.o misc.o pause.o print.o sread.o str.o cmdline.o runtime/rtlock.o runtime/efirtlib.o runtime/rtstr.o runtime/vm.o runtime/rtdata.o x86_64/initplat.o x86_64/math.o x86_64/setjmp.o x86_64/callwrap.o x86_64/efi_stub.o
 [91m/usr/bin/ar: creating libefi.a
 [0ma - boxdraw.o
@@ -1332,62 +1312,55 @@ make[2]: Leaving directory '/shim/gnu-efi/x86_64/lib'
 mkdir -p /shim/gnu-efi/x86_64/gnuefi
 make -C /shim/gnu-efi/x86_64/gnuefi -f /shim/gnu-efi//gnuefi/Makefile SRCDIR=/shim/gnu-efi//gnuefi ARCH=x86_64
 make[2]: Entering directory '/shim/gnu-efi/x86_64/gnuefi'
-gcc -I/shim/gnu-efi//gnuefi -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//gnuefi/crt0-efi-x86_64.S -o crt0-efi-x86_64.o
-gcc -I/shim/gnu-efi//gnuefi -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//gnuefi/reloc_x86_64.c -o reloc_x86_64.o
+gcc -I/shim/gnu-efi//gnuefi -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//gnuefi/crt0-efi-x86_64.S -o crt0-efi-x86_64.o
+gcc -I/shim/gnu-efi//gnuefi -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -Wno-error=pragmas -mno-red-zone -mno-avx -fpic  -Os -Wall -Wextra -Wno-missing-field-initializers -Werror -fshort-wchar -fno-strict-aliasing -ffreestanding -fno-stack-protector -fno-stack-check -nostdinc   -isystem /shim/gnu-efi/../include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -fno-merge-all-constants -DCONFIG_x86_64 -DGNU_EFI_USE_MS_ABI -DGNU_EFI_USE_EXTERNAL_STDARG -maccumulate-outgoing-args --std=c11 -c /shim/gnu-efi//gnuefi/reloc_x86_64.c -o reloc_x86_64.o
 gcc-ar rv -U libgnuefi.a reloc_x86_64.o
 [91m/usr/bin/ar: creating libgnuefi.a
 [0ma - reloc_x86_64.o
 make[2]: Leaving directory '/shim/gnu-efi/x86_64/gnuefi'
 make[1]: Leaving directory '/shim/gnu-efi'
-ld -o shimx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined shim.o mok.o netboot.o cert.o replacements.o tpm.o version.o errlog.o sbat.o sbat_data.o pe.o httpboot.o csv.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
+ld -o shimx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined shim.o globals.o mok.o netboot.o cert.o replacements.o tpm.o version.o errlog.o sbat.o sbat_data.o pe.o httpboot.o csv.o load-options.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
+gcc -std=gnu11 -Og -g3 -Wall -Wextra -Wno-missing-field-initializers -Werror -o post-process-pe /shim/post-process-pe.c
 objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .dynamic -j .rodata -j .rel* \
-	-j .rela* -j .reloc -j .eh_frame \
+	-j .rela* -j .dyn -j .reloc -j .eh_frame \
 	-j .vendor_cert -j .sbat \
 	--target efi-app-x86_64 shimx64.so shimx64.efi
-# I am tired of wasting my time fighting binutils timestamp code.
-dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=shimx64.efi
-[91m4+0 records in
-4+0 records out
-4 bytes copied, 0.000119344 s, 33.5 kB/s
-[0mobjcopy -D -j .text -j .sdata -j .data \
+./post-process-pe -vv shimx64.efi
+objcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .rodata -j .rel* \
-	-j .rela* -j .reloc -j .eh_frame -j .sbat \
+	-j .rela* -j .dyn -j .reloc -j .eh_frame -j .sbat \
 	-j .debug_info -j .debug_abbrev -j .debug_aranges \
 	-j .debug_line -j .debug_str -j .debug_ranges \
 	-j .note.gnu.build-id \
 	shimx64.so shimx64.efi.debug
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o MokManager.o MokManager.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o PasswordCrypt.o PasswordCrypt.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o crypt_blowfish.o crypt_blowfish.c
-ld -o mmx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined MokManager.o PasswordCrypt.o crypt_blowfish.o errlog.o sbat_data.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o MokManager.o MokManager.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o PasswordCrypt.o PasswordCrypt.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o crypt_blowfish.o crypt_blowfish.c
+ld -o mmx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined MokManager.o PasswordCrypt.o crypt_blowfish.o errlog.o sbat_data.o globals.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
 objcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .rodata -j .rel* \
-	-j .rela* -j .reloc -j .eh_frame -j .sbat \
+	-j .rela* -j .dyn -j .reloc -j .eh_frame -j .sbat \
 	-j .debug_info -j .debug_abbrev -j .debug_aranges \
 	-j .debug_line -j .debug_str -j .debug_ranges \
 	-j .note.gnu.build-id \
 	mmx64.so mmx64.efi.debug
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.4/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o fallback.o fallback.c
-ld -o fbx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined fallback.o tpm.o errlog.o sbat_data.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.5/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o fallback.o fallback.c
+ld -o fbx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined fallback.o tpm.o errlog.o sbat_data.o globals.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
 objcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .rodata -j .rel* \
-	-j .rela* -j .reloc -j .eh_frame -j .sbat \
+	-j .rela* -j .dyn -j .reloc -j .eh_frame -j .sbat \
 	-j .debug_info -j .debug_abbrev -j .debug_aranges \
 	-j .debug_line -j .debug_str -j .debug_ranges \
 	-j .note.gnu.build-id \
 	fbx64.so fbx64.efi.debug
 objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .dynamic -j .rodata -j .rel* \
-	-j .rela* -j .reloc -j .eh_frame \
+	-j .rela* -j .dyn -j .reloc -j .eh_frame \
 	-j .vendor_cert -j .sbat \
 	--target efi-app-x86_64 mmx64.so mmx64.efi
-# I am tired of wasting my time fighting binutils timestamp code.
-dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=mmx64.efi
-[91m4+0 records in
-4+0 records out
-4 bytes copied, 0.000203455 s, 19.7 kB/s
-[0mmkdir certdb
+./post-process-pe -vv mmx64.efi
+mkdir certdb
 pk12util -d certdb/ -i shim.p12 -W "" -K ""
 pk12util: PKCS12 IMPORT SUCCESSFUL
 certutil -d certdb/ -A -i shim.crt -n shim -t u
@@ -1395,150 +1368,146 @@ certutil -d certdb/ -A -i shim.crt -n shim -t u
 [0mpesign -n certdb -i mmx64.efi -c "shim" -s -o mmx64.efi.signed -f
 objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .dynamic -j .rodata -j .rel* \
-	-j .rela* -j .reloc -j .eh_frame \
+	-j .rela* -j .dyn -j .reloc -j .eh_frame \
 	-j .vendor_cert -j .sbat \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
-# I am tired of wasting my time fighting binutils timestamp code.
-dd conv=notrunc bs=1 count=4 seek=136 if=/dev/zero of=fbx64.efi
-[91m4+0 records in
-4+0 records out
-4 bytes copied, 6.7019e-05 s, 59.7 kB/s
-[0mpesign -n certdb -i fbx64.efi -c "shim" -s -o fbx64.efi.signed -f
-Removing intermediate container c6caaf07160b
- ---> 1211b3b2cac2
-Step 23/27 : WORKDIR /
- ---> Running in c440c0d5c65d
-Removing intermediate container c440c0d5c65d
- ---> 07265e80e26f
-Step 24/27 : RUN hexdump -Cv /shim/shim*.efi > build
- ---> Running in d9c575b55b79
-Removing intermediate container d9c575b55b79
- ---> a1682a320129
-Step 25/27 : RUN hexdump -Cv /shim-review/$(basename /shim/shim*.efi) > orig
- ---> Running in b192f05b90b8
-Removing intermediate container b192f05b90b8
- ---> 67206cddb589
-Step 26/27 : RUN diff -u orig build; exit 0
- ---> Running in 817377d5a3e2
---- orig	2022-02-09 07:51:48.000000000 +0000
-+++ build	2022-02-09 07:51:47.000000000 +0000
+./post-process-pe -vv fbx64.efi
+pesign -n certdb -i fbx64.efi -c "shim" -s -o fbx64.efi.signed -f
+Removing intermediate container b4425a335aa1
+ ---> ffd613170c6f
+Step 18/22 : WORKDIR /
+ ---> Running in cfcc785b7bef
+Removing intermediate container cfcc785b7bef
+ ---> ce86fa8057d8
+Step 19/22 : RUN hexdump -Cv /shim/shim*.efi > build
+ ---> Running in 3fc144f83f91
+Removing intermediate container 3fc144f83f91
+ ---> 303575401562
+Step 20/22 : RUN hexdump -Cv /shim-review/$(basename /shim/shim*.efi) > orig
+ ---> Running in 41d85adef863
+Removing intermediate container 41d85adef863
+ ---> ff5976ff2fe8
+Step 21/22 : RUN diff -u orig build; exit 0
+ ---> Running in c15231071795
+--- orig	2022-02-17 05:18:13.000000000 +0000
++++ build	2022-02-17 05:18:11.000000000 +0000
 @@ -11,7 +11,7 @@
- 000000a0  00 56 06 00 00 00 00 00  00 20 02 00 00 20 02 00  |.V....... ... ..|
+ 000000a0  00 62 06 00 00 00 00 00  00 30 02 00 00 30 02 00  |.b.......0...0..|
  000000b0  00 00 00 00 00 00 00 00  00 10 00 00 00 02 00 00  |................|
  000000c0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
--000000d0  00 d0 0c 00 00 04 00 00  70 3c 0e 00 0a 00 00 00  |........p<......|
-+000000d0  00 d0 0c 00 00 04 00 00  d3 91 0e 00 0a 00 00 00  |................|
+-000000d0  00 00 0d 00 00 04 00 00  95 d9 0e 00 0a 00 00 00  |................|
++000000d0  00 00 0d 00 00 04 00 00  65 92 0e 00 0a 00 00 00  |........e.......|
  000000e0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
  000000f0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
  00000100  00 00 00 00 10 00 00 00  00 00 00 00 00 00 00 00  |................|
-@@ -36925,36 +36925,36 @@
- 000903c0  32 31 0b 30 09 06 03 55  04 06 13 02 55 53 31 11  |21.0...U....US1.|
- 000903d0  30 0f 06 03 55 04 07 0c  08 53 6f 6d 65 43 69 74  |0...U....SomeCit|
- 000903e0  79 31 10 30 0e 06 03 55  04 0a 0c 07 53 6f 6d 65  |y1.0...U....Some|
--000903f0  4f 72 67 30 1e 17 0d 32  32 30 32 30 39 30 37 34  |Org0...220209074|
--00090400  31 35 37 5a 17 0d 32 33  30 32 30 39 30 37 34 31  |157Z..2302090741|
--00090410  35 37 5a 30 41 31 0b 30  09 06 03 55 04 06 13 02  |57Z0A1.0...U....|
-+000903f0  4f 72 67 30 1e 17 0d 32  32 30 32 30 39 30 37 35  |Org0...220209075|
-+00090400  31 32 31 5a 17 0d 32 33  30 32 30 39 30 37 35 31  |121Z..2302090751|
-+00090410  32 31 5a 30 41 31 0b 30  09 06 03 55 04 06 13 02  |21Z0A1.0...U....|
- 00090420  55 53 31 11 30 0f 06 03  55 04 07 0c 08 53 6f 6d  |US1.0...U....Som|
- 00090430  65 43 69 74 79 31 10 30  0e 06 03 55 04 0a 0c 07  |eCity1.0...U....|
- 00090440  53 6f 6d 65 4f 72 67 31  0d 30 0b 06 03 55 04 03  |SomeOrg1.0...U..|
- 00090450  0c 04 73 68 69 6d 30 82  01 22 30 0d 06 09 2a 86  |..shim0.."0...*.|
- 00090460  48 86 f7 0d 01 01 01 05  00 03 82 01 0f 00 30 82  |H.............0.|
--00090470  01 0a 02 82 01 01 00 ac  7b 44 6f ec 4b e3 e3 2a  |........{Do.K..*|
--00090480  4b 4b c7 f2 f1 5a ab 2b  5e 79 79 05 d7 8c 2d 3c  |KK...Z.+^yy...-<|
--00090490  ed d4 e9 9f e4 12 1c fd  06 56 21 15 68 ff 88 6e  |.........V!.h..n|
--000904a0  fb fe c4 eb ce 2c 23 05  6e 5f 84 02 9f c3 ec aa  |.....,#.n_......|
--000904b0  4f 3c f5 dd 53 31 d8 87  03 af ff f7 41 d9 bc fd  |O<..S1......A...|
--000904c0  ea 0b 75 a6 63 35 74 9c  0c 8a 80 ca 0c 07 ee be  |..u.c5t.........|
--000904d0  99 a8 72 fa b6 5b c8 07  a5 d9 24 8e 4b f0 6e eb  |..r..[....$.K.n.|
--000904e0  e3 1e 3d e4 36 60 61 ac  2c ba 42 c6 f3 15 9d 91  |..=.6`a.,.B.....|
--000904f0  59 68 bb 26 88 65 53 a8  12 c2 ee c5 1d 2c 9e f4  |Yh.&.eS......,..|
--00090500  60 13 46 85 50 2f 88 11  b0 19 38 53 67 54 b0 2d  |`.F.P/....8SgT.-|
--00090510  ef 3c 17 cd d4 2e dd 10  97 b1 f0 1b 1e 8b 56 56  |.<............VV|
--00090520  51 2f 96 f8 fb ac 25 f0  0f 14 12 fa 81 90 58 e4  |Q/....%.......X.|
--00090530  1a ab 97 2c 48 67 9b 2c  5f 12 b9 44 9e 0c 26 ad  |...,Hg.,_..D..&.|
--00090540  d9 a8 16 72 69 a6 dd ea  8d 78 d2 93 02 d7 88 8e  |...ri....x......|
--00090550  77 67 a7 0f 2f b1 af cd  49 69 d0 c1 53 92 14 db  |wg../...Ii..S...|
--00090560  e4 5f 9e b8 0e 2b 87 ff  7d 51 2a 5a 9d eb 21 47  |._...+..}Q*Z..!G|
--00090570  b4 76 dd e0 58 5f ab 02  03 01 00 01 a3 81 ad 30  |.v..X_.........0|
--00090580  81 aa 30 1d 06 03 55 1d  0e 04 16 04 14 85 01 70  |..0...U........p|
--00090590  66 ef d6 64 55 80 09 fb  cf 7c fa fd c0 fb 7b da  |f..dU....|....{.|
--000905a0  98 30 1f 06 03 55 1d 23  04 18 30 16 80 14 03 1c  |.0...U.#..0.....|
--000905b0  1e 14 06 fc 4b 90 b2 c1  f6 19 62 4c 97 ea ea d4  |....K.....bL....|
--000905c0  49 91 30 0f 06 03 55 1d  0f 01 01 ff 04 05 03 03  |I.0...U.........|
-+00090470  01 0a 02 82 01 01 00 a7  39 f4 df 91 85 99 d3 ff  |........9.......|
-+00090480  a3 7e c2 8b 00 09 78 68  51 ed b4 e3 0c 37 4b 98  |.~....xhQ....7K.|
-+00090490  e8 15 fb 89 85 f1 90 9f  0d 17 21 08 f1 3c 5f f8  |..........!..<_.|
-+000904a0  4c b9 7b e8 fd d6 32 9b  47 0e 43 d3 3b 2d 87 9b  |L.{...2.G.C.;-..|
-+000904b0  aa d4 79 52 10 b9 08 ea  f2 02 be 0e 35 d6 5f 07  |..yR........5._.|
-+000904c0  7e a8 8c 0a e5 d3 93 78  32 06 27 af b7 b7 e1 27  |~......x2.'....'|
-+000904d0  fe d9 92 28 1e 15 68 b4  06 e2 c3 ef 8e fc 62 d4  |...(..h.......b.|
-+000904e0  a7 96 e4 4e a8 39 c9 2e  e4 61 81 4d 77 c4 1c d2  |...N.9...a.Mw...|
-+000904f0  6a 0a cf 04 1f ac 1d 0f  40 f6 25 ec 10 d3 cd ad  |j.......@.%.....|
-+00090500  8e fb b0 57 ec ee 00 7a  eb 5d 67 98 c8 2f 5a 76  |...W...z.]g../Zv|
-+00090510  13 b1 64 e6 5a 37 80 44  b4 41 64 d3 7a 3e e8 21  |..d.Z7.D.Ad.z>.!|
-+00090520  41 47 3f 4b 67 3a 76 37  2e 38 50 39 3a 51 cd 42  |AG?Kg:v7.8P9:Q.B|
-+00090530  92 a7 24 62 b8 fd cd d0  e2 56 3a 68 fb d8 ca c3  |..$b.....V:h....|
-+00090540  07 cc 63 71 c9 0c d4 44  b7 08 43 18 32 20 cd 25  |..cq...D..C.2 .%|
-+00090550  b8 dd fe 6d 56 70 67 3f  39 57 a0 71 ba 8a 69 9f  |...mVpg?9W.q..i.|
-+00090560  88 08 ee f2 cc 6e c7 c0  9b d1 04 39 3b 20 dc fc  |.....n.....9; ..|
-+00090570  0a e5 83 4b f3 e1 31 02  03 01 00 01 a3 81 ad 30  |...K..1........0|
-+00090580  81 aa 30 1d 06 03 55 1d  0e 04 16 04 14 e2 45 4d  |..0...U.......EM|
-+00090590  c1 e5 5a db f4 ff 61 62  2d b4 43 93 20 9b 6e a1  |..Z...ab-.C. .n.|
-+000905a0  ef 30 1f 06 03 55 1d 23  04 18 30 16 80 14 f3 8e  |.0...U.#..0.....|
-+000905b0  e2 db 80 c3 b7 0c f0 6c  d4 ff d1 71 92 bb 79 8c  |.......l...q..y.|
-+000905c0  6a 32 30 0f 06 03 55 1d  0f 01 01 ff 04 05 03 03  |j20...U.........|
- 000905d0  07 ff 80 30 1f 06 03 55  1d 25 04 18 30 16 06 08  |...0...U.%..0...|
- 000905e0  2b 06 01 05 05 07 03 03  06 0a 2b 06 01 04 01 82  |+.........+.....|
- 000905f0  37 0a 03 01 30 09 06 03  55 1d 13 04 02 30 00 30  |7...0...U....0.0|
-@@ -36962,22 +36962,22 @@
- 00090610  54 65 73 74 69 6e 67 20  43 65 72 74 69 66 69 63  |Testing Certific|
- 00090620  61 74 65 20 66 6f 72 20  73 68 69 6d 30 0d 06 09  |ate for shim0...|
- 00090630  2a 86 48 86 f7 0d 01 01  0b 05 00 03 82 01 01 00  |*.H.............|
--00090640  42 58 ef a8 51 b7 9d 6a  6c 39 12 36 02 82 dc 55  |BX..Q..jl9.6...U|
--00090650  ae 03 86 05 32 2e 06 27  15 19 25 96 93 29 68 d3  |....2..'..%..)h.|
--00090660  8d 69 c6 fe 04 89 73 12  2d b6 ad da 2f 52 ed 2a  |.i....s.-.../R.*|
--00090670  66 f6 de 1c 53 cd c5 2c  f1 e7 66 16 ea 12 b8 a8  |f...S..,..f.....|
--00090680  5c 0d 0d 34 af 9d 61 3c  f8 57 46 ff 05 ed ba 46  |\..4..a<.WF....F|
--00090690  4f 0c db 7d ac 59 60 d7  c1 63 48 e7 ce 01 66 1e  |O..}.Y`..cH...f.|
--000906a0  70 1a 13 0f c9 67 6e d1  dd e2 73 a3 12 7d 33 ee  |p....gn...s..}3.|
--000906b0  73 83 26 f8 38 24 97 d3  38 af da 85 a4 33 8d d5  |s.&.8$..8....3..|
--000906c0  0d 33 56 25 34 0e 87 bf  f1 03 86 e9 dc 9b 16 a8  |.3V%4...........|
--000906d0  93 89 7d 69 e6 88 09 38  8f e8 46 d5 cf 24 36 be  |..}i...8..F..$6.|
--000906e0  0e 7c 8f 6a d3 c8 6f 5e  04 c2 84 df 62 66 3f 1d  |.|.j..o^....bf?.|
--000906f0  6e 6c ea d6 1b de a4 3d  eb 80 be ef 28 9e b6 1a  |nl.....=....(...|
--00090700  32 be 5a 99 54 42 06 61  dd 86 20 56 bf a4 49 0d  |2.Z.TB.a.. V..I.|
--00090710  b7 c0 20 26 7d 7e fc aa  5a e5 4a 56 b3 cc e4 e2  |.. &}~..Z.JV....|
--00090720  b3 32 14 fb cd 68 07 63  b6 45 e0 17 7d 49 2b 38  |.2...h.c.E..}I+8|
--00090730  b4 37 ce 88 f0 10 01 02  30 59 d3 a7 43 59 9b 12  |.7......0Y..CY..|
-+00090640  36 aa 07 07 d1 78 3d 26  70 a8 26 6d d5 27 98 a8  |6....x=&p.&m.'..|
-+00090650  37 74 09 3b 20 96 f3 eb  56 92 ce 1c f3 c3 3f b3  |7t.; ...V.....?.|
-+00090660  a3 30 20 d8 c6 a3 ef fc  20 27 b0 af a7 85 63 c9  |.0 ..... '....c.|
-+00090670  20 dc e7 5f 47 fa a0 0d  0a 6a 05 81 6c 66 5f 5a  | .._G....j..lf_Z|
-+00090680  bc 51 5d 1a e2 25 3a d3  c0 ea dc 1d eb 00 22 1b  |.Q]..%:.......".|
-+00090690  06 48 62 35 86 c5 47 40  ad 12 c3 92 95 82 05 64  |.Hb5..G@.......d|
-+000906a0  48 3d 0b 00 47 1a 73 f0  b3 e2 9a f4 e6 89 ba 51  |H=..G.s........Q|
-+000906b0  30 ca d5 ad 70 3d b4 f9  d6 db 15 a9 2d 7b b7 3e  |0...p=......-{.>|
-+000906c0  70 62 44 b5 17 ba 46 fb  5e e5 3e 08 a3 60 b8 03  |pbD...F.^.>..`..|
-+000906d0  0e d2 e8 1e 6f 34 a4 27  06 40 d6 d0 49 0a 6e 65  |....o4.'.@..I.ne|
-+000906e0  65 ab f6 16 3a 54 44 d7  b3 e1 d1 ed 5e 3a 90 4b  |e...:TD.....^:.K|
-+000906f0  63 fe 40 93 f9 01 7d 9c  be 20 0c 0b cf 65 ab 3a  |c.@...}.. ...e.:|
-+00090700  1e 5b 59 96 72 74 85 9d  c4 d8 a0 e7 28 2e 11 8d  |.[Y.rt......(...|
-+00090710  bd 1c 30 d9 82 b8 f9 d6  a8 79 6a 97 8e 30 a1 4b  |..0......yj..0.K|
-+00090720  1c 39 e8 ee 1f 54 18 94  c6 d0 d3 6a bf 0a e4 6e  |.9...T.....j...n|
-+00090730  e1 dd 8d f9 cf db c3 cd  2d ac f3 18 4e f4 6b cf  |........-...N.k.|
- 00090740  3c 3d 08 00 00 00 00 00  4d 2a 08 00 00 00 00 00  |<=......M*......|
- 00090750  4c 3d 08 00 00 00 00 00  55 2a 08 00 00 00 00 00  |L=......U*......|
- 00090760  50 b5 0a 00 00 00 00 00  00 00 00 00 00 00 00 00  |P...............|
-Removing intermediate container 817377d5a3e2
- ---> 5a34930f8372
-Step 27/27 : RUN sha256sum /shim/shim*.efi /shim-review/$(basename /shim/shim*.efi)
- ---> Running in 2642eae60cc2
-507560b1a4b3debf9fd74c2cf8bbc5bfe6484590795f4f5327832de754a18984  /shim/shimx64.efi
-9bfe4c788e3a0390aa8d3ffe4ffa745f76478d03ab3df3feba63894e4aacf788  /shim-review/shimx64.efi
-Removing intermediate container 2642eae60cc2
- ---> c6268455c862
-Successfully built c6268455c862
-Successfully tagged ecos-shim:latest
+@@ -37413,36 +37413,36 @@
+ 00092240  32 31 0b 30 09 06 03 55  04 06 13 02 55 53 31 11  |21.0...U....US1.|
+ 00092250  30 0f 06 03 55 04 07 0c  08 53 6f 6d 65 43 69 74  |0...U....SomeCit|
+ 00092260  79 31 10 30 0e 06 03 55  04 0a 0c 07 53 6f 6d 65  |y1.0...U....Some|
+-00092270  4f 72 67 30 1e 17 0d 32  32 30 32 31 37 30 34 35  |Org0...220217045|
+-00092280  36 35 36 5a 17 0d 32 33  30 32 31 37 30 34 35 36  |656Z..2302170456|
+-00092290  35 36 5a 30 41 31 0b 30  09 06 03 55 04 06 13 02  |56Z0A1.0...U....|
++00092270  4f 72 67 30 1e 17 0d 32  32 30 32 31 37 30 35 31  |Org0...220217051|
++00092280  37 35 31 5a 17 0d 32 33  30 32 31 37 30 35 31 37  |751Z..2302170517|
++00092290  35 31 5a 30 41 31 0b 30  09 06 03 55 04 06 13 02  |51Z0A1.0...U....|
+ 000922a0  55 53 31 11 30 0f 06 03  55 04 07 0c 08 53 6f 6d  |US1.0...U....Som|
+ 000922b0  65 43 69 74 79 31 10 30  0e 06 03 55 04 0a 0c 07  |eCity1.0...U....|
+ 000922c0  53 6f 6d 65 4f 72 67 31  0d 30 0b 06 03 55 04 03  |SomeOrg1.0...U..|
+ 000922d0  0c 04 73 68 69 6d 30 82  01 22 30 0d 06 09 2a 86  |..shim0.."0...*.|
+ 000922e0  48 86 f7 0d 01 01 01 05  00 03 82 01 0f 00 30 82  |H.............0.|
+-000922f0  01 0a 02 82 01 01 00 dc  f0 a1 2d e2 f0 7f cc 3b  |..........-....;|
+-00092300  3a 17 09 15 06 16 fd db  66 28 11 90 9a 5e 19 c0  |:.......f(...^..|
+-00092310  87 ed d5 67 d4 79 45 6b  0b 0f 01 47 08 35 56 f4  |...g.yEk...G.5V.|
+-00092320  2f 98 40 58 21 85 60 73  91 45 e6 c9 d9 e5 68 c7  |/.@X!.`s.E....h.|
+-00092330  48 e4 07 1b 7a 70 c0 5c  0c c4 01 51 bb 31 5f 15  |H...zp.\...Q.1_.|
+-00092340  11 e4 9e 6b 01 22 87 39  a8 41 e1 85 62 0b 9e bf  |...k.".9.A..b...|
+-00092350  6a 41 7c e4 3d c3 27 ab  fd 7d 93 e7 6c 27 e4 c4  |jA|.=.'..}..l'..|
+-00092360  94 37 f5 82 14 98 c1 50  42 6a 18 bc f3 62 ab 10  |.7.....PBj...b..|
+-00092370  bd 25 9e 69 53 4e ce 6c  b9 9a 4f 96 1a 1e bd 9c  |.%.iSN.l..O.....|
+-00092380  0e fd 42 18 79 d8 88 ba  06 7a 2f 47 65 f0 87 a4  |..B.y....z/Ge...|
+-00092390  3a 63 bf f6 aa ea c4 39  bf ae ac b3 70 c5 ab 78  |:c.....9....p..x|
+-000923a0  10 98 48 94 cb aa 68 f2  6c d3 69 c0 c9 c5 de 17  |..H...h.l.i.....|
+-000923b0  24 d6 01 38 b7 a8 c5 fb  80 e4 40 ed 85 69 10 77  |$..8......@..i.w|
+-000923c0  2f 7d 16 99 2b be c6 8f  cc bf d5 3d 3f 5c 1a 52  |/}..+......=?\.R|
+-000923d0  b7 e8 7c 21 55 b1 8d dc  09 c6 3b a3 44 9d 93 1c  |..|!U.....;.D...|
+-000923e0  87 32 bd d6 50 36 3c 36  74 4f 49 f0 95 24 55 ea  |.2..P6<6tOI..$U.|
+-000923f0  1d 30 e9 fb 06 60 b9 02  03 01 00 01 a3 81 ad 30  |.0...`.........0|
+-00092400  81 aa 30 1d 06 03 55 1d  0e 04 16 04 14 f9 78 f4  |..0...U.......x.|
+-00092410  06 23 a7 ef 50 84 86 5b  bd 05 0a ac be 4b fe 62  |.#..P..[.....K.b|
+-00092420  dc 30 1f 06 03 55 1d 23  04 18 30 16 80 14 ff 52  |.0...U.#..0....R|
+-00092430  35 6a 17 b8 98 36 c7 b3  51 d9 6e 21 43 70 49 0e  |5j...6..Q.n!CpI.|
+-00092440  21 62 30 0f 06 03 55 1d  0f 01 01 ff 04 05 03 03  |!b0...U.........|
++000922f0  01 0a 02 82 01 01 00 d6  ef 2f 6f d5 fb 90 80 30  |........./o....0|
++00092300  62 e8 f1 04 15 ea 05 06  1c 4e 9d ea 7f 2b cf 50  |b........N...+.P|
++00092310  8c 9e 9e 8c 9b 5e 41 d2  e6 f7 94 01 bc 07 5e af  |.....^A.......^.|
++00092320  8e 33 57 f1 73 48 57 69  6d 82 d6 6f 15 35 a5 b2  |.3W.sHWim..o.5..|
++00092330  32 df 2f 80 f8 cd 5d 60  2c 28 ef ff e0 81 79 41  |2./...]`,(....yA|
++00092340  1d db 3b a8 6e 40 38 c8  a0 19 12 88 64 11 ce 8d  |..;.n@8.....d...|
++00092350  c4 2d 1e de f9 22 73 5a  91 2d 33 d6 3a ee dc 2e  |.-..."sZ.-3.:...|
++00092360  1d 9c 6c 3d 48 ec 51 bf  30 95 94 1a f9 b2 d5 4a  |..l=H.Q.0......J|
++00092370  d8 02 08 6a 52 bc 90 70  1b 76 92 eb 89 83 8f 9c  |...jR..p.v......|
++00092380  16 35 c8 d4 41 7c ca 5f  1f 06 ee ea da 6e 29 5d  |.5..A|._.....n)]|
++00092390  02 68 f0 b1 36 ca 07 9b  c5 86 f2 23 83 9b 13 d0  |.h..6......#....|
++000923a0  4c 32 59 e7 cb 1b 54 ac  b1 66 6e 0d f3 8d ee 6a  |L2Y...T..fn....j|
++000923b0  75 22 6b 88 79 b2 0d a1  34 7c 24 01 8e 97 59 bb  |u"k.y...4|$...Y.|
++000923c0  74 a3 4d ff 41 6a 2e 57  e9 e9 7c 18 12 cf ee ec  |t.M.Aj.W..|.....|
++000923d0  b9 9f 8d d3 88 63 c9 34  30 1c 8a 0f f3 92 50 6f  |.....c.40.....Po|
++000923e0  e9 35 f4 c4 f2 7d 0b 46  55 db b9 02 02 fd 4b e3  |.5...}.FU.....K.|
++000923f0  0d f0 47 65 32 50 0f 02  03 01 00 01 a3 81 ad 30  |..Ge2P.........0|
++00092400  81 aa 30 1d 06 03 55 1d  0e 04 16 04 14 39 14 c6  |..0...U......9..|
++00092410  6b 0a 36 8c 51 82 d7 29  dd 7c e0 70 89 69 0d ef  |k.6.Q..).|.p.i..|
++00092420  e3 30 1f 06 03 55 1d 23  04 18 30 16 80 14 50 6b  |.0...U.#..0...Pk|
++00092430  72 ff 47 a9 1f 8e 27 c1  35 a6 a8 66 44 60 3d a9  |r.G...'.5..fD`=.|
++00092440  30 80 30 0f 06 03 55 1d  0f 01 01 ff 04 05 03 03  |0.0...U.........|
+ 00092450  07 ff 80 30 1f 06 03 55  1d 25 04 18 30 16 06 08  |...0...U.%..0...|
+ 00092460  2b 06 01 05 05 07 03 03  06 0a 2b 06 01 04 01 82  |+.........+.....|
+ 00092470  37 0a 03 01 30 09 06 03  55 1d 13 04 02 30 00 30  |7...0...U....0.0|
+@@ -37450,22 +37450,22 @@
+ 00092490  54 65 73 74 69 6e 67 20  43 65 72 74 69 66 69 63  |Testing Certific|
+ 000924a0  61 74 65 20 66 6f 72 20  73 68 69 6d 30 0d 06 09  |ate for shim0...|
+ 000924b0  2a 86 48 86 f7 0d 01 01  0b 05 00 03 82 01 01 00  |*.H.............|
+-000924c0  63 e4 16 fb c1 ec bf 96  ae 33 ce bb e4 0c b9 09  |c........3......|
+-000924d0  8d 53 6b 71 e4 6e 2f 1d  11 d5 38 8f ba 70 8f 0c  |.Skq.n/...8..p..|
+-000924e0  6c 5a e7 54 ee ba 53 dd  9e a2 ec 83 81 69 6e 4a  |lZ.T..S......inJ|
+-000924f0  0b ec 40 30 1d 7d b0 8e  bb 62 83 38 2e c5 fd 31  |..@0.}...b.8...1|
+-00092500  9c 32 7d 5d ff 1d b4 f9  73 cd a5 d2 9d 39 38 4d  |.2}]....s....98M|
+-00092510  30 c4 21 7a 3c dd c5 5f  15 66 e8 39 25 40 1c e1  |0.!z<.._.f.9%@..|
+-00092520  de 1a 72 1a 33 39 dd 4e  5a 76 cd f8 a0 c8 04 cd  |..r.39.NZv......|
+-00092530  4c bb ca 42 87 99 a3 f2  73 ab 55 33 bc c8 61 38  |L..B....s.U3..a8|
+-00092540  70 5c 37 bc 40 dd f1 52  7d 84 d3 d2 93 7d e3 cb  |p\7.@..R}....}..|
+-00092550  bd 5a a1 8b be b9 1e 80  a4 71 cd 9d 65 46 66 7a  |.Z.......q..eFfz|
+-00092560  5a a1 76 d2 51 d9 56 fa  1a 34 e7 2b d4 6f 12 b1  |Z.v.Q.V..4.+.o..|
+-00092570  e2 13 f3 e3 e5 77 d0 b3  72 4c fc 3f d3 c4 ba 55  |.....w..rL.?...U|
+-00092580  c5 de a3 31 8c 36 9f b3  45 2e 82 a9 b1 5f 3e 5f  |...1.6..E...._>_|
+-00092590  8c f4 8f fd f3 89 e7 a8  4f 3b 8a b7 84 ba 52 80  |........O;....R.|
+-000925a0  5b 43 bf 77 4a aa 6b 3f  a6 d2 b9 f1 61 e0 0e 49  |[C.wJ.k?....a..I|
+-000925b0  93 5d d3 19 e8 ba 24 33  f8 d7 db ab 99 e9 aa 3c  |.]....$3.......<|
++000924c0  9f 23 09 f7 25 27 77 b3  cb 3e a7 47 8a 07 56 cb  |.#..%'w..>.G..V.|
++000924d0  b3 65 dc f3 ea 44 e5 68  cd 18 53 f8 97 f0 05 1e  |.e...D.h..S.....|
++000924e0  dd d0 41 b0 dc 20 e6 86  2e 81 02 03 2c 0f e0 aa  |..A.. ......,...|
++000924f0  76 e8 cd 52 3d a4 5b 6f  2e 7b e4 47 1d 03 83 3f  |v..R=.[o.{.G...?|
++00092500  55 7f 99 2d 77 ce 3f 0b  6e f5 8a c7 81 c1 3e fa  |U..-w.?.n.....>.|
++00092510  e9 a5 44 a2 14 1c 34 aa  e4 85 23 3d 06 22 ae 95  |..D...4...#=."..|
++00092520  fd 7c 92 86 d1 0a 8e 00  c5 af 57 74 a6 2d d5 f7  |.|........Wt.-..|
++00092530  36 a8 0e c0 d4 e2 0e 49  ec 1b 3e d4 6e 7e eb fd  |6......I..>.n~..|
++00092540  1b 7f 3a b2 6a fa 6b ba  78 d7 46 9e 27 dc d1 5f  |..:.j.k.x.F.'.._|
++00092550  91 6e 23 27 d4 87 97 55  80 23 c6 c6 d5 f3 b0 0b  |.n#'...U.#......|
++00092560  d9 b5 db 05 dd 6a d6 ca  26 34 29 82 cd be 1a e9  |.....j..&4).....|
++00092570  8a f2 d7 3b db 07 46 16  1d 6d 19 7f 14 48 d3 32  |...;..F..m...H.2|
++00092580  fe c5 cb e3 b7 e4 4e b1  cd 72 8e 71 7d 48 aa b5  |......N..r.q}H..|
++00092590  25 b7 83 84 b1 73 00 68  9a 4a 86 9f 92 5d 91 05  |%....s.h.J...]..|
++000925a0  25 e4 da 47 e6 dd 9c 83  b4 7c 99 60 14 0d 2b 0b  |%..G.....|.`..+.|
++000925b0  12 97 97 c8 87 b6 a2 76  2a 78 2a 2c 9e 79 a6 a7  |.......v*x*,.y..|
+ 000925c0  07 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+ 000925d0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+ 000925e0  00 b4 09 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+Removing intermediate container c15231071795
+ ---> e10c10d88b35
+Step 22/22 : RUN sha256sum /shim/shim*.efi /shim-review/$(basename /shim/shim*.efi)
+ ---> Running in 6fb985539f5f
+5cd5c7c16248b2dc1919cefaa3660abce081d3f932e274b0bada5593b3481571  /shim/shimx64.efi
+c72ca78fa64cbcba64b9b2c171280975ae380d5f180e7faef1f978ae8c279a65  /shim-review/shimx64.efi
+Removing intermediate container 6fb985539f5f
+ ---> 8ee6dcb342ca
+Successfully built 8ee6dcb342ca
+Successfully tagged shim-ecos:15.5

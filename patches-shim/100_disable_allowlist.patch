@@ -1,6 +1,6 @@
 --- a/shim.c
 +++ b/shim.c
-@@ -367,9 +367,10 @@ static void update_verification_method(verification_method_t method)
+@@ -343,9 +343,10 @@ static void update_verification_method(verification_method_t method)
  /*
   * Check whether the binary signature or hash are present in db or MokList
   */
@@ -13,7 +13,7 @@
  	if (!ignore_db) {
  		if (check_db_hash(L"db", EFI_SECURE_BOOT_DB_GUID, sha256hash, SHA256_DIGEST_SIZE,
  					EFI_CERT_SHA256_GUID) == DATA_FOUND) {
-@@ -438,7 +439,7 @@ static EFI_STATUS check_allowlist (WIN_CERTIFICATE_EFI_PKCS *cert,
+@@ -414,7 +415,7 @@ static EFI_STATUS check_allowlist (WIN_CERTIFICATE_EFI_PKCS *cert,
  	} else if (cert) {
  		LogError(L"check_db_cert(MokList, sha256hash) != DATA_FOUND\n");
  	}

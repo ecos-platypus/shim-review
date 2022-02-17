@@ -54,7 +54,7 @@ Who is the primary contact for security updates, etc.
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
-The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220209/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
 Who is the secondary contact for security updates, etc.
@@ -68,13 +68,13 @@ Who is the secondary contact for security updates, etc.
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
-The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220209/pgp/gerald.richter.asc) and was pushed to https://keyserver.ubuntu.com.
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/pgp/gerald.richter.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
-Please create your shim binaries starting with the 15.4 shim release tar file:
-https://github.com/rhboot/shim/releases/download/15.4/shim-15.4.tar.bz2
+Please create your shim binaries starting with the 15.5 shim release tar file:
+https://github.com/rhboot/shim/releases/download/15.5/shim-15.5.tar.bz2
 
-This matches https://github.com/rhboot/shim/releases/tag/15.4 and contains
+This matches https://github.com/rhboot/shim/releases/tag/15.5 and contains
 the appropriate gnu-efi source.
 -------------------------------------------------------------------------------
 Yes.
@@ -87,15 +87,8 @@ https://github.com/ecos-platypus/shim-review
 -------------------------------------------------------------------------------
 What patches are being applied and why:
 -------------------------------------------------------------------------------
-SHIM (upstream, patches for critical regressions in 15.4):
 
-- `000_mok_allocate_MOK_config_table_as_BootServicesData.patch`: https://github.com/rhboot/shim/commit/4068fd42c891ea6ebdec056f461babc6e4048844
-- `001_Dont_call_QueryVariableInfo_on_EFI_1_10_machines.patch`: https://github.com/rhboot/shim/commit/493bd940e5c6e28e673034687de7adef9529efff
-- `002_httpboot_Ignore_case_when_checking_HTTP_headers.patch`: https://github.com/rhboot/shim/commit/204f6bb5ba94061c8d0c60a6969fb263aadfce2d
-- `003_Dont_make_shim_abort_when_TPM_log_event_fails.patch`: https://github.com/rhboot/shim/commit/11740ea761ac5a1eb84c865edbdcd750f2a8b04f
-- `004_Fallback_to_default_loader_if_parsed_one_does_not_exist.patch`: https://github.com/rhboot/shim/commit/50732ee914f23df541c77ffd83c3c1921249130d
-
-SHIM (custom):
+SHIM:
 
 - `100_disable_allowlist.patch`: Our shim should only load PEs signed with the EV certificate embedded in the shim. The `check_allowlist` method was disabled (= it always returns `EFI_NOT_FOUND` and sets the verification method to `VERIFIED_BY_NOTHING`) to prevent loading of PEs trusted via `db` or `MokList`.
 - `101_load_default_second_stage.patch`: We always want to use the default loader (set via `DEFAULT_LOADER` during the build) as second stage. We disable the code for dynamic second stage loader detection as it is not required and may cause issues with removable media.
@@ -188,7 +181,7 @@ However, the diff is small and only contains the embedded dynamic certificates.
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 -------------------------------------------------------------------------------
-The build is executed via `docker build --no-cache --pull -t ecos-shim . 2>&1 | tee build.log` in the repository root.
+The build is executed via `docker build --no-cache --pull -t shim-ecos:15.5 . 2>&1 | tee build.log` in the repository root.
 The flags `--no-cache` and `--pull` ensure that `build.log` contains all steps of the build process.
 The `build.log` file in root of the repository is the output of our shim build.
 
