@@ -1,23 +1,23 @@
 Make sure you have provided the following information:
 
  - [x] link to your code branch cloned from rhboot/shim-review in the form user/repo@tag
-   - https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-20220217
+   - https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-20220221
  - [x] completed README.md file with the necessary information
-   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/README.md
+   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/README.md
  - [x] shim.efi to be signed
-   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/shimx64.efi
+   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/shimx64.efi
  - [x] public portion of your certificate(s) embedded in shim (the file passed to VENDOR_CERT_FILE)
-   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
+   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
  - [x] binaries, for which hashes are added to vendor_db ( if you use vendor_db and have hashes allow-listed )
    - `vendor_db` is not used
  - [x] any extra patches to shim via your own git tree or as files
-   - https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-20220217/patches-shim
+   - https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-20220221/patches-shim
  - [x] any extra patches to grub via your own git tree or as files
-   - https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-20220217/patches-grub
+   - https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-20220221/patches-grub
  - [x] build logs
-    - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/build.log
+    - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/build.log
  - [x] a Dockerfile to reproduce the build of the provided shim EFI binaries
-   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/Dockerfile
+   - https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/Dockerfile
 
 ###### What organization or people are asking to have this signed:
 ECOS Technology GmbH
@@ -220,7 +220,7 @@ All kernels enforce that only modules signed by us are loaded and that only bina
 
 We updated from version 15.0 to the current release (15.5) since our last shim was signed by Microsoft.
 We started with upstream shim and only applied a minimal set of patches for security and compatibility reasons.
-We include 2 custom patches that disable allowlist functionality and dynamic second stage loader detection (see the `What patches are being applied and why` section of `README.md` in our `shim-review` fork).
+We include 3 custom patches that enforce secure mode and disable allowlist functionality and dynamic second stage loader detection (see the `What patches are being applied and why` section of `README.md` in our `shim-review` fork).
 
 ###### What is the SHA256 hash of your final SHIM binary?
-`5cd5c7c16248b2dc1919cefaa3660abce081d3f932e274b0bada5593b3481571`
+`f5218a973dd055437ebc5bf762ebb58a0a0163f6cbf7eb5075a5aeff840cb648`
