@@ -54,7 +54,7 @@ Who is the primary contact for security updates, etc.
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
-The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
 Who is the secondary contact for security updates, etc.
@@ -68,7 +68,7 @@ Who is the secondary contact for security updates, etc.
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
-The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220217/pgp/gerald.richter.asc) and was pushed to https://keyserver.ubuntu.com.
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/pgp/gerald.richter.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
 Please create your shim binaries starting with the 15.5 shim release tar file:
@@ -92,6 +92,7 @@ SHIM:
 
 - `100_disable_allowlist.patch`: Our shim should only load PEs signed with the EV certificate embedded in the shim. The `check_allowlist` method was disabled (= it always returns `EFI_NOT_FOUND` and sets the verification method to `VERIFIED_BY_NOTHING`) to prevent loading of PEs trusted via `db` or `MokList`.
 - `101_load_default_second_stage.patch`: We always want to use the default loader (set via `DEFAULT_LOADER` during the build) as second stage. We disable the code for dynamic second stage loader detection as it is not required and may cause issues with removable media.
+- `102_force_secure_mode.patch`: We force shim to run in secure mode so that the signature of the second stage loader is always verified against our embedded code signing certificate.
 
 GRUB:
 
@@ -104,6 +105,7 @@ GRUB:
 - `efinet-add-dhcp-proxy-support.patch`: Upstream commit (https://github.com/rhboot/grub2/commit/866ec5edb959125b8486769352f1ca04bd81ca3c) to enable DHCP proxy support for PXE boot.
 - `gfxterm-get-dimensions.patch`: Add the `get_dimensions` function that sets the `dimension_width` and `dimension_height` environment variables. These variables are used in our grub.cfg to dynamically adjust the GRUB menu in relation to the screen size. 
 - `pgp-exit-on-verification-failure.patch`: We use the upstream PGP verifier to verify all files that are loaded by GRUB. The upstream version of the PGP verifier does not load a file if its signature cannot be verified and then tries to carry on with the boot process. However, we want the boot process to abort when a signature cannot be verified as this implies manipulation by an attacker. Therefore, all methods used by the PGP verifier are modified to call `grub_fatal` with a generic error message (`bad signature: %s` where `%s` is replaced with the name of the file whose signature could not be verified) if verification fails for any file loaded by GRUB.
+- `sb-force-secure-mode.patch`: We need to force GRUB to run in secure boot mode as we force shim to run in secure mode. Otherwise, GRUB would not verify the loaded kernel via the `shim_lock` verifier during EFI boot without secure boot, causing shim to abort the boot process.
 
 -------------------------------------------------------------------------------
 If bootloader, shim loading is, GRUB2: is CVE-2020-14372, CVE-2020-25632,

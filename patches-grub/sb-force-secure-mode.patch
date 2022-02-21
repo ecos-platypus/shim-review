@@ -1,0 +1,21 @@
+--- ./grub-core/kern/efi/sb.c
++++ ./grub-core/kern/efi/sb.c
+@@ -41,6 +41,10 @@ static grub_efi_guid_t shim_lock_guid = GRUB_EFI_SHIM_LOCK_GUID;
+ grub_uint8_t
+ grub_efi_get_secureboot (void)
+ {
++  // Always run in secure boot mode
++  return GRUB_EFI_SECUREBOOT_MODE_ENABLED;
++
++#if 0
+   static grub_efi_guid_t efi_variable_guid = GRUB_EFI_GLOBAL_VARIABLE_GUID;
+   grub_efi_status_t status;
+   grub_efi_uint32_t attr = 0;
+@@ -111,6 +115,7 @@ grub_efi_get_secureboot (void)
+   grub_dprintf ("efi", "UEFI Secure Boot state: %s\n", secureboot_str);
+ 
+   return secureboot;
++#endif
+ }
+ 
+ static grub_err_t

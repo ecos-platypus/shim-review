@@ -1,0 +1,19 @@
+--- a/shim.c
++++ b/shim.c
+@@ -425,6 +425,8 @@ static EFI_STATUS check_allowlist (WIN_CERTIFICATE_EFI_PKCS *cert UNUSED,
+  */
+ BOOLEAN secure_mode (void)
+ {
++// Always run in secure mode
++#if 0
+ 	static int first = 1;
+ 	if (user_insecure_mode)
+ 		return FALSE;
+@@ -456,6 +458,7 @@ BOOLEAN secure_mode (void)
+ 	}
+ 
+ 	first = 0;
++#endif
+ 	return TRUE;
+ }
+ 
