@@ -25,7 +25,7 @@ RUN git submodule update --init
 #RUN git clone /tmp/.git /shim-review
 
 # Production: Use GitHub fork of shim-review repository
-RUN git clone -b ECOS_Technology_GmbH-shim-x64-20220221 https://github.com/ecos-platypus/shim-review.git /shim-review
+RUN git clone -b ECOS_Technology_GmbH-shim-x64-20220224 https://github.com/ecos-platypus/shim-review.git /shim-review
 
 RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
 RUN cp /shim-review/sbat.ecos.csv /shim/data/

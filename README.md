@@ -54,7 +54,7 @@ We need our own publicly signed shim as we custom-build our kernels for quicker 
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
-The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220221/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220224/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
 ### Who is the secondary contact for security updates, etc.?
