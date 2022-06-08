@@ -225,7 +225,7 @@ GRUB:
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
 grub,2,Free Software Foundation,grub,2.06,https://www.gnu.org/software/grub/
-grub.ecos,2,ECOS Technology GmbH,grub2,2.06-r1,mail:security@ecos.de
+grub.ecos,2,ECOS Technology GmbH,grub2,2.06-r2,mail:security@ecos.de
 ```
 
 -------------------------------------------------------------------------------
@@ -306,7 +306,7 @@ zstd
 -------------------------------------------------------------------------------
 ### What is the origin and full version number of your bootloader (GRUB or other)?
 -------------------------------------------------------------------------------
-GRUB 2.06 via Gentoo Linux: `sys-boot/grub:2.06-r1` (https://gitweb.gentoo.org/repo/gentoo.git/tree/sys-boot/grub/grub-2.06-r1.ebuild)
+GRUB 2.06 via Gentoo Linux: `sys-boot/grub:2.06-r2` (https://gitweb.gentoo.org/repo/gentoo.git/tree/sys-boot/grub/grub-2.06-r2.ebuild)
 
 -------------------------------------------------------------------------------
 ### If your SHIM launches any other components, please provide further details on what is launched.
@@ -342,9 +342,9 @@ No, GRUB uses the `shim_lock` verifier to ensure that only kernels signed by us 
 -------------------------------------------------------------------------------
 ### What kernel are you using? Which patches does it includes to enforce Secure Boot?
 -------------------------------------------------------------------------------
-We use kernel 5.14 as default and 5.10, 5.4, 4.14 for legacy hardware support.
+We use kernel 5.15 as default, 5.17 for new hardware and 5.4 and 4.14 for legacy hardware support.
 
-5.14, 5.10 and 5.4 natively include the upstream lockdown functionality, 4.14 is patched with the Debian lockdown patches (https://salsa.debian.org/kernel-team/linux/-/tree/6c9c81696618874465c51db0019195a501e4910e/debian/patches/features/all/lockdown) and the upstream commits 1957a85b0032a81e6482ca4aab883643b8dae06e and 75b0cea7bf307f362057cc778efe89af4c615354.
+5.14, 5.17 and 5.4 natively include the upstream lockdown functionality, 4.14 is patched with the Debian lockdown patches (https://salsa.debian.org/kernel-team/linux/-/tree/6c9c81696618874465c51db0019195a501e4910e/debian/patches/features/all/lockdown) and the upstream commits 1957a85b0032a81e6482ca4aab883643b8dae06e, 75b0cea7bf307f362057cc778efe89af4c615354 and eadb2f47a3ced5c64b23b90fd2a3463f63726066.
 
 All kernels enforce that only modules signed by us are loaded and that only binaries with a valid IMA signature created by us are executed.
 
