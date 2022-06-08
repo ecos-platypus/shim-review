@@ -187,7 +187,7 @@ The `build.log` file in root of the repository is the output of our shim build.
 -------------------------------------------------------------------------------
 ### What changes were made since your SHIM was last signed?
 -------------------------------------------------------------------------------
-We updated from version 15.0 to the current release (15.5) since our last shim was signed by Microsoft.
+We updated from version 15.0 to the current release (15.6) since our last shim was signed by Microsoft (see https://github.com/rhboot/shim-review/issues/228#issuecomment-1054159341 and https://github.com/rhboot/shim-review/issues/228#issuecomment-1066536654 for background; our old signed shim is attached to the second comment as proof).
 We started with upstream shim and only applied a minimal set of patches for security and compatibility reasons.
 We include 3 custom patches that enforce secure mode and disable allowlist functionality and dynamic second stage loader detection (see the `What patches are being applied and why` section of `README.md` in our `shim-review` fork).
 
@@ -351,3 +351,12 @@ All kernels enforce that only modules signed by us are loaded and that only bina
 -------------------------------------------------------------------------------
 ### Add any additional information you think we may need to validate this shim.
 -------------------------------------------------------------------------------
+
+None of our latest submissions have yet been accepted via the shim-review but multiple shims were signed for us by Microsoft in the past.
+Our first shim-review submission was https://github.com/rhboot/shim-review/issues/70 in May 2019 which was neither accepted nor rejected due to extensive patching. After consideration, Microsoft signed this shim (see https://github.com/rhboot/shim-review/issues/228#issuecomment-1066536654 for the binary as proof).
+
+Since then we dropped the old patches and now only apply minimal changes to shim. With GRUB we switched from our own appended signature verification to the upstream PGP verifier.
+
+Starting in February, we submitted a 15.4 (https://github.com/rhboot/shim-review/issues/225) and 15.5 (https://github.com/rhboot/shim-review/issues/228) shim and continuously supported the review process by reviewing the submissions of other vendors.
+
+With regards to the Boothole 3 vulnerabilites, it is understandable that no shims have been signed in the last months. However, now that those issues are addressed we urgently need a new shim so that we can ship those fixes to our customers. Unfortunately we cannot address the GRUB vulnerabilities with the shim from May 2019 as our EV certificate expired 2 weeks ago.
