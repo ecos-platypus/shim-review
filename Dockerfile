@@ -17,9 +17,9 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends build-essent
 # Print installed packages and versions
 RUN dpkg -l
 
-RUN wget https://github.com/rhboot/shim/releases/download/15.5/shim-15.5.tar.bz2
-RUN tar -xf shim-15.5.tar.bz2
-RUN mv shim-15.5 /shim
+RUN wget https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
+RUN tar -xf shim-15.6.tar.bz2
+RUN mv shim-15.6 /shim
 WORKDIR /shim
 
 # Development: Use local copy of shim-review repository

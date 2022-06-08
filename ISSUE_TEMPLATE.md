@@ -27,4 +27,4 @@ https://github.com/ecos-platypus/shim-review/tree/ECOS_Technology_GmbH-shim-x64-
 -------------------------------------------------------------------------------
 ### What is the SHA256 hash of your final SHIM binary?
 -------------------------------------------------------------------------------
-[your text here]
+`48c7823dc532c349d602adc76f85715c125f59ebb1246a13528b66ebcd625c65`

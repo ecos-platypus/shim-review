@@ -180,7 +180,7 @@ However, the diff is small and only contains the embedded dynamic certificates.
 This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 
 -------------------------------------------------------------------------------
-The build is executed via `docker build --no-cache --pull -t shim-ecos:15.5 . 2>&1 | tee build.log` in the repository root.
+The build is executed via `docker build --no-cache --pull -t shim-ecos:15.6 . 2>&1 | tee build.log` in the repository root.
 The flags `--no-cache` and `--pull` ensure that `build.log` contains all steps of the build process.
 The `build.log` file in root of the repository is the output of our shim build.
 
@@ -194,7 +194,7 @@ We include 3 custom patches that enforce secure mode and disable allowlist funct
 -------------------------------------------------------------------------------
 ### What is the SHA256 hash of your final SHIM binary?
 -------------------------------------------------------------------------------
-[your text here]
+`48c7823dc532c349d602adc76f85715c125f59ebb1246a13528b66ebcd625c65`
 
 -------------------------------------------------------------------------------
 ### How do you manage and protect the keys used in your SHIM?
