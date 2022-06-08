@@ -217,15 +217,15 @@ Yes.
 shim:
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
-shim,1,UEFI shim,shim,1,https://github.com/rhboot/shim
-shim.ecos,1,ECOS Technology GmbH,shim,15.5,mail:security@ecos.de
+shim,2,UEFI shim,shim,1,https://github.com/rhboot/shim
+shim.ecos,2,ECOS Technology GmbH,shim,15.6,mail:security@ecos.de
 ```
 
 GRUB:
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
-grub,1,Free Software Foundation,grub,2.06,https://www.gnu.org/software/grub/
-grub.ecos,1,ECOS Technology GmbH,grub2,2.06-r1,mail:security@ecos.de
+grub,2,Free Software Foundation,grub,2.06,https://www.gnu.org/software/grub/
+grub.ecos,2,ECOS Technology GmbH,grub2,2.06-r1,mail:security@ecos.de
 ```
 
 -------------------------------------------------------------------------------
