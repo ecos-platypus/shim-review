@@ -9,16 +9,18 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends build-essent
         libnss3-tools pesign \
         # for `make` with `sbat.ecos.csv`
         dos2unix \
+        # for download and extraction of the shim release
+        wget tar \
         # reduce image size by cleaning up apt list cache
         && rm -rf /var/lib/apt/lists/*
 
 # Print installed packages and versions
 RUN dpkg -l
 
-RUN git clone https://github.com/rhboot/shim.git /shim
+RUN wget https://github.com/rhboot/shim/releases/download/15.5/shim-15.5.tar.bz2
+RUN tar -xf shim-15.5.tar.bz2
+RUN mv shim-15.5 /shim
 WORKDIR /shim
-RUN git checkout shim-15.5
-RUN git submodule update --init
 
 # Development: Use local copy of shim-review repository
 #COPY .git /tmp/.git
