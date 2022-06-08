@@ -8,8 +8,8 @@ This repo is for review of requests for signing shim.  To create a request for r
 - commit all of that
 - tag it with a tag of the form "myorg-shim-arch-YYYYMMDD"
 - push that to github
-- file an issue at https://github.com/rhboot/shim-review/issues with a link to your branch
-- approval is ready when you have accepted tag
+- file an issue at https://github.com/rhboot/shim-review/issues with a link to your tag
+- approval is ready when the "accepted" label is added to your issue
 
 Note that we really only have experience with using GRUB2 on Linux, so asking
 us to endorse anything else for signing is going to require some convincing on
@@ -69,8 +69,11 @@ like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
 -------------------------------------------------------------------------------
-### Please create your shim binaries starting with the 15.5 shim release tar file: https://github.com/rhboot/shim/releases/download/15.5/shim-15.5.tar.bz2
-### This matches https://github.com/rhboot/shim/releases/tag/15.5 and contains the appropriate gnu-efi source.
+### Were these binaries created from the 15.6 shim release tar?
+Please create your shim binaries starting with the 15.6 shim release tar file: https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
+
+This matches https://github.com/rhboot/shim/releases/tag/15.6 and contains the appropriate gnu-efi source.
+
 -------------------------------------------------------------------------------
 Yes.
 
@@ -103,35 +106,48 @@ GRUB:
 - `sb-force-secure-mode.patch`: We need to force GRUB to run in secure boot mode as we force shim to run in secure mode. Otherwise, GRUB would not verify the loaded kernel via the `shim_lock` verifier during EFI boot without secure boot, causing shim to abort the boot process.
 
 -------------------------------------------------------------------------------
-### If bootloader, shim loading is, GRUB2: is CVE-2020-14372, CVE-2020-25632, CVE-2020-25647, CVE-2020-27749, CVE-2020-27779, CVE-2021-20225, CVE-2021-20233, CVE-2020-10713, CVE-2020-14308, CVE-2020-14309, CVE-2020-14310, CVE-2020-14311, CVE-2020-15705, and if you are shipping the shim_lock module CVE-2021-3418
--------------------------------------------------------------------------------
-Yes, all the CVEs are fixed in GRUB 2.06.
-
--------------------------------------------------------------------------------
-### What exact implementation of Secureboot in GRUB2 ( if this is your bootloader ) you have ?
-### * Upstream GRUB2 shim_lock verifier or * Downstream RHEL/Fedora/Debian/Canonical like implementation ?
+### If shim is loading GRUB2 bootloader what exact implementation of Secureboot in GRUB2 do you have? (Either Upstream GRUB2 shim_lock verifier or Downstream RHEL/Fedora/Debian/Canonical-like implementation)
 -------------------------------------------------------------------------------
 We use the upstream GRUB2 `shim_lock` verifier.
 
 -------------------------------------------------------------------------------
-### If bootloader, shim loading is, GRUB2, and previous shims were trusting affected by CVE-2020-14372, CVE-2020-25632, CVE-2020-25647, CVE-2020-27749, CVE-2020-27779, CVE-2021-20225, CVE-2021-20233, CVE-2020-10713, CVE-2020-14308, CVE-2020-14309, CVE-2020-14310, CVE-2020-14311, CVE-2020-15705, and if you were shipping the shim_lock module CVE-2021-3418 ( July 2020 grub2 CVE list + March 2021 grub2 CVE list ) grub2:
-* were old shims hashes provided to Microsoft for verification
-  and to be added to future DBX update ?
-* Does your new chain of trust disallow booting old, affected by CVE-2020-14372,
-  CVE-2020-25632, CVE-2020-25647, CVE-2020-27749,
-  CVE-2020-27779, CVE-2021-20225, CVE-2021-20233, CVE-2020-10713,
-  CVE-2020-14308, CVE-2020-14309, CVE-2020-14310, CVE-2020-14311, CVE-2020-15705,
-  and if you were shipping the shim_lock module CVE-2021-3418
-  ( July 2020 grub2 CVE list + March 2021 grub2 CVE list )
-  grub2 builds ?
+### If shim is loading GRUB2 bootloader and your previously released shim booted a version of grub affected by any of the CVEs in the July 2020 grub2 CVE list, the March 2021 grub2 CVE list, or the June 7th 2022 grub2 CVE list:
+* CVE-2020-14372
+* CVE-2020-25632
+* CVE-2020-25647
+* CVE-2020-27749
+* CVE-2020-27779
+* CVE-2021-20225
+* CVE-2021-20233
+* CVE-2020-10713
+* CVE-2020-14308
+* CVE-2020-14309
+* CVE-2020-14310
+* CVE-2020-14311
+* CVE-2020-15705
+* CVE-2021-3418 (if you are shipping the shim_lock module)
+
+* CVE-2021-3695
+* CVE-2021-3696
+* CVE-2021-3697
+* CVE-2022-28733
+* CVE-2022-28734
+* CVE-2022-28735
+* CVE-2022-28736
+* CVE-2022-28737
+
+### Were old shims hashes provided to Microsoft for verification and to be added to future DBX updates?
+### Does your new chain of trust disallow booting old GRUB2 builds affected by the CVEs?
 -------------------------------------------------------------------------------
 1. No
 2. Yes, we use a new EV certificate, old GRUBs cannot be booted by the new shim.
 
 -------------------------------------------------------------------------------
-### If your boot chain of trust includes a linux kernel:
+### If your boot chain of trust includes a Linux kernel:
 ### Is upstream commit [1957a85b0032a81e6482ca4aab883643b8dae06e "efi: Restrict efivar_ssdt_load when the kernel is locked down"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1957a85b0032a81e6482ca4aab883643b8dae06e) applied?
 ### Is upstream commit [75b0cea7bf307f362057cc778efe89af4c615354 "ACPI: configfs: Disallow loading ACPI tables when locked down"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=75b0cea7bf307f362057cc778efe89af4c615354) applied?
+### Is upstream commit [eadb2f47a3ced5c64b23b90fd2a3463f63726066 "lockdown: also lock down previous kgdb use"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=eadb2f47a3ced5c64b23b90fd2a3463f63726066) applied?
+
 -------------------------------------------------------------------------------
 Yes, they are included in all used kernels.
 
@@ -167,6 +183,170 @@ This should include logs for creating the buildroots, applying patches, doing th
 The build is executed via `docker build --no-cache --pull -t shim-ecos:15.5 . 2>&1 | tee build.log` in the repository root.
 The flags `--no-cache` and `--pull` ensure that `build.log` contains all steps of the build process.
 The `build.log` file in root of the repository is the output of our shim build.
+
+-------------------------------------------------------------------------------
+### What changes were made since your SHIM was last signed?
+-------------------------------------------------------------------------------
+We updated from version 15.0 to the current release (15.5) since our last shim was signed by Microsoft.
+We started with upstream shim and only applied a minimal set of patches for security and compatibility reasons.
+We include 3 custom patches that enforce secure mode and disable allowlist functionality and dynamic second stage loader detection (see the `What patches are being applied and why` section of `README.md` in our `shim-review` fork).
+
+-------------------------------------------------------------------------------
+### What is the SHA256 hash of your final SHIM binary?
+-------------------------------------------------------------------------------
+[your text here]
+
+-------------------------------------------------------------------------------
+### How do you manage and protect the keys used in your SHIM?
+-------------------------------------------------------------------------------
+The key is stored on a FIPS-140-2 Token.
+The key is part of our EV code signing certificate.
+
+-------------------------------------------------------------------------------
+### Do you use EV certificates as embedded certificates in the SHIM?
+-------------------------------------------------------------------------------
+Yes.
+
+-------------------------------------------------------------------------------
+### "Please specifically confirm that you add a vendor specific SBAT entry for SBAT header in each binary that supports SBAT metadata ( grub2, fwupd, fwupdate, shim + all child shim binaries )" to shim review doc ?
+### Please provide exact SBAT entries for all SBAT binaries you are booting or planning to boot directly through shim
+### Where your code is only slightly modified from an upstream vendor's, please also preserve their SBAT entries to simplify revocation.
+-------------------------------------------------------------------------------
+Yes.
+
+shim:
+```
+sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
+shim,1,UEFI shim,shim,1,https://github.com/rhboot/shim
+shim.ecos,1,ECOS Technology GmbH,shim,15.5,mail:security@ecos.de
+```
+
+GRUB:
+```
+sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
+grub,1,Free Software Foundation,grub,2.06,https://www.gnu.org/software/grub/
+grub.ecos,1,ECOS Technology GmbH,grub2,2.06-r1,mail:security@ecos.de
+```
+
+-------------------------------------------------------------------------------
+### Which modules are built into your signed grub image?
+-------------------------------------------------------------------------------
+```
+acpi
+archelp
+bitmap
+bitmap_scale
+boot
+btrfs
+bufio
+cpuid
+crypto
+datetime
+disk
+diskfilter
+echo
+efi_gop
+efi_uga
+ext2
+extcmd
+f2fs
+fat
+font
+fshelp
+gcry_crc
+gcry_rsa
+gcry_sha1
+gcry_sha512
+gettext
+gfxmenu
+gfxterm
+gfxterm_background
+gfxterm_menu
+gzio
+halt
+iorw
+keylayouts
+keystatus
+linux
+loadenv
+loopback
+ls
+lzopio
+memdisk
+minicmd
+minix
+mmap
+mpi
+net
+normal
+part_ecx
+part_gpt
+part_msdos
+password_pbkdf2
+pbkdf2
+pgp
+png
+priority_queue
+probe
+procfs
+raid6rec
+regexp
+relocator
+smbios
+terminal
+test
+trig
+video
+video_colors
+video_fb
+videoinfo
+zstd
+```
+
+-------------------------------------------------------------------------------
+### What is the origin and full version number of your bootloader (GRUB or other)?
+-------------------------------------------------------------------------------
+GRUB 2.06 via Gentoo Linux: `sys-boot/grub:2.06-r1` (https://gitweb.gentoo.org/repo/gentoo.git/tree/sys-boot/grub/grub-2.06-r1.ebuild)
+
+-------------------------------------------------------------------------------
+### If your SHIM launches any other components, please provide further details on what is launched.
+-------------------------------------------------------------------------------
+SHIM only launches GRUB.
+
+-------------------------------------------------------------------------------
+### If your GRUB2 launches any other binaries that are not the Linux kernel in SecureBoot mode, please provide further details on what is launched and how it enforces Secureboot lockdown.
+-------------------------------------------------------------------------------
+GRUB only launches Linux kernel.
+
+-------------------------------------------------------------------------------
+### How do the launched components prevent execution of unauthenticated code?
+-------------------------------------------------------------------------------
+SHIM
+- Verifies the signature of GRUB via our EV certificate before loading it
+- Only loads `MokManager` and `fallback` binaries built by us together with the SHIM (see `ENABLE_SHIM_CERT=1`), they are not shipped with shim
+
+GRUB
+- Verifies the Linux kernel via the `shim_lock` verifier before loading it
+- In addition to the `shim_lock` verifier for the Linux kernel, all files loaded by GRUB are verified via the PGP verifier (see `pgp-exit-on-verification-failure.patch` in the `README.md` in our `shim-review` fork for more details on our modifications to abort the boot process if verification fails)
+- Module loading has been disabled, GRUB is shipped as one binary, `grub.cfg` is signed and embedded in the GRUB binary, a bootloader password is used to prevent tampering with the configuration and execution of commands via GRUB cmdline
+
+Kernel
+- Only loads modules signed by us
+- Only executes binaries with a valid IMA signature created by us
+
+-------------------------------------------------------------------------------
+### Does your SHIM load any loaders that support loading unsigned kernels (e.g. GRUB)?
+-------------------------------------------------------------------------------
+No, GRUB uses the `shim_lock` verifier to ensure that only kernels signed by us are loaded.
+
+-------------------------------------------------------------------------------
+### What kernel are you using? Which patches does it includes to enforce Secure Boot?
+-------------------------------------------------------------------------------
+We use kernel 5.14 as default and 5.10, 5.4, 4.14 for legacy hardware support.
+
+5.14, 5.10 and 5.4 natively include the upstream lockdown functionality, 4.14 is patched with the Debian lockdown patches (https://salsa.debian.org/kernel-team/linux/-/tree/6c9c81696618874465c51db0019195a501e4910e/debian/patches/features/all/lockdown) and the upstream commits 1957a85b0032a81e6482ca4aab883643b8dae06e and 75b0cea7bf307f362057cc778efe89af4c615354.
+
+All kernels enforce that only modules signed by us are loaded and that only binaries with a valid IMA signature created by us are executed.
 
 -------------------------------------------------------------------------------
 ### Add any additional information you think we may need to validate this shim.
