@@ -54,7 +54,7 @@ We need our own publicly signed shim as we custom-build our kernels for quicker 
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
 
-The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220224/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220608/pgp/simon.becker.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
 ### Who is the secondary contact for security updates, etc.?
@@ -67,6 +67,8 @@ The public key is supplied via the repository (https://github.com/ecos-platypus/
 (Key should be signed by the other security contacts, pushed to a keyserver
 like keyserver.ubuntu.com, and preferably have signatures that are reasonably
 well known in the Linux community.)
+
+The public key is supplied via the repository (https://github.com/ecos-platypus/shim-review/blob/ECOS_Technology_GmbH-shim-x64-20220608/pgp/gerald.richter.asc) and was pushed to https://keyserver.ubuntu.com.
 
 -------------------------------------------------------------------------------
 ### Were these binaries created from the 15.6 shim release tar?
