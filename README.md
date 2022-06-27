@@ -172,11 +172,6 @@ We use a new EV certificate.
 We use the Dockerfile that is part of our shim-review repository for the build.
 The installed program versions are listed in the shim build log (they are printed to stdout via `dpkg -l`).
 
-We want to prevent third parties from launching their `MokManager` and `fallback` binaries via our shim and therefore set `ENABLE_SHIM_CERT=1` for the build.
-With this setting, dynamic keys are generated during the build and used to sign the `MokManager` and `fallback` binaries. The public portion of the dynamic keys are compiled into the shim so that it only loads these signed binaries as `MokManager` and `fallback`.
-As these keys differ for each build, the shim binary is not completely reproducible.
-However, the diff is small and only contains the embedded dynamic certificates.
-
 -------------------------------------------------------------------------------
 ### Which files in this repo are the logs for your build?
 This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
@@ -196,7 +191,7 @@ We include 3 custom patches that enforce secure mode and disable allowlist funct
 -------------------------------------------------------------------------------
 ### What is the SHA256 hash of your final SHIM binary?
 -------------------------------------------------------------------------------
-`48c7823dc532c349d602adc76f85715c125f59ebb1246a13528b66ebcd625c65`
+`cfc91fc24b9ea892eaf6168306b4a2806a4cda84e7c103049c4bc179f4dae8c1`
 
 -------------------------------------------------------------------------------
 ### How do you manage and protect the keys used in your SHIM?
@@ -325,7 +320,7 @@ GRUB only launches Linux kernel.
 -------------------------------------------------------------------------------
 SHIM
 - Verifies the signature of GRUB via our EV certificate before loading it
-- Only loads `MokManager` and `fallback` binaries built by us together with the SHIM (see `ENABLE_SHIM_CERT=1`), they are not shipped with shim
+- Only loads `MokManager` and `fallback` binaries signed by the embedded EV certificate as allowlist is disabled via `100_disable_allowlist.patch`
 
 GRUB
 - Verifies the Linux kernel via the `shim_lock` verifier before loading it

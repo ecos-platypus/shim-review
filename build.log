@@ -1,18 +1,18 @@
-STEP 1/23: FROM debian:bullseye
+STEP 1/22: FROM debian:bullseye
 Trying to pull docker.io/library/debian:bullseye...
 Getting image source signatures
-Copying blob sha256:e756f3fdd6a378aa16205b0f75d178b7532b110e86be7659004fc6a21183226c
-Copying config sha256:4eacea30377a698ef8fbec99b6caf01cb150151cbedc8e0b1c3d22f134206f1a
+Copying blob sha256:1339eaac5b67d16d6d9f41fb7a7b96f7cebf3ba4beab36cbb60935aa772af583
+Copying config sha256:d2780094a226c21142d0ee4dbfaf11bb53bd569fc9e0b7d261e43de0954c9958
 Writing manifest to image destination
 Storing signatures
-STEP 2/23: RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential         bsdmainutils         ca-certificates git         libnss3-tools pesign         dos2unix         wget tar         && rm -rf /var/lib/apt/lists/*
+STEP 2/22: RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential         bsdmainutils         ca-certificates git         dos2unix         wget tar         && rm -rf /var/lib/apt/lists/*
 Get:1 http://security.debian.org/debian-security bullseye-security InRelease [44.1 kB]
 Get:2 http://deb.debian.org/debian bullseye InRelease [116 kB]
 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [39.4 kB]
-Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 Packages [153 kB]
+Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 Packages [160 kB]
 Get:5 http://deb.debian.org/debian bullseye/main amd64 Packages [8182 kB]
 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [2592 B]
-Fetched 8537 kB in 3s (3216 kB/s)
+Fetched 8545 kB in 3s (3370 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -20,129 +20,108 @@ Reading state information...
 tar is already the newest version (1.34+dfsg-1).
 tar set to manually installed.
 The following additional packages will be installed:
-  binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils bzip2
-  coolkey cpp cpp-10 dpkg-dev g++ g++-10 gcc gcc-10 git-man libasan6
-  libatomic1 libbinutils libbrotli1 libc-dev-bin libc6-dev libcc1-0
-  libckyapplet1 libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls
-  libdpkg-perl libefivar1 liberror-perl libexpat1 libgcc-10-dev
-  libgdbm-compat4 libgdbm6 libglib2.0-0 libgomp1 libisl23 libitm1
-  libldap-2.4-2 liblsan0 libmpc3 libmpfr6 libnghttp2-14 libnsl-dev libnspr4
-  libnss3 libpcsclite1 libperl5.32 libpopt0 libpsl5 libquadmath0 libreadline8
-  librtmp1 libsasl2-2 libsasl2-modules-db libsqlite3-0 libssh2-1
+  binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils bzip2 cpp
+  cpp-10 dpkg-dev g++ g++-10 gcc gcc-10 git-man libasan6 libatomic1
+  libbinutils libbrotli1 libc-dev-bin libc6-dev libcc1-0 libcrypt-dev
+  libctf-nobfd0 libctf0 libcurl3-gnutls libdpkg-perl liberror-perl libexpat1
+  libgcc-10-dev libgdbm-compat4 libgdbm6 libgomp1 libisl23 libitm1
+  libldap-2.4-2 liblsan0 libmpc3 libmpfr6 libnghttp2-14 libnsl-dev libperl5.32
+  libpsl5 libquadmath0 librtmp1 libsasl2-2 libsasl2-modules-db libssh2-1
   libstdc++-10-dev libtirpc-dev libtsan0 libubsan1 linux-libc-dev make ncal
-  opensc opensc-pkcs11 openssl patch perl perl-modules-5.32 readline-common
-  xz-utils
+  openssl patch perl perl-modules-5.32 xz-utils
 Suggested packages:
   binutils-doc calendar whois vacation mailutils bzip2-doc cpp-doc
   gcc-10-locales debian-keyring g++-multilib g++-10-multilib gcc-10-doc
   gcc-multilib manpages-dev autoconf automake libtool flex bison gdb gcc-doc
   gcc-10-multilib gettext-base git-daemon-run | git-daemon-sysvinit git-doc
   git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
-  gnupg sensible-utils bzr gdbm-l10n pcscd libstdc++-10-doc make-doc ed
+  gnupg sensible-utils bzr gdbm-l10n libstdc++-10-doc make-doc ed
   diffutils-doc perl-doc libterm-readline-gnu-perl
-  | libterm-readline-perl-perl libtap-harness-archive-perl readline-doc
+  | libterm-readline-perl-perl libtap-harness-archive-perl
 Recommended packages:
-  epiphany-extensions fakeroot gnupg libalgorithm-merge-perl less ssh-client
-  manpages manpages-dev libc-devtools libfile-fcntllock-perl
-  liblocale-gettext-perl libglib2.0-data shared-mime-info xdg-user-dirs
-  libldap-common publicsuffix libsasl2-modules pcscd netbase
+  fakeroot gnupg libalgorithm-merge-perl less ssh-client manpages manpages-dev
+  libc-devtools libfile-fcntllock-perl liblocale-gettext-perl libldap-common
+  publicsuffix libsasl2-modules netbase
 The following NEW packages will be installed:
   binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils
-  bsdmainutils build-essential bzip2 ca-certificates coolkey cpp cpp-10
-  dos2unix dpkg-dev g++ g++-10 gcc gcc-10 git git-man libasan6 libatomic1
-  libbinutils libbrotli1 libc-dev-bin libc6-dev libcc1-0 libckyapplet1
-  libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls libdpkg-perl libefivar1
-  liberror-perl libexpat1 libgcc-10-dev libgdbm-compat4 libgdbm6 libglib2.0-0
-  libgomp1 libisl23 libitm1 libldap-2.4-2 liblsan0 libmpc3 libmpfr6
-  libnghttp2-14 libnsl-dev libnspr4 libnss3 libnss3-tools libpcsclite1
-  libperl5.32 libpopt0 libpsl5 libquadmath0 libreadline8 librtmp1 libsasl2-2
-  libsasl2-modules-db libsqlite3-0 libssh2-1 libstdc++-10-dev libtirpc-dev
-  libtsan0 libubsan1 linux-libc-dev make ncal opensc opensc-pkcs11 openssl
-  patch perl perl-modules-5.32 pesign readline-common wget xz-utils
-0 upgraded, 79 newly installed, 0 to remove and 0 not upgraded.
-Need to get 86.9 MB of archives.
-After this operation, 346 MB of additional disk space will be used.
-Get:1 http://deb.debian.org/debian bullseye/main amd64 perl-modules-5.32 all 5.32.1-4+deb11u2 [2823 kB]
-Get:2 http://security.debian.org/debian-security bullseye-security/main amd64 openssl amd64 1.1.1n-0+deb11u2 [852 kB]
+  bsdmainutils build-essential bzip2 ca-certificates cpp cpp-10 dos2unix
+  dpkg-dev g++ g++-10 gcc gcc-10 git git-man libasan6 libatomic1 libbinutils
+  libbrotli1 libc-dev-bin libc6-dev libcc1-0 libcrypt-dev libctf-nobfd0
+  libctf0 libcurl3-gnutls libdpkg-perl liberror-perl libexpat1 libgcc-10-dev
+  libgdbm-compat4 libgdbm6 libgomp1 libisl23 libitm1 libldap-2.4-2 liblsan0
+  libmpc3 libmpfr6 libnghttp2-14 libnsl-dev libperl5.32 libpsl5 libquadmath0
+  librtmp1 libsasl2-2 libsasl2-modules-db libssh2-1 libstdc++-10-dev
+  libtirpc-dev libtsan0 libubsan1 linux-libc-dev make ncal openssl patch perl
+  perl-modules-5.32 wget xz-utils
+0 upgraded, 64 newly installed, 0 to remove and 1 not upgraded.
+Need to get 80.4 MB of archives.
+After this operation, 324 MB of additional disk space will be used.
+Get:1 http://security.debian.org/debian-security bullseye-security/main amd64 openssl amd64 1.1.1n-0+deb11u3 [853 kB]
+Get:2 http://deb.debian.org/debian bullseye/main amd64 perl-modules-5.32 all 5.32.1-4+deb11u2 [2823 kB]
 Get:3 http://security.debian.org/debian-security bullseye-security/main amd64 xz-utils amd64 5.2.5-2.1~deb11u1 [220 kB]
-Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 linux-libc-dev amd64 5.10.113-1 [1488 kB]
-Get:5 http://deb.debian.org/debian bullseye/main amd64 libgdbm6 amd64 1.19-2 [64.9 kB]
-Get:6 http://security.debian.org/debian-security bullseye-security/main amd64 libdpkg-perl all 1.20.10 [1545 kB]
+Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 linux-libc-dev amd64 5.10.120-1 [1498 kB]
+Get:5 http://security.debian.org/debian-security bullseye-security/main amd64 libdpkg-perl all 1.20.10 [1545 kB]
+Get:6 http://deb.debian.org/debian bullseye/main amd64 libgdbm6 amd64 1.19-2 [64.9 kB]
 Get:7 http://deb.debian.org/debian bullseye/main amd64 libgdbm-compat4 amd64 1.19-2 [44.7 kB]
 Get:8 http://deb.debian.org/debian bullseye/main amd64 libperl5.32 amd64 5.32.1-4+deb11u2 [4106 kB]
 Get:9 http://security.debian.org/debian-security bullseye-security/main amd64 dpkg-dev all 1.20.10 [2306 kB]
 Get:10 http://deb.debian.org/debian bullseye/main amd64 perl amd64 5.32.1-4+deb11u2 [293 kB]
 Get:11 http://deb.debian.org/debian bullseye/main amd64 bsdextrautils amd64 2.36.1-8+deb11u1 [145 kB]
-Get:12 http://deb.debian.org/debian bullseye/main amd64 readline-common all 8.1-1 [73.7 kB]
-Get:13 http://deb.debian.org/debian bullseye/main amd64 libreadline8 amd64 8.1-1 [169 kB]
-Get:14 http://deb.debian.org/debian bullseye/main amd64 bzip2 amd64 1.0.8-4 [49.3 kB]
-Get:15 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
-Get:16 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
-Get:17 http://deb.debian.org/debian bullseye/main amd64 wget amd64 1.21-1+deb11u1 [964 kB]
-Get:18 http://deb.debian.org/debian bullseye/main amd64 binutils-common amd64 2.35.2-2 [2220 kB]
-Get:19 http://security.debian.org/debian-security bullseye-security/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3+deb11u1 [232 kB]
-Get:20 http://deb.debian.org/debian bullseye/main amd64 libbinutils amd64 2.35.2-2 [570 kB]
-Get:21 http://deb.debian.org/debian bullseye/main amd64 libctf-nobfd0 amd64 2.35.2-2 [110 kB]
-Get:22 http://deb.debian.org/debian bullseye/main amd64 libctf0 amd64 2.35.2-2 [53.2 kB]
-Get:23 http://deb.debian.org/debian bullseye/main amd64 binutils-x86-64-linux-gnu amd64 2.35.2-2 [1809 kB]
-Get:24 http://deb.debian.org/debian bullseye/main amd64 binutils amd64 2.35.2-2 [61.2 kB]
-Get:25 http://deb.debian.org/debian bullseye/main amd64 ncal amd64 12.1.7+nmu3 [30.1 kB]
-Get:26 http://deb.debian.org/debian bullseye/main amd64 bsdmainutils all 12.1.7+nmu3 [16.4 kB]
-Get:27 http://deb.debian.org/debian bullseye/main amd64 libc-dev-bin amd64 2.31-13+deb11u3 [275 kB]
-Get:28 http://deb.debian.org/debian bullseye/main amd64 libcrypt-dev amd64 1:4.4.18-4 [104 kB]
-Get:29 http://deb.debian.org/debian bullseye/main amd64 libtirpc-dev amd64 1.3.1-1 [190 kB]
-Get:30 http://deb.debian.org/debian bullseye/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
-Get:31 http://deb.debian.org/debian bullseye/main amd64 libc6-dev amd64 2.31-13+deb11u3 [2348 kB]
-Get:32 http://deb.debian.org/debian bullseye/main amd64 libisl23 amd64 0.23-1 [676 kB]
-Get:33 http://deb.debian.org/debian bullseye/main amd64 libmpfr6 amd64 4.1.0-3 [2012 kB]
-Get:34 http://deb.debian.org/debian bullseye/main amd64 libmpc3 amd64 1.2.0-1 [45.0 kB]
-Get:35 http://deb.debian.org/debian bullseye/main amd64 cpp-10 amd64 10.2.1-6 [8528 kB]
-Get:36 http://deb.debian.org/debian bullseye/main amd64 cpp amd64 4:10.2.1-1 [19.7 kB]
-Get:37 http://deb.debian.org/debian bullseye/main amd64 libcc1-0 amd64 10.2.1-6 [47.0 kB]
-Get:38 http://deb.debian.org/debian bullseye/main amd64 libgomp1 amd64 10.2.1-6 [99.9 kB]
-Get:39 http://deb.debian.org/debian bullseye/main amd64 libitm1 amd64 10.2.1-6 [25.8 kB]
-Get:40 http://deb.debian.org/debian bullseye/main amd64 libatomic1 amd64 10.2.1-6 [9008 B]
-Get:41 http://deb.debian.org/debian bullseye/main amd64 libasan6 amd64 10.2.1-6 [2065 kB]
-Get:42 http://deb.debian.org/debian bullseye/main amd64 liblsan0 amd64 10.2.1-6 [828 kB]
-Get:43 http://deb.debian.org/debian bullseye/main amd64 libtsan0 amd64 10.2.1-6 [2000 kB]
-Get:44 http://deb.debian.org/debian bullseye/main amd64 libubsan1 amd64 10.2.1-6 [777 kB]
-Get:45 http://deb.debian.org/debian bullseye/main amd64 libquadmath0 amd64 10.2.1-6 [145 kB]
-Get:46 http://deb.debian.org/debian bullseye/main amd64 libgcc-10-dev amd64 10.2.1-6 [2328 kB]
-Get:47 http://deb.debian.org/debian bullseye/main amd64 gcc-10 amd64 10.2.1-6 [17.0 MB]
-Get:48 http://deb.debian.org/debian bullseye/main amd64 gcc amd64 4:10.2.1-1 [5192 B]
-Get:49 http://deb.debian.org/debian bullseye/main amd64 libstdc++-10-dev amd64 10.2.1-6 [1741 kB]
-Get:50 http://deb.debian.org/debian bullseye/main amd64 g++-10 amd64 10.2.1-6 [9380 kB]
-Get:51 http://deb.debian.org/debian bullseye/main amd64 g++ amd64 4:10.2.1-1 [1644 B]
-Get:52 http://deb.debian.org/debian bullseye/main amd64 make amd64 4.3-4.1 [396 kB]
-Get:53 http://deb.debian.org/debian bullseye/main amd64 patch amd64 2.7.6-7 [128 kB]
-Get:54 http://deb.debian.org/debian bullseye/main amd64 build-essential amd64 12.9 [7704 B]
-Get:55 http://deb.debian.org/debian bullseye/main amd64 libckyapplet1 amd64 1.1.0-16 [24.5 kB]
-Get:56 http://deb.debian.org/debian bullseye/main amd64 libpcsclite1 amd64 1.9.1-1 [60.2 kB]
-Get:57 http://deb.debian.org/debian bullseye/main amd64 coolkey amd64 1.1.0-16 [90.5 kB]
-Get:58 http://deb.debian.org/debian bullseye/main amd64 dos2unix amd64 7.4.1-1 [392 kB]
-Get:59 http://deb.debian.org/debian bullseye/main amd64 libbrotli1 amd64 1.0.9-2+b2 [279 kB]
-Get:60 http://deb.debian.org/debian bullseye/main amd64 libsasl2-modules-db amd64 2.1.27+dfsg-2.1+deb11u1 [69.1 kB]
-Get:61 http://deb.debian.org/debian bullseye/main amd64 libsasl2-2 amd64 2.1.27+dfsg-2.1+deb11u1 [106 kB]
-Get:62 http://deb.debian.org/debian bullseye/main amd64 libnghttp2-14 amd64 1.43.0-1 [77.1 kB]
-Get:63 http://deb.debian.org/debian bullseye/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
-Get:64 http://deb.debian.org/debian bullseye/main amd64 libssh2-1 amd64 1.9.0-2 [156 kB]
-Get:65 http://deb.debian.org/debian bullseye/main amd64 libcurl3-gnutls amd64 7.74.0-1.3+deb11u1 [338 kB]
-Get:66 http://deb.debian.org/debian bullseye/main amd64 libexpat1 amd64 2.2.10-2+deb11u3 [98.5 kB]
-Get:67 http://deb.debian.org/debian bullseye/main amd64 liberror-perl all 0.17029-1 [31.0 kB]
-Get:68 http://deb.debian.org/debian bullseye/main amd64 git-man all 1:2.30.2-1 [1827 kB]
-Get:69 http://deb.debian.org/debian bullseye/main amd64 git amd64 1:2.30.2-1 [5527 kB]
-Get:70 http://deb.debian.org/debian bullseye/main amd64 libefivar1 amd64 37-6 [50.0 kB]
-Get:71 http://deb.debian.org/debian bullseye/main amd64 libglib2.0-0 amd64 2.66.8-1 [1370 kB]
-Get:72 http://deb.debian.org/debian bullseye/main amd64 libnspr4 amd64 2:4.29-1 [112 kB]
-Get:73 http://deb.debian.org/debian bullseye/main amd64 libsqlite3-0 amd64 3.34.1-3 [797 kB]
-Get:74 http://deb.debian.org/debian bullseye/main amd64 libnss3 amd64 2:3.61-1+deb11u2 [1306 kB]
-Get:75 http://deb.debian.org/debian bullseye/main amd64 libnss3-tools amd64 2:3.61-1+deb11u2 [1027 kB]
-Get:76 http://deb.debian.org/debian bullseye/main amd64 libpopt0 amd64 1.18-2 [49.6 kB]
-Get:77 http://deb.debian.org/debian bullseye/main amd64 opensc-pkcs11 amd64 0.21.0-1 [880 kB]
-Get:78 http://deb.debian.org/debian bullseye/main amd64 opensc amd64 0.21.0-1 [367 kB]
-Get:79 http://deb.debian.org/debian bullseye/main amd64 pesign amd64 0.112-6 [94.0 kB]
+Get:12 http://security.debian.org/debian-security bullseye-security/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3+deb11u1 [232 kB]
+Get:13 http://deb.debian.org/debian bullseye/main amd64 bzip2 amd64 1.0.8-4 [49.3 kB]
+Get:14 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
+Get:15 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
+Get:16 http://deb.debian.org/debian bullseye/main amd64 wget amd64 1.21-1+deb11u1 [964 kB]
+Get:17 http://deb.debian.org/debian bullseye/main amd64 binutils-common amd64 2.35.2-2 [2220 kB]
+Get:18 http://deb.debian.org/debian bullseye/main amd64 libbinutils amd64 2.35.2-2 [570 kB]
+Get:19 http://deb.debian.org/debian bullseye/main amd64 libctf-nobfd0 amd64 2.35.2-2 [110 kB]
+Get:20 http://deb.debian.org/debian bullseye/main amd64 libctf0 amd64 2.35.2-2 [53.2 kB]
+Get:21 http://deb.debian.org/debian bullseye/main amd64 binutils-x86-64-linux-gnu amd64 2.35.2-2 [1809 kB]
+Get:22 http://deb.debian.org/debian bullseye/main amd64 binutils amd64 2.35.2-2 [61.2 kB]
+Get:23 http://deb.debian.org/debian bullseye/main amd64 ncal amd64 12.1.7+nmu3 [30.1 kB]
+Get:24 http://deb.debian.org/debian bullseye/main amd64 bsdmainutils all 12.1.7+nmu3 [16.4 kB]
+Get:25 http://deb.debian.org/debian bullseye/main amd64 libc-dev-bin amd64 2.31-13+deb11u3 [275 kB]
+Get:26 http://deb.debian.org/debian bullseye/main amd64 libcrypt-dev amd64 1:4.4.18-4 [104 kB]
+Get:27 http://deb.debian.org/debian bullseye/main amd64 libtirpc-dev amd64 1.3.1-1 [190 kB]
+Get:28 http://deb.debian.org/debian bullseye/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+Get:29 http://deb.debian.org/debian bullseye/main amd64 libc6-dev amd64 2.31-13+deb11u3 [2348 kB]
+Get:30 http://deb.debian.org/debian bullseye/main amd64 libisl23 amd64 0.23-1 [676 kB]
+Get:31 http://deb.debian.org/debian bullseye/main amd64 libmpfr6 amd64 4.1.0-3 [2012 kB]
+Get:32 http://deb.debian.org/debian bullseye/main amd64 libmpc3 amd64 1.2.0-1 [45.0 kB]
+Get:33 http://deb.debian.org/debian bullseye/main amd64 cpp-10 amd64 10.2.1-6 [8528 kB]
+Get:34 http://deb.debian.org/debian bullseye/main amd64 cpp amd64 4:10.2.1-1 [19.7 kB]
+Get:35 http://deb.debian.org/debian bullseye/main amd64 libcc1-0 amd64 10.2.1-6 [47.0 kB]
+Get:36 http://deb.debian.org/debian bullseye/main amd64 libgomp1 amd64 10.2.1-6 [99.9 kB]
+Get:37 http://deb.debian.org/debian bullseye/main amd64 libitm1 amd64 10.2.1-6 [25.8 kB]
+Get:38 http://deb.debian.org/debian bullseye/main amd64 libatomic1 amd64 10.2.1-6 [9008 B]
+Get:39 http://deb.debian.org/debian bullseye/main amd64 libasan6 amd64 10.2.1-6 [2065 kB]
+Get:40 http://deb.debian.org/debian bullseye/main amd64 liblsan0 amd64 10.2.1-6 [828 kB]
+Get:41 http://deb.debian.org/debian bullseye/main amd64 libtsan0 amd64 10.2.1-6 [2000 kB]
+Get:42 http://deb.debian.org/debian bullseye/main amd64 libubsan1 amd64 10.2.1-6 [777 kB]
+Get:43 http://deb.debian.org/debian bullseye/main amd64 libquadmath0 amd64 10.2.1-6 [145 kB]
+Get:44 http://deb.debian.org/debian bullseye/main amd64 libgcc-10-dev amd64 10.2.1-6 [2328 kB]
+Get:45 http://deb.debian.org/debian bullseye/main amd64 gcc-10 amd64 10.2.1-6 [17.0 MB]
+Get:46 http://deb.debian.org/debian bullseye/main amd64 gcc amd64 4:10.2.1-1 [5192 B]
+Get:47 http://deb.debian.org/debian bullseye/main amd64 libstdc++-10-dev amd64 10.2.1-6 [1741 kB]
+Get:48 http://deb.debian.org/debian bullseye/main amd64 g++-10 amd64 10.2.1-6 [9380 kB]
+Get:49 http://deb.debian.org/debian bullseye/main amd64 g++ amd64 4:10.2.1-1 [1644 B]
+Get:50 http://deb.debian.org/debian bullseye/main amd64 make amd64 4.3-4.1 [396 kB]
+Get:51 http://deb.debian.org/debian bullseye/main amd64 patch amd64 2.7.6-7 [128 kB]
+Get:52 http://deb.debian.org/debian bullseye/main amd64 build-essential amd64 12.9 [7704 B]
+Get:53 http://deb.debian.org/debian bullseye/main amd64 dos2unix amd64 7.4.1-1 [392 kB]
+Get:54 http://deb.debian.org/debian bullseye/main amd64 libbrotli1 amd64 1.0.9-2+b2 [279 kB]
+Get:55 http://deb.debian.org/debian bullseye/main amd64 libsasl2-modules-db amd64 2.1.27+dfsg-2.1+deb11u1 [69.1 kB]
+Get:56 http://deb.debian.org/debian bullseye/main amd64 libsasl2-2 amd64 2.1.27+dfsg-2.1+deb11u1 [106 kB]
+Get:57 http://deb.debian.org/debian bullseye/main amd64 libnghttp2-14 amd64 1.43.0-1 [77.1 kB]
+Get:58 http://deb.debian.org/debian bullseye/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+Get:59 http://deb.debian.org/debian bullseye/main amd64 libssh2-1 amd64 1.9.0-2 [156 kB]
+Get:60 http://deb.debian.org/debian bullseye/main amd64 libcurl3-gnutls amd64 7.74.0-1.3+deb11u1 [338 kB]
+Get:61 http://deb.debian.org/debian bullseye/main amd64 libexpat1 amd64 2.2.10-2+deb11u3 [98.5 kB]
+Get:62 http://deb.debian.org/debian bullseye/main amd64 liberror-perl all 0.17029-1 [31.0 kB]
+Get:63 http://deb.debian.org/debian bullseye/main amd64 git-man all 1:2.30.2-1 [1827 kB]
+Get:64 http://deb.debian.org/debian bullseye/main amd64 git amd64 1:2.30.2-1 [5527 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 86.9 MB in 7s (12.6 MB/s)
+Fetched 80.4 MB in 6s (12.6 MB/s)
 Selecting previously unselected package perl-modules-5.32.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6662 files and directories currently installed.)
 Preparing to unpack .../00-perl-modules-5.32_5.32.1-4+deb11u2_all.deb ...
@@ -162,250 +141,199 @@ Unpacking perl (5.32.1-4+deb11u2) ...
 Selecting previously unselected package bsdextrautils.
 Preparing to unpack .../05-bsdextrautils_2.36.1-8+deb11u1_amd64.deb ...
 Unpacking bsdextrautils (2.36.1-8+deb11u1) ...
-Selecting previously unselected package readline-common.
-Preparing to unpack .../06-readline-common_8.1-1_all.deb ...
-Unpacking readline-common (8.1-1) ...
-Selecting previously unselected package libreadline8:amd64.
-Preparing to unpack .../07-libreadline8_8.1-1_amd64.deb ...
-Unpacking libreadline8:amd64 (8.1-1) ...
 Selecting previously unselected package bzip2.
-Preparing to unpack .../08-bzip2_1.0.8-4_amd64.deb ...
+Preparing to unpack .../06-bzip2_1.0.8-4_amd64.deb ...
 Unpacking bzip2 (1.0.8-4) ...
 Selecting previously unselected package openssl.
-Preparing to unpack .../09-openssl_1.1.1n-0+deb11u2_amd64.deb ...
-Unpacking openssl (1.1.1n-0+deb11u2) ...
+Preparing to unpack .../07-openssl_1.1.1n-0+deb11u3_amd64.deb ...
+Unpacking openssl (1.1.1n-0+deb11u3) ...
 Selecting previously unselected package ca-certificates.
-Preparing to unpack .../10-ca-certificates_20210119_all.deb ...
+Preparing to unpack .../08-ca-certificates_20210119_all.deb ...
 Unpacking ca-certificates (20210119) ...
 Selecting previously unselected package libpsl5:amd64.
-Preparing to unpack .../11-libpsl5_0.21.0-1.2_amd64.deb ...
+Preparing to unpack .../09-libpsl5_0.21.0-1.2_amd64.deb ...
 Unpacking libpsl5:amd64 (0.21.0-1.2) ...
 Selecting previously unselected package wget.
-Preparing to unpack .../12-wget_1.21-1+deb11u1_amd64.deb ...
+Preparing to unpack .../10-wget_1.21-1+deb11u1_amd64.deb ...
 Unpacking wget (1.21-1+deb11u1) ...
 Selecting previously unselected package xz-utils.
-Preparing to unpack .../13-xz-utils_5.2.5-2.1~deb11u1_amd64.deb ...
+Preparing to unpack .../11-xz-utils_5.2.5-2.1~deb11u1_amd64.deb ...
 Unpacking xz-utils (5.2.5-2.1~deb11u1) ...
 Selecting previously unselected package binutils-common:amd64.
-Preparing to unpack .../14-binutils-common_2.35.2-2_amd64.deb ...
+Preparing to unpack .../12-binutils-common_2.35.2-2_amd64.deb ...
 Unpacking binutils-common:amd64 (2.35.2-2) ...
 Selecting previously unselected package libbinutils:amd64.
-Preparing to unpack .../15-libbinutils_2.35.2-2_amd64.deb ...
+Preparing to unpack .../13-libbinutils_2.35.2-2_amd64.deb ...
 Unpacking libbinutils:amd64 (2.35.2-2) ...
 Selecting previously unselected package libctf-nobfd0:amd64.
-Preparing to unpack .../16-libctf-nobfd0_2.35.2-2_amd64.deb ...
+Preparing to unpack .../14-libctf-nobfd0_2.35.2-2_amd64.deb ...
 Unpacking libctf-nobfd0:amd64 (2.35.2-2) ...
 Selecting previously unselected package libctf0:amd64.
-Preparing to unpack .../17-libctf0_2.35.2-2_amd64.deb ...
+Preparing to unpack .../15-libctf0_2.35.2-2_amd64.deb ...
 Unpacking libctf0:amd64 (2.35.2-2) ...
 Selecting previously unselected package binutils-x86-64-linux-gnu.
-Preparing to unpack .../18-binutils-x86-64-linux-gnu_2.35.2-2_amd64.deb ...
+Preparing to unpack .../16-binutils-x86-64-linux-gnu_2.35.2-2_amd64.deb ...
 Unpacking binutils-x86-64-linux-gnu (2.35.2-2) ...
 Selecting previously unselected package binutils.
-Preparing to unpack .../19-binutils_2.35.2-2_amd64.deb ...
+Preparing to unpack .../17-binutils_2.35.2-2_amd64.deb ...
 Unpacking binutils (2.35.2-2) ...
 Selecting previously unselected package ncal.
-Preparing to unpack .../20-ncal_12.1.7+nmu3_amd64.deb ...
+Preparing to unpack .../18-ncal_12.1.7+nmu3_amd64.deb ...
 Unpacking ncal (12.1.7+nmu3) ...
 Selecting previously unselected package bsdmainutils.
-Preparing to unpack .../21-bsdmainutils_12.1.7+nmu3_all.deb ...
+Preparing to unpack .../19-bsdmainutils_12.1.7+nmu3_all.deb ...
 Unpacking bsdmainutils (12.1.7+nmu3) ...
 Selecting previously unselected package libc-dev-bin.
-Preparing to unpack .../22-libc-dev-bin_2.31-13+deb11u3_amd64.deb ...
+Preparing to unpack .../20-libc-dev-bin_2.31-13+deb11u3_amd64.deb ...
 Unpacking libc-dev-bin (2.31-13+deb11u3) ...
 Selecting previously unselected package linux-libc-dev:amd64.
-Preparing to unpack .../23-linux-libc-dev_5.10.113-1_amd64.deb ...
-Unpacking linux-libc-dev:amd64 (5.10.113-1) ...
+Preparing to unpack .../21-linux-libc-dev_5.10.120-1_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (5.10.120-1) ...
 Selecting previously unselected package libcrypt-dev:amd64.
-Preparing to unpack .../24-libcrypt-dev_1%3a4.4.18-4_amd64.deb ...
+Preparing to unpack .../22-libcrypt-dev_1%3a4.4.18-4_amd64.deb ...
 Unpacking libcrypt-dev:amd64 (1:4.4.18-4) ...
 Selecting previously unselected package libtirpc-dev:amd64.
-Preparing to unpack .../25-libtirpc-dev_1.3.1-1_amd64.deb ...
+Preparing to unpack .../23-libtirpc-dev_1.3.1-1_amd64.deb ...
 Unpacking libtirpc-dev:amd64 (1.3.1-1) ...
 Selecting previously unselected package libnsl-dev:amd64.
-Preparing to unpack .../26-libnsl-dev_1.3.0-2_amd64.deb ...
+Preparing to unpack .../24-libnsl-dev_1.3.0-2_amd64.deb ...
 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
 Selecting previously unselected package libc6-dev:amd64.
-Preparing to unpack .../27-libc6-dev_2.31-13+deb11u3_amd64.deb ...
+Preparing to unpack .../25-libc6-dev_2.31-13+deb11u3_amd64.deb ...
 Unpacking libc6-dev:amd64 (2.31-13+deb11u3) ...
 Selecting previously unselected package libisl23:amd64.
-Preparing to unpack .../28-libisl23_0.23-1_amd64.deb ...
+Preparing to unpack .../26-libisl23_0.23-1_amd64.deb ...
 Unpacking libisl23:amd64 (0.23-1) ...
 Selecting previously unselected package libmpfr6:amd64.
-Preparing to unpack .../29-libmpfr6_4.1.0-3_amd64.deb ...
+Preparing to unpack .../27-libmpfr6_4.1.0-3_amd64.deb ...
 Unpacking libmpfr6:amd64 (4.1.0-3) ...
 Selecting previously unselected package libmpc3:amd64.
-Preparing to unpack .../30-libmpc3_1.2.0-1_amd64.deb ...
+Preparing to unpack .../28-libmpc3_1.2.0-1_amd64.deb ...
 Unpacking libmpc3:amd64 (1.2.0-1) ...
 Selecting previously unselected package cpp-10.
-Preparing to unpack .../31-cpp-10_10.2.1-6_amd64.deb ...
+Preparing to unpack .../29-cpp-10_10.2.1-6_amd64.deb ...
 Unpacking cpp-10 (10.2.1-6) ...
 Selecting previously unselected package cpp.
-Preparing to unpack .../32-cpp_4%3a10.2.1-1_amd64.deb ...
+Preparing to unpack .../30-cpp_4%3a10.2.1-1_amd64.deb ...
 Unpacking cpp (4:10.2.1-1) ...
 Selecting previously unselected package libcc1-0:amd64.
-Preparing to unpack .../33-libcc1-0_10.2.1-6_amd64.deb ...
+Preparing to unpack .../31-libcc1-0_10.2.1-6_amd64.deb ...
 Unpacking libcc1-0:amd64 (10.2.1-6) ...
 Selecting previously unselected package libgomp1:amd64.
-Preparing to unpack .../34-libgomp1_10.2.1-6_amd64.deb ...
+Preparing to unpack .../32-libgomp1_10.2.1-6_amd64.deb ...
 Unpacking libgomp1:amd64 (10.2.1-6) ...
 Selecting previously unselected package libitm1:amd64.
-Preparing to unpack .../35-libitm1_10.2.1-6_amd64.deb ...
+Preparing to unpack .../33-libitm1_10.2.1-6_amd64.deb ...
 Unpacking libitm1:amd64 (10.2.1-6) ...
 Selecting previously unselected package libatomic1:amd64.
-Preparing to unpack .../36-libatomic1_10.2.1-6_amd64.deb ...
+Preparing to unpack .../34-libatomic1_10.2.1-6_amd64.deb ...
 Unpacking libatomic1:amd64 (10.2.1-6) ...
 Selecting previously unselected package libasan6:amd64.
-Preparing to unpack .../37-libasan6_10.2.1-6_amd64.deb ...
+Preparing to unpack .../35-libasan6_10.2.1-6_amd64.deb ...
 Unpacking libasan6:amd64 (10.2.1-6) ...
 Selecting previously unselected package liblsan0:amd64.
-Preparing to unpack .../38-liblsan0_10.2.1-6_amd64.deb ...
+Preparing to unpack .../36-liblsan0_10.2.1-6_amd64.deb ...
 Unpacking liblsan0:amd64 (10.2.1-6) ...
 Selecting previously unselected package libtsan0:amd64.
-Preparing to unpack .../39-libtsan0_10.2.1-6_amd64.deb ...
+Preparing to unpack .../37-libtsan0_10.2.1-6_amd64.deb ...
 Unpacking libtsan0:amd64 (10.2.1-6) ...
 Selecting previously unselected package libubsan1:amd64.
-Preparing to unpack .../40-libubsan1_10.2.1-6_amd64.deb ...
+Preparing to unpack .../38-libubsan1_10.2.1-6_amd64.deb ...
 Unpacking libubsan1:amd64 (10.2.1-6) ...
 Selecting previously unselected package libquadmath0:amd64.
-Preparing to unpack .../41-libquadmath0_10.2.1-6_amd64.deb ...
+Preparing to unpack .../39-libquadmath0_10.2.1-6_amd64.deb ...
 Unpacking libquadmath0:amd64 (10.2.1-6) ...
 Selecting previously unselected package libgcc-10-dev:amd64.
-Preparing to unpack .../42-libgcc-10-dev_10.2.1-6_amd64.deb ...
+Preparing to unpack .../40-libgcc-10-dev_10.2.1-6_amd64.deb ...
 Unpacking libgcc-10-dev:amd64 (10.2.1-6) ...
 Selecting previously unselected package gcc-10.
-Preparing to unpack .../43-gcc-10_10.2.1-6_amd64.deb ...
+Preparing to unpack .../41-gcc-10_10.2.1-6_amd64.deb ...
 Unpacking gcc-10 (10.2.1-6) ...
 Selecting previously unselected package gcc.
-Preparing to unpack .../44-gcc_4%3a10.2.1-1_amd64.deb ...
+Preparing to unpack .../42-gcc_4%3a10.2.1-1_amd64.deb ...
 Unpacking gcc (4:10.2.1-1) ...
 Selecting previously unselected package libstdc++-10-dev:amd64.
-Preparing to unpack .../45-libstdc++-10-dev_10.2.1-6_amd64.deb ...
+Preparing to unpack .../43-libstdc++-10-dev_10.2.1-6_amd64.deb ...
 Unpacking libstdc++-10-dev:amd64 (10.2.1-6) ...
 Selecting previously unselected package g++-10.
-Preparing to unpack .../46-g++-10_10.2.1-6_amd64.deb ...
+Preparing to unpack .../44-g++-10_10.2.1-6_amd64.deb ...
 Unpacking g++-10 (10.2.1-6) ...
 Selecting previously unselected package g++.
-Preparing to unpack .../47-g++_4%3a10.2.1-1_amd64.deb ...
+Preparing to unpack .../45-g++_4%3a10.2.1-1_amd64.deb ...
 Unpacking g++ (4:10.2.1-1) ...
 Selecting previously unselected package make.
-Preparing to unpack .../48-make_4.3-4.1_amd64.deb ...
+Preparing to unpack .../46-make_4.3-4.1_amd64.deb ...
 Unpacking make (4.3-4.1) ...
 Selecting previously unselected package libdpkg-perl.
-Preparing to unpack .../49-libdpkg-perl_1.20.10_all.deb ...
+Preparing to unpack .../47-libdpkg-perl_1.20.10_all.deb ...
 Unpacking libdpkg-perl (1.20.10) ...
 Selecting previously unselected package patch.
-Preparing to unpack .../50-patch_2.7.6-7_amd64.deb ...
+Preparing to unpack .../48-patch_2.7.6-7_amd64.deb ...
 Unpacking patch (2.7.6-7) ...
 Selecting previously unselected package dpkg-dev.
-Preparing to unpack .../51-dpkg-dev_1.20.10_all.deb ...
+Preparing to unpack .../49-dpkg-dev_1.20.10_all.deb ...
 Unpacking dpkg-dev (1.20.10) ...
 Selecting previously unselected package build-essential.
-Preparing to unpack .../52-build-essential_12.9_amd64.deb ...
+Preparing to unpack .../50-build-essential_12.9_amd64.deb ...
 Unpacking build-essential (12.9) ...
-Selecting previously unselected package libckyapplet1.
-Preparing to unpack .../53-libckyapplet1_1.1.0-16_amd64.deb ...
-Unpacking libckyapplet1 (1.1.0-16) ...
-Selecting previously unselected package libpcsclite1:amd64.
-Preparing to unpack .../54-libpcsclite1_1.9.1-1_amd64.deb ...
-Unpacking libpcsclite1:amd64 (1.9.1-1) ...
-Selecting previously unselected package coolkey.
-Preparing to unpack .../55-coolkey_1.1.0-16_amd64.deb ...
-Unpacking coolkey (1.1.0-16) ...
 Selecting previously unselected package dos2unix.
-Preparing to unpack .../56-dos2unix_7.4.1-1_amd64.deb ...
+Preparing to unpack .../51-dos2unix_7.4.1-1_amd64.deb ...
 Unpacking dos2unix (7.4.1-1) ...
 Selecting previously unselected package libbrotli1:amd64.
-Preparing to unpack .../57-libbrotli1_1.0.9-2+b2_amd64.deb ...
+Preparing to unpack .../52-libbrotli1_1.0.9-2+b2_amd64.deb ...
 Unpacking libbrotli1:amd64 (1.0.9-2+b2) ...
 Selecting previously unselected package libsasl2-modules-db:amd64.
-Preparing to unpack .../58-libsasl2-modules-db_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
+Preparing to unpack .../53-libsasl2-modules-db_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
 Unpacking libsasl2-modules-db:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
 Selecting previously unselected package libsasl2-2:amd64.
-Preparing to unpack .../59-libsasl2-2_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
+Preparing to unpack .../54-libsasl2-2_2.1.27+dfsg-2.1+deb11u1_amd64.deb ...
 Unpacking libsasl2-2:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
 Selecting previously unselected package libldap-2.4-2:amd64.
-Preparing to unpack .../60-libldap-2.4-2_2.4.57+dfsg-3+deb11u1_amd64.deb ...
+Preparing to unpack .../55-libldap-2.4-2_2.4.57+dfsg-3+deb11u1_amd64.deb ...
 Unpacking libldap-2.4-2:amd64 (2.4.57+dfsg-3+deb11u1) ...
 Selecting previously unselected package libnghttp2-14:amd64.
-Preparing to unpack .../61-libnghttp2-14_1.43.0-1_amd64.deb ...
+Preparing to unpack .../56-libnghttp2-14_1.43.0-1_amd64.deb ...
 Unpacking libnghttp2-14:amd64 (1.43.0-1) ...
 Selecting previously unselected package librtmp1:amd64.
-Preparing to unpack .../62-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+Preparing to unpack .../57-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
 Selecting previously unselected package libssh2-1:amd64.
-Preparing to unpack .../63-libssh2-1_1.9.0-2_amd64.deb ...
+Preparing to unpack .../58-libssh2-1_1.9.0-2_amd64.deb ...
 Unpacking libssh2-1:amd64 (1.9.0-2) ...
 Selecting previously unselected package libcurl3-gnutls:amd64.
-Preparing to unpack .../64-libcurl3-gnutls_7.74.0-1.3+deb11u1_amd64.deb ...
+Preparing to unpack .../59-libcurl3-gnutls_7.74.0-1.3+deb11u1_amd64.deb ...
 Unpacking libcurl3-gnutls:amd64 (7.74.0-1.3+deb11u1) ...
 Selecting previously unselected package libexpat1:amd64.
-Preparing to unpack .../65-libexpat1_2.2.10-2+deb11u3_amd64.deb ...
+Preparing to unpack .../60-libexpat1_2.2.10-2+deb11u3_amd64.deb ...
 Unpacking libexpat1:amd64 (2.2.10-2+deb11u3) ...
 Selecting previously unselected package liberror-perl.
-Preparing to unpack .../66-liberror-perl_0.17029-1_all.deb ...
+Preparing to unpack .../61-liberror-perl_0.17029-1_all.deb ...
 Unpacking liberror-perl (0.17029-1) ...
 Selecting previously unselected package git-man.
-Preparing to unpack .../67-git-man_1%3a2.30.2-1_all.deb ...
+Preparing to unpack .../62-git-man_1%3a2.30.2-1_all.deb ...
 Unpacking git-man (1:2.30.2-1) ...
 Selecting previously unselected package git.
-Preparing to unpack .../68-git_1%3a2.30.2-1_amd64.deb ...
+Preparing to unpack .../63-git_1%3a2.30.2-1_amd64.deb ...
 Unpacking git (1:2.30.2-1) ...
-Selecting previously unselected package libefivar1:amd64.
-Preparing to unpack .../69-libefivar1_37-6_amd64.deb ...
-Unpacking libefivar1:amd64 (37-6) ...
-Selecting previously unselected package libglib2.0-0:amd64.
-Preparing to unpack .../70-libglib2.0-0_2.66.8-1_amd64.deb ...
-Unpacking libglib2.0-0:amd64 (2.66.8-1) ...
-Selecting previously unselected package libnspr4:amd64.
-Preparing to unpack .../71-libnspr4_2%3a4.29-1_amd64.deb ...
-Unpacking libnspr4:amd64 (2:4.29-1) ...
-Selecting previously unselected package libsqlite3-0:amd64.
-Preparing to unpack .../72-libsqlite3-0_3.34.1-3_amd64.deb ...
-Unpacking libsqlite3-0:amd64 (3.34.1-3) ...
-Selecting previously unselected package libnss3:amd64.
-Preparing to unpack .../73-libnss3_2%3a3.61-1+deb11u2_amd64.deb ...
-Unpacking libnss3:amd64 (2:3.61-1+deb11u2) ...
-Selecting previously unselected package libnss3-tools.
-Preparing to unpack .../74-libnss3-tools_2%3a3.61-1+deb11u2_amd64.deb ...
-Unpacking libnss3-tools (2:3.61-1+deb11u2) ...
-Selecting previously unselected package libpopt0:amd64.
-Preparing to unpack .../75-libpopt0_1.18-2_amd64.deb ...
-Unpacking libpopt0:amd64 (1.18-2) ...
-Selecting previously unselected package opensc-pkcs11:amd64.
-Preparing to unpack .../76-opensc-pkcs11_0.21.0-1_amd64.deb ...
-Unpacking opensc-pkcs11:amd64 (0.21.0-1) ...
-Selecting previously unselected package opensc.
-Preparing to unpack .../77-opensc_0.21.0-1_amd64.deb ...
-Unpacking opensc (0.21.0-1) ...
-Selecting previously unselected package pesign.
-Preparing to unpack .../78-pesign_0.112-6_amd64.deb ...
-Unpacking pesign (0.112-6) ...
 Setting up libexpat1:amd64 (2.2.10-2+deb11u3) ...
 Setting up libpsl5:amd64 (0.21.0-1.2) ...
-Setting up libckyapplet1 (1.1.0-16) ...
 Setting up bsdextrautils (2.36.1-8+deb11u1) ...
 update-alternatives: using /usr/bin/write.ul to provide /usr/bin/write (write) in auto mode
 Setting up wget (1.21-1+deb11u1) ...
 Setting up ncal (12.1.7+nmu3) ...
-Setting up libglib2.0-0:amd64 (2.66.8-1) ...
-No schema files found: doing nothing.
 Setting up perl-modules-5.32 (5.32.1-4+deb11u2) ...
 Setting up libbrotli1:amd64 (1.0.9-2+b2) ...
-Setting up libsqlite3-0:amd64 (3.34.1-3) ...
 Setting up binutils-common:amd64 (2.35.2-2) ...
 Setting up libnghttp2-14:amd64 (1.43.0-1) ...
-Setting up linux-libc-dev:amd64 (5.10.113-1) ...
+Setting up linux-libc-dev:amd64 (5.10.120-1) ...
 Setting up libctf-nobfd0:amd64 (2.35.2-2) ...
 Setting up libgomp1:amd64 (10.2.1-6) ...
 Setting up bzip2 (1.0.8-4) ...
 Setting up libasan6:amd64 (10.2.1-6) ...
 Setting up libsasl2-modules-db:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
-Setting up opensc-pkcs11:amd64 (0.21.0-1) ...
 Setting up libtirpc-dev:amd64 (1.3.1-1) ...
 Setting up make (4.3-4.1) ...
 Setting up libmpfr6:amd64 (4.1.0-3) ...
-Setting up libnspr4:amd64 (2:4.29-1) ...
 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
 Setting up xz-utils (5.2.5-2.1~deb11u1) ...
 update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
@@ -414,35 +342,27 @@ Setting up bsdmainutils (12.1.7+nmu3) ...
 Setting up libmpc3:amd64 (1.2.0-1) ...
 Setting up libatomic1:amd64 (10.2.1-6) ...
 Setting up patch (2.7.6-7) ...
-Setting up libpcsclite1:amd64 (1.9.1-1) ...
 Setting up libsasl2-2:amd64 (2.1.27+dfsg-2.1+deb11u1) ...
 Setting up libubsan1:amd64 (10.2.1-6) ...
 Setting up libnsl-dev:amd64 (1.3.0-2) ...
 Setting up libcrypt-dev:amd64 (1:4.4.18-4) ...
-Setting up libefivar1:amd64 (37-6) ...
 Setting up git-man (1:2.30.2-1) ...
 Setting up libssh2-1:amd64 (1.9.0-2) ...
 Setting up dos2unix (7.4.1-1) ...
 Setting up libbinutils:amd64 (2.35.2-2) ...
 Setting up libisl23:amd64 (0.23-1) ...
 Setting up libc-dev-bin (2.31-13+deb11u3) ...
-Setting up openssl (1.1.1n-0+deb11u2) ...
-Setting up readline-common (8.1-1) ...
+Setting up openssl (1.1.1n-0+deb11u3) ...
 Setting up libcc1-0:amd64 (10.2.1-6) ...
 Setting up liblsan0:amd64 (10.2.1-6) ...
 Setting up cpp-10 (10.2.1-6) ...
 Setting up libitm1:amd64 (10.2.1-6) ...
 Setting up libgdbm6:amd64 (1.19-2) ...
-Setting up libpopt0:amd64 (1.18-2) ...
 Setting up libtsan0:amd64 (10.2.1-6) ...
 Setting up libctf0:amd64 (2.35.2-2) ...
 Setting up libgcc-10-dev:amd64 (10.2.1-6) ...
-Setting up libreadline8:amd64 (8.1-1) ...
-Setting up opensc (0.21.0-1) ...
 Setting up libldap-2.4-2:amd64 (2.4.57+dfsg-3+deb11u1) ...
 Setting up libcurl3-gnutls:amd64 (7.74.0-1.3+deb11u1) ...
-Setting up libnss3:amd64 (2:3.61-1+deb11u2) ...
-Setting up coolkey (1.1.0-16) ...
 Setting up ca-certificates (20210119) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
@@ -453,10 +373,8 @@ Setting up libgdbm-compat4:amd64 (1.19-2) ...
 Setting up libperl5.32:amd64 (5.32.1-4+deb11u2) ...
 Setting up cpp (4:10.2.1-1) ...
 Setting up libc6-dev:amd64 (2.31-13+deb11u3) ...
-Setting up libnss3-tools (2:3.61-1+deb11u2) ...
 Setting up binutils-x86-64-linux-gnu (2.35.2-2) ...
 Setting up libstdc++-10-dev:amd64 (10.2.1-6) ...
-Setting up pesign (0.112-6) ...
 Setting up binutils (2.35.2-2) ...
 Setting up perl (5.32.1-4+deb11u2) ...
 Setting up gcc-10 (10.2.1-6) ...
@@ -475,8 +393,8 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
---> 1d3711752eb
-STEP 3/23: RUN dpkg -l
+--> c3a00f5444d
+STEP 3/22: RUN dpkg -l
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
 |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
@@ -496,7 +414,6 @@ ii  bsdutils                  1:2.36.1-8+deb11u1             amd64        basic 
 ii  build-essential           12.9                           amd64        Informational list of build-essential packages
 ii  bzip2                     1.0.8-4                        amd64        high-quality block-sorting file compressor - utilities
 ii  ca-certificates           20210119                       all          Common CA certificates
-ii  coolkey                   1.1.0-16                       amd64        Smart Card PKCS #11 cryptographic module
 ii  coreutils                 8.32-4+b1                      amd64        GNU core utilities
 ii  cpp                       4:10.2.1-1                     amd64        GNU C preprocessor (cpp)
 ii  cpp-10                    10.2.1-6                       amd64        GNU C preprocessor
@@ -540,7 +457,6 @@ ii  libc6:amd64               2.31-13+deb11u3                amd64        GNU C 
 ii  libc6-dev:amd64           2.31-13+deb11u3                amd64        GNU C Library: Development Libraries and Header Files
 ii  libcap-ng0:amd64          0.7.9-2.2+b1                   amd64        An alternate POSIX capabilities library
 ii  libcc1-0:amd64            10.2.1-6                       amd64        GCC cc1 plugin for GDB
-ii  libckyapplet1             1.1.0-16                       amd64        Smart Card Coolkey applet
 ii  libcom-err2:amd64         1.46.2-2                       amd64        common error description library
 ii  libcrypt-dev:amd64        1:4.4.18-4                     amd64        libcrypt development files
 ii  libcrypt1:amd64           1:4.4.18-4                     amd64        libcrypt shared library
@@ -550,7 +466,6 @@ ii  libcurl3-gnutls:amd64     7.74.0-1.3+deb11u1             amd64        easy-t
 ii  libdb5.3:amd64            5.3.28+dfsg1-0.8               amd64        Berkeley v5.3 Database Libraries [runtime]
 ii  libdebconfclient0:amd64   0.260                          amd64        Debian Configuration Management System (C-implementation library)
 ii  libdpkg-perl              1.20.10                        all          Dpkg perl modules
-ii  libefivar1:amd64          37-6                           amd64        Library to manage UEFI variables
 ii  liberror-perl             0.17029-1                      all          Perl module for error/exception handling in an OO-ish way
 ii  libexpat1:amd64           2.2.10-2+deb11u3               amd64        XML parsing C library - runtime library
 ii  libext2fs2:amd64          1.46.2-2                       amd64        ext2/ext3/ext4 file system libraries
@@ -560,7 +475,6 @@ ii  libgcc-s1:amd64           10.2.1-6                       amd64        GCC su
 ii  libgcrypt20:amd64         1.8.7-6                        amd64        LGPL Crypto library - runtime library
 ii  libgdbm-compat4:amd64     1.19-2                         amd64        GNU dbm database routines (legacy support runtime version) 
 ii  libgdbm6:amd64            1.19-2                         amd64        GNU dbm database routines (runtime version) 
-ii  libglib2.0-0:amd64        2.66.8-1                       amd64        GLib library of C routines
 ii  libgmp10:amd64            2:6.2.1+dfsg-1+deb11u1         amd64        Multiprecision arithmetic library
 ii  libgnutls30:amd64         3.7.1-5                        amd64        GNU TLS library - main runtime library
 ii  libgomp1:amd64            10.2.1-6                       amd64        GCC OpenMP (GOMP) support library
@@ -585,9 +499,6 @@ ii  libnettle8:amd64          3.7.3-1                        amd64        low le
 ii  libnghttp2-14:amd64       1.43.0-1                       amd64        library implementing HTTP/2 protocol (shared library)
 ii  libnsl-dev:amd64          1.3.0-2                        amd64        libnsl development files
 ii  libnsl2:amd64             1.3.0-2                        amd64        Public client interface for NIS(YP) and NIS+
-ii  libnspr4:amd64            2:4.29-1                       amd64        NetScape Portable Runtime Library
-ii  libnss3:amd64             2:3.61-1+deb11u2               amd64        Network Security Service libraries
-ii  libnss3-tools             2:3.61-1+deb11u2               amd64        Network Security Service tools
 ii  libp11-kit0:amd64         0.23.22-1                      amd64        library for loading and coordinating access to PKCS#11 modules - runtime
 ii  libpam-modules:amd64      1.4.0-9+deb11u1                amd64        Pluggable Authentication Modules for PAM
 ii  libpam-modules-bin        1.4.0-9+deb11u1                amd64        Pluggable Authentication Modules for PAM - helper binaries
@@ -595,12 +506,9 @@ ii  libpam-runtime            1.4.0-9+deb11u1                all          Runtim
 ii  libpam0g:amd64            1.4.0-9+deb11u1                amd64        Pluggable Authentication Modules library
 ii  libpcre2-8-0:amd64        10.36-2                        amd64        New Perl Compatible Regular Expression Library- 8 bit runtime files
 ii  libpcre3:amd64            2:8.39-13                      amd64        Old Perl 5 Compatible Regular Expression Library - runtime files
-ii  libpcsclite1:amd64        1.9.1-1                        amd64        Middleware to access a smart card using PC/SC (library)
 ii  libperl5.32:amd64         5.32.1-4+deb11u2               amd64        shared Perl library
-ii  libpopt0:amd64            1.18-2                         amd64        lib for parsing cmdline parameters
 ii  libpsl5:amd64             0.21.0-1.2                     amd64        Library for Public Suffix List (shared libraries)
 ii  libquadmath0:amd64        10.2.1-6                       amd64        GCC Quad-Precision Math Library
-ii  libreadline8:amd64        8.1-1                          amd64        GNU readline and history libraries, run-time libraries
 ii  librtmp1:amd64            2.4+20151223.gitfa8646d.1-2+b2 amd64        toolkit for RTMP streams (shared library)
 ii  libsasl2-2:amd64          2.1.27+dfsg-2.1+deb11u1        amd64        Cyrus SASL - authentication abstraction library
 ii  libsasl2-modules-db:amd64 2.1.27+dfsg-2.1+deb11u1        amd64        Cyrus SASL - pluggable authentication modules (DB)
@@ -610,7 +518,6 @@ ii  libsemanage-common        3.1-1                          all          Common
 ii  libsemanage1:amd64        3.1-1+b2                       amd64        SELinux policy management library
 ii  libsepol1:amd64           3.1-1                          amd64        SELinux library for manipulating binary security policies
 ii  libsmartcols1:amd64       2.36.1-8+deb11u1               amd64        smart column output alignment library
-ii  libsqlite3-0:amd64        3.34.1-3                       amd64        SQLite 3 shared library
 ii  libss2:amd64              1.46.2-2                       amd64        command-line interface parsing library
 ii  libssh2-1:amd64           1.9.0-2                        amd64        SSH2 client-side library
 ii  libssl1.1:amd64           1.1.1n-0+deb11u2               amd64        Secure Sockets Layer toolkit - shared libraries
@@ -629,7 +536,7 @@ ii  libunistring2:amd64       0.9.10-4                       amd64        Unicod
 ii  libuuid1:amd64            2.36.1-8+deb11u1               amd64        Universally Unique ID library
 ii  libxxhash0:amd64          0.8.0-2                        amd64        shared library for xxhash
 ii  libzstd1:amd64            1.4.8+dfsg-2.1                 amd64        fast lossless compression algorithm
-ii  linux-libc-dev:amd64      5.10.113-1                     amd64        Linux support headers for userspace development
+ii  linux-libc-dev:amd64      5.10.120-1                     amd64        Linux support headers for userspace development
 ii  login                     1:4.8.1-1                      amd64        system login tools
 ii  logsave                   1.46.2-2                       amd64        save the output of a command in a log file
 ii  lsb-base                  11.1.0                         all          Linux Standard Base init script functionality
@@ -639,175 +546,123 @@ ii  mount                     2.36.1-8+deb11u1               amd64        tools 
 ii  ncal                      12.1.7+nmu3                    amd64        display a calendar and the date of Easter
 ii  ncurses-base              6.2+20201114-2                 all          basic terminal type definitions
 ii  ncurses-bin               6.2+20201114-2                 amd64        terminal-related programs and man pages
-ii  opensc                    0.21.0-1                       amd64        Smart card utilities with support for PKCS#15 compatible cards
-ii  opensc-pkcs11:amd64       0.21.0-1                       amd64        Smart card utilities with support for PKCS#15 compatible cards
-ii  openssl                   1.1.1n-0+deb11u2               amd64        Secure Sockets Layer toolkit - cryptographic utility
+ii  openssl                   1.1.1n-0+deb11u3               amd64        Secure Sockets Layer toolkit - cryptographic utility
 ii  passwd                    1:4.8.1-1                      amd64        change and administer password and group data
 ii  patch                     2.7.6-7                        amd64        Apply a diff file to an original
 ii  perl                      5.32.1-4+deb11u2               amd64        Larry Wall's Practical Extraction and Report Language
 ii  perl-base                 5.32.1-4+deb11u2               amd64        minimal Perl system
 ii  perl-modules-5.32         5.32.1-4+deb11u2               all          Core Perl modules
-ii  pesign                    0.112-6                        amd64        Signing utility for UEFI binaries
-ii  readline-common           8.1-1                          all          GNU readline and history libraries, common files
 ii  sed                       4.7-1                          amd64        GNU stream editor for filtering/transforming text
 ii  sysvinit-utils            2.96-7+deb11u1                 amd64        System-V-like utilities
 ii  tar                       1.34+dfsg-1                    amd64        GNU version of the tar archiving utility
-ii  tzdata                    2021a-1+deb11u3                all          time zone and daylight-saving time data
+ii  tzdata                    2021a-1+deb11u4                all          time zone and daylight-saving time data
 ii  util-linux                2.36.1-8+deb11u1               amd64        miscellaneous system utilities
 ii  wget                      1.21-1+deb11u1                 amd64        retrieves files from the web
 ii  xz-utils                  5.2.5-2.1~deb11u1              amd64        XZ-format compression utilities
 ii  zlib1g:amd64              1:1.2.11.dfsg-2+deb11u1        amd64        compression library - runtime
---> ee953aa3dc9
-STEP 4/23: RUN wget https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
---2022-06-08 14:07:27--  https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
+--> 619b0646f43
+STEP 4/22: RUN wget https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
+--2022-06-27 10:48:30--  https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
 Resolving github.com (github.com)... 140.82.121.4
 Connecting to github.com (github.com)|140.82.121.4|:443... connected.
 HTTP request sent, awaiting response... 302 Found
-Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220608T140614Z&X-Amz-Expires=300&X-Amz-Signature=8b94091854542a18fcf1e9f9a8531afea1401e67e934611282c972f415706d12&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream [following]
---2022-06-08 14:07:27--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220608T140614Z&X-Amz-Expires=300&X-Amz-Signature=8b94091854542a18fcf1e9f9a8531afea1401e67e934611282c972f415706d12&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream
-Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.111.133|:443... connected.
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220627%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220627T104831Z&X-Amz-Expires=300&X-Amz-Signature=87da70dc9bec57a58184761b33e5b9325beabfa0ae0bdb7486a0d625a132619c&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream [following]
+--2022-06-27 10:48:31--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220627%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220627T104831Z&X-Amz-Expires=300&X-Amz-Signature=87da70dc9bec57a58184761b33e5b9325beabfa0ae0bdb7486a0d625a132619c&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.111.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 1343748 (1.3M) [application/octet-stream]
 Saving to: 'shim-15.6.tar.bz2'
 
-     0K .......... .......... .......... .......... ..........  3% 3.99M 0s
-    50K .......... .......... .......... .......... ..........  7% 4.84M 0s
-   100K .......... .......... .......... .......... .......... 11% 11.0M 0s
-   150K .......... .......... .......... .......... .......... 15% 14.3M 0s
-   200K .......... .......... .......... .......... .......... 19% 10.7M 0s
-   250K .......... .......... .......... .......... .......... 22% 14.8M 0s
-   300K .......... .......... .......... .......... .......... 26% 14.2M 0s
-   350K .......... .......... .......... .......... .......... 30% 9.69M 0s
-   400K .......... .......... .......... .......... .......... 34% 11.8M 0s
-   450K .......... .......... .......... .......... .......... 38% 11.9M 0s
-   500K .......... .......... .......... .......... .......... 41% 13.7M 0s
-   550K .......... .......... .......... .......... .......... 45% 9.13M 0s
-   600K .......... .......... .......... .......... .......... 49% 17.6M 0s
-   650K .......... .......... .......... .......... .......... 53% 12.2M 0s
-   700K .......... .......... .......... .......... .......... 57% 13.3M 0s
-   750K .......... .......... .......... .......... .......... 60% 11.1M 0s
-   800K .......... .......... .......... .......... .......... 64% 13.3M 0s
+     0K .......... .......... .......... .......... ..........  3% 3.32M 0s
+    50K .......... .......... .......... .......... ..........  7% 4.34M 0s
+   100K .......... .......... .......... .......... .......... 11% 13.6M 0s
+   150K .......... .......... .......... .......... .......... 15% 13.4M 0s
+   200K .......... .......... .......... .......... .......... 19% 8.71M 0s
+   250K .......... .......... .......... .......... .......... 22% 13.3M 0s
+   300K .......... .......... .......... .......... .......... 26% 13.1M 0s
+   350K .......... .......... .......... .......... .......... 30% 12.9M 0s
+   400K .......... .......... .......... .......... .......... 34% 12.6M 0s
+   450K .......... .......... .......... .......... .......... 38% 11.4M 0s
+   500K .......... .......... .......... .......... .......... 41% 11.6M 0s
+   550K .......... .......... .......... .......... .......... 45% 14.6M 0s
+   600K .......... .......... .......... .......... .......... 49% 11.6M 0s
+   650K .......... .......... .......... .......... .......... 53% 11.1M 0s
+   700K .......... .......... .......... .......... .......... 57% 13.9M 0s
+   750K .......... .......... .......... .......... .......... 60% 13.5M 0s
+   800K .......... .......... .......... .......... .......... 64% 13.4M 0s
    850K .......... .......... .......... .......... .......... 68% 10.8M 0s
-   900K .......... .......... .......... .......... .......... 72% 12.3M 0s
-   950K .......... .......... .......... .......... .......... 76% 11.7M 0s
-  1000K .......... .......... .......... .......... .......... 80% 13.7M 0s
-  1050K .......... .......... .......... .......... .......... 83% 12.6M 0s
-  1100K .......... .......... .......... .......... .......... 87% 11.2M 0s
-  1150K .......... .......... .......... .......... .......... 91% 12.4M 0s
-  1200K .......... .......... .......... .......... .......... 95% 13.9M 0s
-  1250K .......... .......... .......... .......... .......... 99% 12.9M 0s
-  1300K .......... ..                                         100% 80.9M=0.1s
+   900K .......... .......... .......... .......... .......... 72% 11.8M 0s
+   950K .......... .......... .......... .......... .......... 76% 13.1M 0s
+  1000K .......... .......... .......... .......... .......... 80% 13.4M 0s
+  1050K .......... .......... .......... .......... .......... 83% 12.2M 0s
+  1100K .......... .......... .......... .......... .......... 87% 8.35M 0s
+  1150K .......... .......... .......... .......... .......... 91% 15.3M 0s
+  1200K .......... .......... .......... .......... .......... 95% 14.0M 0s
+  1250K .......... .......... .......... .......... .......... 99% 11.0M 0s
+  1300K .......... ..                                         100% 75.3M=0.1s
 
-2022-06-08 14:07:27 (10.9 MB/s) - 'shim-15.6.tar.bz2' saved [1343748/1343748]
+2022-06-27 10:48:31 (10.5 MB/s) - 'shim-15.6.tar.bz2' saved [1343748/1343748]
 
---> 27316f0075a
-STEP 5/23: RUN tar -xf shim-15.6.tar.bz2
---> 33b8ea35a52
-STEP 6/23: RUN mv shim-15.6 /shim
---> 299154bacde
-STEP 7/23: WORKDIR /shim
---> cac8385efb5
-STEP 8/23: COPY .git /tmp/.git
---> 19c05698d6a
-STEP 9/23: RUN git clone /tmp/.git /shim-review
+--> ee19cee904b
+STEP 5/22: RUN tar -xf shim-15.6.tar.bz2
+--> d143234cfb3
+STEP 6/22: RUN mv shim-15.6 /shim
+--> a92d371cf6f
+STEP 7/22: WORKDIR /shim
+--> 11dce2f9fdd
+STEP 8/22: COPY .git /tmp/.git
+--> b4810fd841e
+STEP 9/22: RUN git clone /tmp/.git /shim-review
 Cloning into '/shim-review'...
 done.
-Note: switching to 'cb5f40fc847fd8e4001d4a4a5ebcf3a8c781eb3b'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
-
-  git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-  git switch -
-
-Turn off this advice by setting config variable advice.detachedHead to false
-
---> 49f359d2eb2
-STEP 10/23: RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
---> cf083a6ac1f
-STEP 11/23: RUN cp /shim-review/sbat.ecos.csv /shim/data/
---> 358c556904d
-STEP 12/23: RUN patch < /shim-review/patches-shim/100_disable_allowlist.patch
+--> ba25af52114
+STEP 10/22: RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
+--> 2333cda5013
+STEP 11/22: RUN cp /shim-review/sbat.ecos.csv /shim/data/
+--> c167af54a18
+STEP 12/22: RUN patch < /shim-review/patches-shim/100_disable_allowlist.patch
 patching file shim.c
---> aa31a21c99c
-STEP 13/23: RUN patch < /shim-review/patches-shim/101_load_default_second_stage.patch
+--> e0957bb85f6
+STEP 13/22: RUN patch < /shim-review/patches-shim/101_load_default_second_stage.patch
 patching file shim.c
 Hunk #1 succeeded at 1240 (offset 79 lines).
 Hunk #2 succeeded at 1276 (offset 79 lines).
---> 48b111962ce
-STEP 14/23: RUN patch < /shim-review/patches-shim/102_force_secure_mode.patch
+--> ef13806adba
+STEP 14/22: RUN patch < /shim-review/patches-shim/102_force_secure_mode.patch
 patching file shim.c
---> cdc011f73dd
-STEP 15/23: ENV DEFAULT_LOADER=\\\\ecosx64.efi
---> 73e92e6a9f4
-STEP 16/23: ENV ENABLE_SHIM_CERT=1
---> 63a1c9b2c07
-STEP 17/23: ENV VENDOR_CERT_FILE=ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
---> 70dd5343eb9
-STEP 18/23: RUN make -j
+--> caa7c6b9103
+STEP 15/22: ENV DEFAULT_LOADER=\\\\ecosx64.efi
+--> 818fad2f179
+STEP 16/22: ENV VENDOR_CERT_FILE=ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
+--> cd62495b4b3
+STEP 17/22: RUN make -j
 sed	-e "s,@@VERSION@@,15.6," \
 	-e "s,@@UNAME@@,Linux x86_64 unknown unknown GNU/Linux," \
 	-e "s,@@COMMIT@@,505cdb678b319fcf9a7fdee77c0f091b4147cbe5," \
 	< /shim/version.c.in > version.c
-/shim/make-certs shim shim@xn--u4h.net all codesign 1.3.6.1.4.1.311.10.3.1 </dev/null
-Signature ok
-subject=C = US, L = SomeCity, O = SomeOrg
-Getting Private key
-Using configuration from /shim/openssl.cnf
-CA certificate:
-issuer=C  US, L  SomeCity, O  SomeOrg
-subject=C  US, L  SomeCity, O  SomeOrg
-
-End entity certificate:
-issuer=C  US, L  SomeCity, O  SomeOrg
-subject=C  US, L  SomeCity, O  SomeOrg, CN  shim
-serial 01
-
-PKCS12 bag:
-MAC: sha1, Iteration 2048
-MAC length: 20, salt length: 8
-PKCS7 Encrypted data: pbeWithSHA1And40BitRC2-CBC, Iteration 2048
-Certificate bag
-PKCS7 Data
-Shrouded Keybag: pbeWithSHA1And3-KeyTripleDES-CBC, Iteration 2048
-
-Verifying:
-+ openssl verify -CAfile ca.chain.crt shim.crt
-shim.crt: OK
-openssl x509 -outform der -in shim.crt -out shim.cer
-echo "static UINT8 shim_cert[] __attribute__((__unused__)) = {" > shim_cert.h
-hexdump -v -e '1/1 "0x%02x, "' shim.cer >> shim_cert.h
-echo "};" >> shim_cert.h
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o shim.o shim.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o globals.o globals.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o mok.o mok.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o netboot.o netboot.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT -c -o cert.o cert.S
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o replacements.o replacements.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o tpm.o tpm.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o version.o version.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o errlog.o errlog.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o sbat.o sbat.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o shim.o shim.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o globals.o globals.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o mok.o mok.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o netboot.o netboot.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -c -o cert.o cert.S
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o replacements.o replacements.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o tpm.o tpm.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o version.o version.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o errlog.o errlog.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o sbat.o sbat.c
 dos2unix -r -l -F -f -n data/sbat.ecos.csv sbat.ecos.csv
 dos2unix: converting file data/sbat.ecos.csv to file sbat.ecos.csv in Unix format...
 tail -c1 sbat.ecos.csv | read -r _ || echo >> sbat.ecos.csv # ensure a trailing newline
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT -x c -c -o sbat_data.o /dev/null
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -x c -c -o sbat_data.o /dev/null
 objcopy --add-section .sbat=/shim/data/sbat.csv \
 	--set-section-flags .sbat=contents,alloc,load,readonly,data \
 	sbat_data.o
 objcopy --add-section ".sbat.ecos=sbat.ecos.csv" sbat_data.o
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o pe.o pe.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o httpboot.o httpboot.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o csv.o csv.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o load-options.o load-options.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o pe.o pe.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o httpboot.o httpboot.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o csv.o csv.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o load-options.o load-options.c
 for i in Hash Hmac Cipher Rand Pk Pem SysCall; do mkdir -p Cryptlib/$i; done
 make TOPDIR=/shim VPATH=/shim/Cryptlib -C Cryptlib -f /shim/Cryptlib/Makefile
 make[1]: Entering directory '/shim/Cryptlib'
@@ -1373,9 +1228,9 @@ objcopy -D -j .text -j .sdata -j .data \
 	-j .debug_line -j .debug_str -j .debug_ranges \
 	-j .note.gnu.build-id \
 	shimx64.so shimx64.efi.debug
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o MokManager.o MokManager.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o PasswordCrypt.o PasswordCrypt.c
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o crypt_blowfish.o crypt_blowfish.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o MokManager.o MokManager.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o PasswordCrypt.o PasswordCrypt.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o crypt_blowfish.o crypt_blowfish.c
 ld -o mmx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined MokManager.o PasswordCrypt.o crypt_blowfish.o errlog.o sbat_data.o globals.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
 objcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .rodata -j .rel* \
@@ -1384,7 +1239,7 @@ objcopy -D -j .text -j .sdata -j .data \
 	-j .debug_line -j .debug_str -j .debug_ranges \
 	-j .note.gnu.build-id \
 	mmx64.so mmx64.efi.debug
-gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\" -DENABLE_SHIM_CERT   -c -o fallback.o fallback.c
+gcc -std=gnu11 -ggdb -ffreestanding -fmacro-prefix-map=/shim/= -fno-stack-protector -fno-strict-aliasing -fpic -fshort-wchar -Os -Wall -Wextra -Wno-missing-field-initializers  -mno-mmx -mno-sse -mno-red-zone -nostdinc -maccumulate-outgoing-args  -m64 -DMDE_CPU_X64 -DPAGE_SIZE=4096 -Werror -nostdinc -I/shim/Cryptlib -I/shim/Cryptlib/Include -I/shim/gnu-efi/inc -I/shim/gnu-efi/inc/x86_64 -I/shim/gnu-efi/inc/protocol -I/shim/include -iquote /shim -iquote /shim -isystem /shim/include/system -isystem /usr/lib/gcc/x86_64-linux-gnu/10/include -DDEFAULT_LOADER='L"\\ecosx64.efi"' -DDEFAULT_LOADER_CHAR='"\\ecosx64.efi"' -DEFI_ARCH='L"x64"' -DDEBUGDIR='L"/usr/lib/debug/usr/share/shim/x64-15.6/"' -DVENDOR_CERT_FILE=\"ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer\"   -c -o fallback.o fallback.c
 ld -o fbx64.so --hash-style=sysv -nostdlib -znocombreloc -T /shim/elf_x86_64_efi.lds -shared -Bsymbolic -Lgnu-efi/x86_64/gnuefi -Lgnu-efi/x86_64/lib -LCryptlib -LCryptlib/OpenSSL gnu-efi/x86_64/gnuefi/crt0-efi-x86_64.o --build-id=sha1  --no-undefined fallback.o tpm.o errlog.o sbat_data.o globals.o Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a lib/lib.a gnu-efi/x86_64/lib/libefi.a gnu-efi/x86_64/gnuefi/libgnuefi.a -lefi -lgnuefi --start-group Cryptlib/libcryptlib.a Cryptlib/OpenSSL/libopenssl.a --end-group /usr/lib/gcc/x86_64-linux-gnu/10/libgcc.a lib/lib.a
 objcopy -D -j .text -j .sdata -j .data \
 	-j .dynamic -j .rodata -j .rel* \
@@ -1399,142 +1254,25 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .vendor_cert -j .sbat \
 	--target efi-app-x86_64 mmx64.so mmx64.efi
 ./post-process-pe -vv mmx64.efi
-mkdir certdb
-pk12util -d certdb/ -i shim.p12 -W "" -K ""
-pk12util: PKCS12 IMPORT SUCCESSFUL
-certutil -d certdb/ -A -i shim.crt -n shim -t u
-Notice: Trust flag u is set automatically if the private key is present.
-pesign -n certdb -i mmx64.efi -c "shim" -s -o mmx64.efi.signed -f
 objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .dynamic -j .rodata -j .rel* \
 	-j .rela* -j .dyn -j .reloc -j .eh_frame \
 	-j .vendor_cert -j .sbat \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
 ./post-process-pe -vv fbx64.efi
-pesign -n certdb -i fbx64.efi -c "shim" -s -o fbx64.efi.signed -f
---> 18699fdc827
-STEP 19/23: WORKDIR /
---> 5d9344ce178
-STEP 20/23: RUN hexdump -Cv /shim/shim*.efi > build
---> 3b54453f115
-STEP 21/23: RUN hexdump -Cv /shim-review/$(basename /shim/shim*.efi) > orig
---> 34f6475232e
-STEP 22/23: RUN diff -u orig build; exit 0
---- orig	2022-06-08 14:08:09.000000000 +0000
-+++ build	2022-06-08 14:08:08.000000000 +0000
-@@ -11,7 +11,7 @@
- 000000a0  00 72 06 00 00 00 00 00  00 30 02 00 00 30 02 00  |.r.......0...0..|
- 000000b0  00 00 00 00 00 00 00 00  00 10 00 00 00 02 00 00  |................|
- 000000c0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
--000000d0  00 20 0d 00 00 04 00 00  32 ea 0e 00 0a 00 00 00  |. ......2.......|
-+000000d0  00 20 0d 00 00 04 00 00  ed 19 0f 00 0a 00 00 00  |. ..............|
- 000000e0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
- 000000f0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
- 00000100  00 00 00 00 10 00 00 00  00 00 00 00 00 00 00 00  |................|
-@@ -37910,35 +37910,35 @@
- 00094150  30 0f 06 03 55 04 07 0c  08 53 6f 6d 65 43 69 74  |0...U....SomeCit|
- 00094160  79 31 10 30 0e 06 03 55  04 0a 0c 07 53 6f 6d 65  |y1.0...U....Some|
- 00094170  4f 72 67 30 1e 17 0d 32  32 30 36 30 38 31 34 30  |Org0...220608140|
--00094180  33 34 39 5a 17 0d 32 33  30 36 30 38 31 34 30 33  |349Z..2306081403|
--00094190  34 39 5a 30 41 31 0b 30  09 06 03 55 04 06 13 02  |49Z0A1.0...U....|
-+00094180  37 34 30 5a 17 0d 32 33  30 36 30 38 31 34 30 37  |740Z..2306081407|
-+00094190  34 30 5a 30 41 31 0b 30  09 06 03 55 04 06 13 02  |40Z0A1.0...U....|
- 000941a0  55 53 31 11 30 0f 06 03  55 04 07 0c 08 53 6f 6d  |US1.0...U....Som|
- 000941b0  65 43 69 74 79 31 10 30  0e 06 03 55 04 0a 0c 07  |eCity1.0...U....|
- 000941c0  53 6f 6d 65 4f 72 67 31  0d 30 0b 06 03 55 04 03  |SomeOrg1.0...U..|
- 000941d0  0c 04 73 68 69 6d 30 82  01 22 30 0d 06 09 2a 86  |..shim0.."0...*.|
- 000941e0  48 86 f7 0d 01 01 01 05  00 03 82 01 0f 00 30 82  |H.............0.|
--000941f0  01 0a 02 82 01 01 00 dd  84 0b 11 ce ab a3 2f 60  |............../`|
--00094200  56 b9 ec 41 98 06 f7 46  fb ea 07 d3 ad ce d7 ac  |V..A...F........|
--00094210  b0 6d 52 8e 93 9e df b7  13 9f f5 d6 32 a3 66 13  |.mR.........2.f.|
--00094220  72 47 fe b5 a9 06 76 fe  b9 72 f4 3f c4 d8 4a f3  |rG....v..r.?..J.|
--00094230  50 85 7d 2c d1 32 4a 54  26 fa 3e c4 ce 00 5d b5  |P.},.2JT&.>...].|
--00094240  af 5c 2a c9 88 50 4f e6  2d cc a1 cc 7d 2e bb 73  |.\*..PO.-...}..s|
--00094250  93 b9 f8 31 0c 40 f2 3b  69 e4 70 ac cc b8 97 24  |...1.@.;i.p....$|
--00094260  d2 8d b4 3b 05 ef 78 75  79 4f 53 bb 4d d6 37 08  |...;..xuyOS.M.7.|
--00094270  56 e2 74 20 0b b3 54 de  19 c4 78 ae 1e 1f f2 bd  |V.t ..T...x.....|
--00094280  43 b8 1d ca 0c 10 8d 05  71 28 59 56 72 65 f8 e7  |C.......q(YVre..|
--00094290  54 f6 89 5e fc e5 02 96  71 fd d6 24 bb dc fc 99  |T..^....q..$....|
--000942a0  46 9f 39 ec 24 44 c5 4c  51 b2 77 70 6f d3 bf f7  |F.9.$D.LQ.wpo...|
--000942b0  ea 6c 9a 76 d2 20 e6 cb  7e 45 4c 77 cf ab 9a 7c  |.l.v. ..~ELw...||
--000942c0  f5 dc 3e dc 14 b0 d3 14  9c a6 40 a8 3d ea 4c 54  |..>.......@.=.LT|
--000942d0  5d 81 fb ca 81 fa b5 7b  25 a8 e1 c1 df 18 4f 5d  |]......{%.....O]|
--000942e0  50 cd 19 54 ac eb 95 8f  7e 89 62 f3 f5 c2 21 8c  |P..T....~.b...!.|
--000942f0  1c 6f 94 68 19 75 65 02  03 01 00 01 a3 81 ad 30  |.o.h.ue........0|
--00094300  81 aa 30 1d 06 03 55 1d  0e 04 16 04 14 a2 15 77  |..0...U........w|
--00094310  33 de 00 00 a5 f4 e3 d2  5e 32 d0 59 fa 48 45 9c  |3.......^2.Y.HE.|
--00094320  e8 30 1f 06 03 55 1d 23  04 18 30 16 80 14 8c 2c  |.0...U.#..0....,|
--00094330  c5 19 51 3e 37 b0 c6 06  d7 00 3b ee 60 6d e8 da  |..Q>7.....;.`m..|
--00094340  6d ab 30 0f 06 03 55 1d  0f 01 01 ff 04 05 03 03  |m.0...U.........|
-+000941f0  01 0a 02 82 01 01 00 a7  8f 5b f8 01 eb d1 76 2d  |.........[....v-|
-+00094200  d1 5b 4d 6b e6 a5 67 1c  47 3c cd ef f4 c3 51 5d  |.[Mk..g.G<....Q]|
-+00094210  d8 c9 1d eb 4c 44 60 01  44 65 2a d4 50 35 71 9b  |....LD`.De*.P5q.|
-+00094220  5d 85 43 86 77 2c f5 7e  2c 1a 8d 4f ef e3 d1 ee  |].C.w,.~,..O....|
-+00094230  b9 53 ad 37 6a 81 e9 ed  56 e5 19 fb 53 50 23 2d  |.S.7j...V...SP#-|
-+00094240  11 43 a7 d2 a6 73 64 9e  14 63 53 68 4a 71 7e dc  |.C...sd..cShJq~.|
-+00094250  89 e5 c1 58 be f0 24 6a  eb fe ca 28 51 96 d1 eb  |...X..$j...(Q...|
-+00094260  19 07 ea 4c c5 00 16 55  ab 4e 5c 40 d7 26 bc b2  |...L...U.N\@.&..|
-+00094270  73 b4 e1 fc 73 db ce 71  db ce f9 12 be a0 4d dd  |s...s..q......M.|
-+00094280  d9 6f 69 e1 8f c4 27 16  83 f0 08 2a e5 cf 9d fc  |.oi...'....*....|
-+00094290  6a ca e5 f7 ae 6f 88 f8  70 52 61 68 da 06 b6 fe  |j....o..pRah....|
-+000942a0  f7 51 58 89 7f 94 ac 7f  23 f9 59 b5 80 51 2f 01  |.QX.....#.Y..Q/.|
-+000942b0  1b 06 05 8a 0b 0c b2 b7  2c 2a 17 97 38 43 d5 2a  |........,*..8C.*|
-+000942c0  2c 3c d0 d9 97 04 1d 23  ee f3 aa df 8c 81 3c 29  |,<.....#......<)|
-+000942d0  74 08 13 5f c2 59 ec 80  96 07 4f 54 a3 85 3d 38  |t.._.Y....OT..=8|
-+000942e0  72 f2 91 b1 41 55 f6 00  20 6b 44 7a d3 09 dd ff  |r...AU.. kDz....|
-+000942f0  9f 67 e1 ac 19 ba 65 02  03 01 00 01 a3 81 ad 30  |.g....e........0|
-+00094300  81 aa 30 1d 06 03 55 1d  0e 04 16 04 14 76 41 bf  |..0...U......vA.|
-+00094310  32 95 71 cd 76 85 7e 9b  58 e5 88 3e cc c7 35 d9  |2.q.v.~.X..>..5.|
-+00094320  01 30 1f 06 03 55 1d 23  04 18 30 16 80 14 67 a5  |.0...U.#..0...g.|
-+00094330  9a 76 85 20 c4 fa e3 d5  ed 3c c1 f6 a0 e7 16 ec  |.v. .....<......|
-+00094340  bf a6 30 0f 06 03 55 1d  0f 01 01 ff 04 05 03 03  |..0...U.........|
- 00094350  07 ff 80 30 1f 06 03 55  1d 25 04 18 30 16 06 08  |...0...U.%..0...|
- 00094360  2b 06 01 05 05 07 03 03  06 0a 2b 06 01 04 01 82  |+.........+.....|
- 00094370  37 0a 03 01 30 09 06 03  55 1d 13 04 02 30 00 30  |7...0...U....0.0|
-@@ -37946,22 +37946,22 @@
- 00094390  54 65 73 74 69 6e 67 20  43 65 72 74 69 66 69 63  |Testing Certific|
- 000943a0  61 74 65 20 66 6f 72 20  73 68 69 6d 30 0d 06 09  |ate for shim0...|
- 000943b0  2a 86 48 86 f7 0d 01 01  0b 05 00 03 82 01 01 00  |*.H.............|
--000943c0  30 92 7e 19 1a ec d4 55  27 e7 76 58 48 ed 12 2d  |0.~....U'.vXH..-|
--000943d0  99 d6 59 30 14 e6 79 f8  30 ac 78 7d 0d be 8b 69  |..Y0..y.0.x}...i|
--000943e0  8c e2 f2 5d 77 c6 1e 1a  ec a9 79 39 ab af 57 22  |...]w.....y9..W"|
--000943f0  23 91 e9 21 ba f5 6b 80  58 0c 19 cd f1 49 d6 b6  |#..!..k.X....I..|
--00094400  2b 9d cf 97 97 a1 cb 92  92 4a 22 f7 38 36 c5 0e  |+........J".86..|
--00094410  df 3b ae 60 8f 95 3f 58  7b 5a 48 db 77 cf 19 c6  |.;.`..?X{ZH.w...|
--00094420  36 eb 2e 62 57 36 fc f4  cd 59 9a aa 7c 17 3f 0e  |6..bW6...Y..|.?.|
--00094430  dc 9f 98 8d d5 0a 6b 4d  65 50 b7 9d 64 d7 98 31  |......kMeP..d..1|
--00094440  ee 50 d3 65 cf ac 61 7c  60 00 2c 82 0f c2 32 cf  |.P.e..a|`.,...2.|
--00094450  14 6e ce ef 04 28 cb 45  54 14 3f 8e 0a 0b 41 8e  |.n...(.ET.?...A.|
--00094460  a8 be 09 3b 54 28 e8 42  11 0e 0c fd 75 df 35 de  |...;T(.B....u.5.|
--00094470  0b 6c a8 96 95 d9 55 1d  b1 3d 9e be 08 19 b8 98  |.l....U..=......|
--00094480  5a bb 08 45 e1 ab 37 ba  1e 26 1d f3 b1 b3 8c 4e  |Z..E..7..&.....N|
--00094490  61 0d 62 da 37 19 7a c4  a6 09 1b 15 3e f9 88 cd  |a.b.7.z.....>...|
--000944a0  54 2f e0 8e 78 bb 79 06  62 e7 9d 53 a5 6d 12 4a  |T/..x.y.b..S.m.J|
--000944b0  47 40 f8 5c 43 24 99 ee  89 c5 ef 7e 62 d3 13 a0  |G@.\C$.....~b...|
-+000943c0  4e 45 75 82 a3 1f e0 4c  4b 21 23 c4 86 b7 1e 79  |NEu....LK!#....y|
-+000943d0  6c 7a 90 aa cf 07 0e 41  51 b4 29 eb a4 28 1b 85  |lz.....AQ.)..(..|
-+000943e0  c1 9a 8b e2 ec 1e d0 0a  1e 16 32 e2 bb 6c 73 4a  |..........2..lsJ|
-+000943f0  e6 c4 c3 35 71 c6 d1 a8  72 b9 0e f1 6e 2c de 36  |...5q...r...n,.6|
-+00094400  34 1d 23 69 6e a0 b7 e0  f0 85 59 9b d6 5f cc 17  |4.#in.....Y.._..|
-+00094410  be 38 f0 84 8b 22 76 f2  f1 04 22 3b d7 c7 f3 9b  |.8..."v...";....|
-+00094420  98 a2 95 e4 ba 68 49 37  ab b0 dd 0d 6e 14 71 2e  |.....hI7....n.q.|
-+00094430  c7 34 c2 b5 86 1a 1f da  00 52 07 26 35 39 63 c2  |.4.......R.&59c.|
-+00094440  e1 f1 75 7f 79 77 26 a1  0b fc 5c 1d 62 4f b9 42  |..u.yw&...\.bO.B|
-+00094450  3e 2e e9 5b 70 74 9f ad  17 c6 aa 29 05 85 00 cd  |>..[pt.....)....|
-+00094460  72 a9 02 74 32 b5 7f 47  cf bc 51 8a 3d 3c f0 f2  |r..t2..G..Q.=<..|
-+00094470  77 20 d6 3a 18 0c 71 e6  c2 4f 13 12 8d 82 ad 33  |w .:..q..O.....3|
-+00094480  8a 70 1f 54 cf 7e 68 31  e9 6b f8 a8 7e 6d 70 b7  |.p.T.~h1.k..~mp.|
-+00094490  b8 a1 17 4b 03 d3 ce 34  93 3a 19 e5 ff 6a bf 00  |...K...4.:...j..|
-+000944a0  62 da d2 91 35 2f 15 0d  81 b7 e8 93 da 9a a0 4e  |b...5/.........N|
-+000944b0  6b f5 bb b9 a7 e9 8e ad  db 28 31 92 41 60 54 d6  |k........(1.A`T.|
- 000944c0  08 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
- 000944d0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
- 000944e0  00 cd 09 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
---> c683a08b9d5
-STEP 23/23: RUN sha256sum /shim/shim*.efi /shim-review/$(basename /shim/shim*.efi)
-48c7823dc532c349d602adc76f85715c125f59ebb1246a13528b66ebcd625c65  /shim/shimx64.efi
-97a999a3b3c6e1560cabb14cd9331ad1b61bd240f4e5b37986cf903d743b6acd  /shim-review/shimx64.efi
+--> 11c8f6c1358
+STEP 18/22: WORKDIR /
+--> d86443ac65a
+STEP 19/22: RUN hexdump -Cv /shim/shim*.efi > build
+--> cb003106784
+STEP 20/22: RUN hexdump -Cv /shim-review/$(basename /shim/shim*.efi) > orig
+--> 6e07d25d9da
+STEP 21/22: RUN diff -u orig build
+--> 6beb3f5abd1
+STEP 22/22: RUN sha256sum /shim/shim*.efi /shim-review/$(basename /shim/shim*.efi)
+cfc91fc24b9ea892eaf6168306b4a2806a4cda84e7c103049c4bc179f4dae8c1  /shim/shimx64.efi
+cfc91fc24b9ea892eaf6168306b4a2806a4cda84e7c103049c4bc179f4dae8c1  /shim-review/shimx64.efi
 COMMIT shim-ecos:15.6
---> 2cf64bbb239
+--> cb5a36c153f
 Successfully tagged localhost/shim-ecos:15.6
-2cf64bbb2397e16303c1361bdc0a7fbdef17ba60e87822f6590c6bf1dbbe4e2b
+cb5a36c153f4570bc09df6d0b76818f217040e4baac729981d925df962b2fd86

@@ -5,8 +5,6 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends build-essent
         bsdmainutils \
         # for `git clone`
         ca-certificates git \
-        # for `ENABLE_SHIM_CERT=1`
-        libnss3-tools pesign \
         # for `make` with `sbat.ecos.csv`
         dos2unix \
         # for download and extraction of the shim release
@@ -38,7 +36,6 @@ RUN patch < /shim-review/patches-shim/101_load_default_second_stage.patch
 RUN patch < /shim-review/patches-shim/102_force_secure_mode.patch
 
 ENV DEFAULT_LOADER=\\\\ecosx64.efi
-ENV ENABLE_SHIM_CERT=1
 ENV VENDOR_CERT_FILE=ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
 
 RUN make -j
@@ -46,6 +43,5 @@ RUN make -j
 WORKDIR /
 RUN hexdump -Cv /shim/shim*.efi > build
 RUN hexdump -Cv /shim-review/$(basename /shim/shim*.efi) > orig
-# Catch exit code 1 of diff caused by ENABLE_SHIM_CERT=1
-RUN diff -u orig build; exit 0
+RUN diff -u orig build
 RUN sha256sum /shim/shim*.efi /shim-review/$(basename /shim/shim*.efi)
