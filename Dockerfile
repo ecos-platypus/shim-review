@@ -26,7 +26,7 @@ WORKDIR /shim
 
 # Production: Use GitHub fork of shim-review repository (+ dummy step for better build log comparison)
 RUN echo 0
-RUN git clone -b ECOS_Technology_GmbH-shim-x64-20220627 https://github.com/ecos-platypus/shim-review.git /shim-review
+RUN git clone -b ECOS_Technology_GmbH-shim-x64-20220628 https://github.com/ecos-platypus/shim-review.git /shim-review
 
 RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
 RUN cp /shim-review/sbat.ecos.csv /shim/data/
