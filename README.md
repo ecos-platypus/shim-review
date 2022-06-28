@@ -191,7 +191,7 @@ We include 3 custom patches that enforce secure mode and disable allowlist funct
 -------------------------------------------------------------------------------
 ### What is the SHA256 hash of your final SHIM binary?
 -------------------------------------------------------------------------------
-`cfc91fc24b9ea892eaf6168306b4a2806a4cda84e7c103049c4bc179f4dae8c1`
+`54b18f8114d41c1488204fd91d3df3d902b505ebdf40aacf39f639eb3dc75e3e`
 
 -------------------------------------------------------------------------------
 ### How do you manage and protect the keys used in your SHIM?

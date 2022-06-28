@@ -6,13 +6,13 @@ Copying config sha256:d2780094a226c21142d0ee4dbfaf11bb53bd569fc9e0b7d261e43de095
 Writing manifest to image destination
 Storing signatures
 STEP 2/22: RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential         bsdmainutils         ca-certificates git         dos2unix         wget tar         && rm -rf /var/lib/apt/lists/*
-Get:1 http://security.debian.org/debian-security bullseye-security InRelease [44.1 kB]
-Get:2 http://deb.debian.org/debian bullseye InRelease [116 kB]
+Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+Get:2 http://security.debian.org/debian-security bullseye-security InRelease [44.1 kB]
 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [39.4 kB]
-Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 Packages [160 kB]
+Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 Packages [161 kB]
 Get:5 http://deb.debian.org/debian bullseye/main amd64 Packages [8182 kB]
 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [2592 B]
-Fetched 8545 kB in 3s (3370 kB/s)
+Fetched 8545 kB in 6s (1463 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -61,13 +61,13 @@ Get:2 http://deb.debian.org/debian bullseye/main amd64 perl-modules-5.32 all 5.3
 Get:3 http://security.debian.org/debian-security bullseye-security/main amd64 xz-utils amd64 5.2.5-2.1~deb11u1 [220 kB]
 Get:4 http://security.debian.org/debian-security bullseye-security/main amd64 linux-libc-dev amd64 5.10.120-1 [1498 kB]
 Get:5 http://security.debian.org/debian-security bullseye-security/main amd64 libdpkg-perl all 1.20.10 [1545 kB]
-Get:6 http://deb.debian.org/debian bullseye/main amd64 libgdbm6 amd64 1.19-2 [64.9 kB]
-Get:7 http://deb.debian.org/debian bullseye/main amd64 libgdbm-compat4 amd64 1.19-2 [44.7 kB]
-Get:8 http://deb.debian.org/debian bullseye/main amd64 libperl5.32 amd64 5.32.1-4+deb11u2 [4106 kB]
-Get:9 http://security.debian.org/debian-security bullseye-security/main amd64 dpkg-dev all 1.20.10 [2306 kB]
-Get:10 http://deb.debian.org/debian bullseye/main amd64 perl amd64 5.32.1-4+deb11u2 [293 kB]
-Get:11 http://deb.debian.org/debian bullseye/main amd64 bsdextrautils amd64 2.36.1-8+deb11u1 [145 kB]
-Get:12 http://security.debian.org/debian-security bullseye-security/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3+deb11u1 [232 kB]
+Get:6 http://security.debian.org/debian-security bullseye-security/main amd64 dpkg-dev all 1.20.10 [2306 kB]
+Get:7 http://deb.debian.org/debian bullseye/main amd64 libgdbm6 amd64 1.19-2 [64.9 kB]
+Get:8 http://deb.debian.org/debian bullseye/main amd64 libgdbm-compat4 amd64 1.19-2 [44.7 kB]
+Get:9 http://deb.debian.org/debian bullseye/main amd64 libperl5.32 amd64 5.32.1-4+deb11u2 [4106 kB]
+Get:10 http://security.debian.org/debian-security bullseye-security/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3+deb11u1 [232 kB]
+Get:11 http://deb.debian.org/debian bullseye/main amd64 perl amd64 5.32.1-4+deb11u2 [293 kB]
+Get:12 http://deb.debian.org/debian bullseye/main amd64 bsdextrautils amd64 2.36.1-8+deb11u1 [145 kB]
 Get:13 http://deb.debian.org/debian bullseye/main amd64 bzip2 amd64 1.0.8-4 [49.3 kB]
 Get:14 http://deb.debian.org/debian bullseye/main amd64 ca-certificates all 20210119 [158 kB]
 Get:15 http://deb.debian.org/debian bullseye/main amd64 libpsl5 amd64 0.21.0-1.2 [57.3 kB]
@@ -121,7 +121,7 @@ Get:62 http://deb.debian.org/debian bullseye/main amd64 liberror-perl all 0.1702
 Get:63 http://deb.debian.org/debian bullseye/main amd64 git-man all 1:2.30.2-1 [1827 kB]
 Get:64 http://deb.debian.org/debian bullseye/main amd64 git amd64 1:2.30.2-1 [5527 kB]
 debconf: delaying package configuration, since apt-utils is not installed
-Fetched 80.4 MB in 6s (12.6 MB/s)
+Fetched 80.4 MB in 7s (11.4 MB/s)
 Selecting previously unselected package perl-modules-5.32.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6662 files and directories currently installed.)
 Preparing to unpack .../00-perl-modules-5.32_5.32.1-4+deb11u2_all.deb ...
@@ -393,7 +393,7 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
---> c3a00f5444d
+--> 0ee4d8ef9ea
 STEP 3/22: RUN dpkg -l
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
@@ -560,82 +560,82 @@ ii  util-linux                2.36.1-8+deb11u1               amd64        miscel
 ii  wget                      1.21-1+deb11u1                 amd64        retrieves files from the web
 ii  xz-utils                  5.2.5-2.1~deb11u1              amd64        XZ-format compression utilities
 ii  zlib1g:amd64              1:1.2.11.dfsg-2+deb11u1        amd64        compression library - runtime
---> 619b0646f43
+--> b5edb6c159e
 STEP 4/22: RUN wget https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
---2022-06-27 10:48:30--  https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
+--2022-06-28 13:32:04--  https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2
 Resolving github.com (github.com)... 140.82.121.4
 Connecting to github.com (github.com)|140.82.121.4|:443... connected.
 HTTP request sent, awaiting response... 302 Found
-Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220627%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220627T104831Z&X-Amz-Expires=300&X-Amz-Signature=87da70dc9bec57a58184761b33e5b9325beabfa0ae0bdb7486a0d625a132619c&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream [following]
---2022-06-27 10:48:31--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220627%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220627T104831Z&X-Amz-Expires=300&X-Amz-Signature=87da70dc9bec57a58184761b33e5b9325beabfa0ae0bdb7486a0d625a132619c&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream
-Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.111.133, ...
-Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... connected.
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T133004Z&X-Amz-Expires=300&X-Amz-Signature=8f49f40faa480b68414cac9ae903efc5b8ee58fcf420eb53c6116dac260a0504&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream [following]
+--2022-06-28 13:32:04--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/3996476/2df141a4-ba87-4485-8b0b-1421c8700232?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220628T133004Z&X-Amz-Expires=300&X-Amz-Signature=8f49f40faa480b68414cac9ae903efc5b8ee58fcf420eb53c6116dac260a0504&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=3996476&response-content-disposition=attachment%3B%20filename%3Dshim-15.6.tar.bz2&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.109.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 1343748 (1.3M) [application/octet-stream]
 Saving to: 'shim-15.6.tar.bz2'
 
-     0K .......... .......... .......... .......... ..........  3% 3.32M 0s
-    50K .......... .......... .......... .......... ..........  7% 4.34M 0s
-   100K .......... .......... .......... .......... .......... 11% 13.6M 0s
-   150K .......... .......... .......... .......... .......... 15% 13.4M 0s
-   200K .......... .......... .......... .......... .......... 19% 8.71M 0s
-   250K .......... .......... .......... .......... .......... 22% 13.3M 0s
-   300K .......... .......... .......... .......... .......... 26% 13.1M 0s
-   350K .......... .......... .......... .......... .......... 30% 12.9M 0s
-   400K .......... .......... .......... .......... .......... 34% 12.6M 0s
-   450K .......... .......... .......... .......... .......... 38% 11.4M 0s
-   500K .......... .......... .......... .......... .......... 41% 11.6M 0s
-   550K .......... .......... .......... .......... .......... 45% 14.6M 0s
-   600K .......... .......... .......... .......... .......... 49% 11.6M 0s
-   650K .......... .......... .......... .......... .......... 53% 11.1M 0s
-   700K .......... .......... .......... .......... .......... 57% 13.9M 0s
-   750K .......... .......... .......... .......... .......... 60% 13.5M 0s
-   800K .......... .......... .......... .......... .......... 64% 13.4M 0s
-   850K .......... .......... .......... .......... .......... 68% 10.8M 0s
-   900K .......... .......... .......... .......... .......... 72% 11.8M 0s
-   950K .......... .......... .......... .......... .......... 76% 13.1M 0s
-  1000K .......... .......... .......... .......... .......... 80% 13.4M 0s
-  1050K .......... .......... .......... .......... .......... 83% 12.2M 0s
-  1100K .......... .......... .......... .......... .......... 87% 8.35M 0s
-  1150K .......... .......... .......... .......... .......... 91% 15.3M 0s
-  1200K .......... .......... .......... .......... .......... 95% 14.0M 0s
-  1250K .......... .......... .......... .......... .......... 99% 11.0M 0s
-  1300K .......... ..                                         100% 75.3M=0.1s
+     0K .......... .......... .......... .......... ..........  3% 3.81M 0s
+    50K .......... .......... .......... .......... ..........  7% 5.02M 0s
+   100K .......... .......... .......... .......... .......... 11% 15.0M 0s
+   150K .......... .......... .......... .......... .......... 15% 11.4M 0s
+   200K .......... .......... .......... .......... .......... 19% 14.0M 0s
+   250K .......... .......... .......... .......... .......... 22% 10.1M 0s
+   300K .......... .......... .......... .......... .......... 26% 15.3M 0s
+   350K .......... .......... .......... .......... .......... 30% 10.9M 0s
+   400K .......... .......... .......... .......... .......... 34% 9.01M 0s
+   450K .......... .......... .......... .......... .......... 38% 24.8M 0s
+   500K .......... .......... .......... .......... .......... 41% 13.1M 0s
+   550K .......... .......... .......... .......... .......... 45% 12.3M 0s
+   600K .......... .......... .......... .......... .......... 49% 10.2M 0s
+   650K .......... .......... .......... .......... .......... 53% 13.6M 0s
+   700K .......... .......... .......... .......... .......... 57% 13.0M 0s
+   750K .......... .......... .......... .......... .......... 60% 9.69M 0s
+   800K .......... .......... .......... .......... .......... 64% 14.3M 0s
+   850K .......... .......... .......... .......... .......... 68% 9.85M 0s
+   900K .......... .......... .......... .......... .......... 72% 17.7M 0s
+   950K .......... .......... .......... .......... .......... 76% 13.6M 0s
+  1000K .......... .......... .......... .......... .......... 80% 11.1M 0s
+  1050K .......... .......... .......... .......... .......... 83% 13.6M 0s
+  1100K .......... .......... .......... .......... .......... 87% 14.9M 0s
+  1150K .......... .......... .......... .......... .......... 91% 10.0M 0s
+  1200K .......... .......... .......... .......... .......... 95% 13.4M 0s
+  1250K .......... .......... .......... .......... .......... 99% 12.9M 0s
+  1300K .......... ..                                         100% 33.5M=0.1s
 
-2022-06-27 10:48:31 (10.5 MB/s) - 'shim-15.6.tar.bz2' saved [1343748/1343748]
+2022-06-28 13:32:04 (11.0 MB/s) - 'shim-15.6.tar.bz2' saved [1343748/1343748]
 
---> ee19cee904b
+--> 80772fbe6b2
 STEP 5/22: RUN tar -xf shim-15.6.tar.bz2
---> d143234cfb3
+--> 32788fae051
 STEP 6/22: RUN mv shim-15.6 /shim
---> a92d371cf6f
+--> 7059afe9eef
 STEP 7/22: WORKDIR /shim
---> 11dce2f9fdd
+--> 7116f04d214
 STEP 8/22: COPY .git /tmp/.git
---> b4810fd841e
+--> a08fe97f754
 STEP 9/22: RUN git clone /tmp/.git /shim-review
 Cloning into '/shim-review'...
 done.
---> ba25af52114
+--> 386a32e539f
 STEP 10/22: RUN cp /shim-review/ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer /shim/
---> 2333cda5013
+--> 1a55ed682c3
 STEP 11/22: RUN cp /shim-review/sbat.ecos.csv /shim/data/
---> c167af54a18
+--> edeb78e87a8
 STEP 12/22: RUN patch < /shim-review/patches-shim/100_disable_allowlist.patch
 patching file shim.c
---> e0957bb85f6
+--> 68557a0dc6e
 STEP 13/22: RUN patch < /shim-review/patches-shim/101_load_default_second_stage.patch
 patching file shim.c
 Hunk #1 succeeded at 1240 (offset 79 lines).
 Hunk #2 succeeded at 1276 (offset 79 lines).
---> ef13806adba
+--> 7099b15382f
 STEP 14/22: RUN patch < /shim-review/patches-shim/102_force_secure_mode.patch
 patching file shim.c
---> caa7c6b9103
+--> 9b16a38eac7
 STEP 15/22: ENV DEFAULT_LOADER=\\\\ecosx64.efi
---> 818fad2f179
+--> 78cdf0eadab
 STEP 16/22: ENV VENDOR_CERT_FILE=ECOS_Tech_Code_signing_Certificate_Globalsign_2022.cer
---> cd62495b4b3
+--> 5149fc480c8
 STEP 17/22: RUN make -j
 sed	-e "s,@@VERSION@@,15.6," \
 	-e "s,@@UNAME@@,Linux x86_64 unknown unknown GNU/Linux," \
@@ -1260,19 +1260,19 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	-j .vendor_cert -j .sbat \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
 ./post-process-pe -vv fbx64.efi
---> 11c8f6c1358
+--> 2c7a855f16b
 STEP 18/22: WORKDIR /
---> d86443ac65a
+--> f104c5a01f3
 STEP 19/22: RUN hexdump -Cv /shim/shim*.efi > build
---> cb003106784
+--> 347b6c930ee
 STEP 20/22: RUN hexdump -Cv /shim-review/$(basename /shim/shim*.efi) > orig
---> 6e07d25d9da
+--> a232fc2ae99
 STEP 21/22: RUN diff -u orig build
---> 6beb3f5abd1
+--> 4ec31892d6c
 STEP 22/22: RUN sha256sum /shim/shim*.efi /shim-review/$(basename /shim/shim*.efi)
-cfc91fc24b9ea892eaf6168306b4a2806a4cda84e7c103049c4bc179f4dae8c1  /shim/shimx64.efi
-cfc91fc24b9ea892eaf6168306b4a2806a4cda84e7c103049c4bc179f4dae8c1  /shim-review/shimx64.efi
+54b18f8114d41c1488204fd91d3df3d902b505ebdf40aacf39f639eb3dc75e3e  /shim/shimx64.efi
+54b18f8114d41c1488204fd91d3df3d902b505ebdf40aacf39f639eb3dc75e3e  /shim-review/shimx64.efi
 COMMIT shim-ecos:15.6
---> cb5a36c153f
+--> 15f92bbdfd1
 Successfully tagged localhost/shim-ecos:15.6
-cb5a36c153f4570bc09df6d0b76818f217040e4baac729981d925df962b2fd86
+15f92bbdfd1869e303109ed58cba3d5fefe42ce8c14c3232fde8af1ef4b6d1da
