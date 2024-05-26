@@ -1,0 +1,32 @@
+--- ./grub-core/net/drivers/efi/efinet.c	2024-04-05 10:13:41.120000000 +0200
++++ ./grub-core/net/drivers/efi/efinet.c	2024-04-05 10:19:12.580000000 +0200
+@@ -399,6 +399,21 @@
+     if (! pxe)
+       continue;
+     pxe_mode = pxe->mode;
++    grub_dprintf ("efinet", "check for proxy offer");
++    struct grub_net_bootp_packet *dhcp_ack = &pxe_mode->dhcp_ack;
++    struct grub_net_bootp_packet *proxy_offer = &pxe_mode->proxy_offer;
++
++    if (proxy_offer && dhcp_ack->boot_file[0] == '\0')
++      {
++        /* Here we got a proxy offer and the dhcp_ack has a nil boot_file
++        * Copy the proxy DHCP offer details into the bootp_packet we are
++        * sending forward as they are the deatils we need.
++        */
++        grub_dprintf ("efinet", "setting values from proxy offer");
++        *dhcp_ack->server_name = *proxy_offer->server_name;
++        *dhcp_ack->boot_file   = *proxy_offer->boot_file;
++        dhcp_ack->server_ip    = proxy_offer->server_ip;
++      }
+ 
+     inter = grub_net_configure_by_dhcp_ack (card->name, card, 0,
+ 					    (struct grub_net_bootp_packet *)
+@@ -428,6 +443,7 @@
+ 	    vlan_dp = (grub_efi_device_path_t *) ((grub_efi_uint8_t *) vlan_dp + vlan_dp_len);
+ 	  }
+       }
++    grub_dprintf ("efinet", "device: `%s' path: `%s'\n", *device, *path);
+     return;
+   }
+ }

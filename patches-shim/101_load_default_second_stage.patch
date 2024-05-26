@@ -1,0 +1,31 @@
+--- a/shim.c
++++ b/shim.c
+@@ -1161,15 +1161,19 @@ EFI_STATUS init_grub(EFI_HANDLE image_handle)
+ /*
+  * Check the load options to specify the second stage loader
+  */
+-EFI_STATUS set_second_stage (EFI_HANDLE image_handle)
++EFI_STATUS set_second_stage (EFI_HANDLE image_handle UNUSED)
+ {
++/* Comment out unused variables
+ 	EFI_STATUS efi_status;
+ 	EFI_LOADED_IMAGE *li = NULL;
++*/
+ 
+ 	second_stage = DEFAULT_LOADER;
+ 	load_options = NULL;
+ 	load_options_size = 0;
+ 
++// Disable dynamic second stage loader detection, always load the default loader
++#if 0
+ 	efi_status = BS->HandleProtocol(image_handle, &LoadedImageProtocol,
+ 					(void **) &li);
+ 	if (EFI_ERROR(efi_status)) {
+@@ -1193,6 +1197,7 @@ EFI_STATUS set_second_stage (EFI_HANDLE image_handle)
+ 		perror (L"Failed to get load options: %r\n", efi_status);
+ 		return efi_status;
+ 	}
++#endif
+ 
+ 	return EFI_SUCCESS;
+ }

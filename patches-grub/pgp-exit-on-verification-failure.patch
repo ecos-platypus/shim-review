@@ -1,0 +1,104 @@
+--- ./grub-core/commands/pgp.c
++++ ./grub-core/commands/pgp.c
+@@ -446,6 +446,7 @@ struct grub_pubkey_context
+   grub_uint8_t v;
+   const gcry_md_spec_t *hash;
+   void *hash_context;
++  const char *file_name;  // save file name for grub_verify_signature_real
+ };
+ 
+ static grub_err_t
+@@ -661,6 +662,7 @@ grub_verify_signature_real (struct grub_pubkey_context *ctxt,
+ 
+  fail:
+   grub_free (readbuf);
++  grub_fatal (N_("bad signature: %s"), ctxt->file_name);
+   if (!grub_errno)
+     return grub_error (GRUB_ERR_BAD_SIGNATURE, N_("bad signature"));
+   return grub_errno;
+@@ -695,13 +697,13 @@ grub_verify_signature (grub_file_t f, const char *fsig,
+ 			GRUB_FILE_TYPE_SIGNATURE
+ 			| GRUB_FILE_TYPE_NO_DECOMPRESS);
+   if (!sig)
+-    return grub_errno;
++    goto fail;
+ 
+   err = grub_verify_signature_init (&ctxt, sig);
+   if (err)
+     {
+       grub_file_close (sig);
+-      return err;
++      goto fail;
+     }
+ 
+   readbuf = grub_zalloc (READBUF_SIZE);
+@@ -718,12 +720,17 @@ grub_verify_signature (grub_file_t f, const char *fsig,
+ 	break;
+       err = grub_pubkey_write (&ctxt, readbuf, r);
+       if (err)
+-	return err;
++  goto fail;
+     }
+ 
+-  grub_verify_signature_real (&ctxt, pkey);
++  ctxt.file_name = f->name;
++  grub_verify_signature_real (&ctxt, pkey); // exits via grub_fatal if verification fails
+  fail:
+   grub_pubkey_close_real (&ctxt);
++  grub_fatal (N_("bad signature: %s"), f->name);
++  // return the error in case grub_fatal does not exit on certain platforms
++  if (err)
++    return err;
+   return grub_errno;
+ }
+ 
+@@ -812,6 +819,7 @@ grub_cmd_distrust (grub_command_t cmd  __attribute__ ((unused)),
+   return grub_error (GRUB_ERR_BAD_SIGNATURE, N_("public key %08x not found"), keyid);
+ }
+ 
++// Note: grub_cmd_verify_signature is not patched as only grub_pubkey_verifier is used for signature verification.
+ static grub_err_t
+ grub_cmd_verify_signature (grub_extcmd_context_t ctxt,
+ 			   int argc, char **args)
+@@ -882,30 +890,37 @@ grub_pubkey_init (grub_file_t io, enum grub_file_type type __attribute__ ((unuse
+ 
+   fsuf = grub_malloc (grub_strlen (io->name) + sizeof (".sig"));
+   if (!fsuf)
+-    return grub_errno;
++    goto fail;
+   ptr = grub_stpcpy (fsuf, io->name);
+   grub_memcpy (ptr, ".sig", sizeof (".sig"));
+ 
+   sig = grub_file_open (fsuf, GRUB_FILE_TYPE_SIGNATURE);
+   grub_free (fsuf);
+   if (!sig)
+-    return grub_errno;
++    goto fail;
+ 
+   ctxt = grub_malloc (sizeof (*ctxt));
+   if (!ctxt)
+     {
+       grub_file_close (sig);
+-      return grub_errno;
++      goto fail;
+     }
+   err = grub_verify_signature_init (ctxt, sig);
+   if (err)
+     {
+       grub_free (ctxt);
+       grub_file_close (sig);
+-      return err;
++      goto fail;
+     }
++  ctxt->file_name = io->name;
+   *context = ctxt;
+   return GRUB_ERR_NONE;
++ fail:
++  grub_fatal (N_("bad signature: %s"), io->name);
++  // return the error in case grub_fatal does not exit on certain platforms
++  if (err)
++    return err;
++  return grub_errno;
+ }
+ 
+ static grub_err_t

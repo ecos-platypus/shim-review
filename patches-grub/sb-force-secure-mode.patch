@@ -1,0 +1,21 @@
+--- ./grub-core/kern/efi/sb.c	2023-12-05 15:28:30.000000000 +0100
++++ ./grub-core/kern/efi/sb.c	2024-04-05 10:24:07.100000000 +0200
+@@ -43,6 +43,10 @@
+ grub_uint8_t
+ grub_efi_get_secureboot (void)
+ {
++  // Always run in secure boot mode
++  return GRUB_EFI_SECUREBOOT_MODE_ENABLED;
++
++#if 0
+   static grub_guid_t efi_variable_guid = GRUB_EFI_GLOBAL_VARIABLE_GUID;
+   grub_efi_status_t status;
+   grub_efi_uint32_t attr = 0;
+@@ -121,6 +125,7 @@
+   grub_dprintf ("efi", "UEFI Secure Boot state: %s\n", secureboot_str);
+ 
+   return secureboot;
++#endif
+ }
+ 
+ static grub_err_t

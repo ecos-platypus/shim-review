@@ -1,0 +1,24 @@
+--- a/shim.c
++++ b/shim.c
+@@ -343,9 +343,10 @@ static void update_verification_method(verification_method_t method)
+ /*
+  * Check whether the binary signature or hash are present in db or MokList
+  */
+-static EFI_STATUS check_allowlist (WIN_CERTIFICATE_EFI_PKCS *cert,
+-				   UINT8 *sha256hash, UINT8 *sha1hash)
++static EFI_STATUS check_allowlist (WIN_CERTIFICATE_EFI_PKCS *cert UNUSED,
++				   UINT8 *sha256hash UNUSED, UINT8 *sha1hash UNUSED)
+ {
++/* Disable allowlist via db or MokList, only trust embedded vendor and shim certs
+ 	if (!ignore_db) {
+ 		if (check_db_hash(L"db", EFI_SECURE_BOOT_DB_GUID, sha256hash, SHA256_DIGEST_SIZE,
+ 					EFI_CERT_SHA256_GUID) == DATA_FOUND) {
+@@ -414,7 +415,7 @@ static EFI_STATUS check_allowlist (WIN_CERTIFICATE_EFI_PKCS *cert,
+ 	} else if (cert) {
+ 		LogError(L"check_db_cert(MokList, sha256hash) != DATA_FOUND\n");
+ 	}
+-
++*/
+ 	update_verification_method(VERIFIED_BY_NOTHING);
+ 	return EFI_NOT_FOUND;
+ }
