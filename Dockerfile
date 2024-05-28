@@ -17,6 +17,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends build-essent
 RUN dpkg -l
 
 RUN wget https://github.com/rhboot/shim/releases/download/15.8/shim-15.8.tar.bz2
+RUN sha256sum shim-15.8.tar.bz2
 RUN tar -xf shim-15.8.tar.bz2
 RUN mv shim-15.8 /shim
 WORKDIR /shim
