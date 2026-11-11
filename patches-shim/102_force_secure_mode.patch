@@ -1,0 +1,19 @@
+--- a/shim.c
++++ b/shim.c
+@@ -45,6 +45,8 @@
+  */
+ BOOLEAN secure_mode (void)
+ {
++	// Always run in secure mode
++#if 0
+ 	static int first = 1;
+ 	if (user_insecure_mode)
+ 		return FALSE;
+@@ -76,6 +78,7 @@
+ 	}
+ 
+ 	first = 0;
++#endif
+ 	return TRUE;
+ }
+ 

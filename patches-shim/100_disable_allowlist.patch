@@ -1,0 +1,24 @@
+--- a/verify.c
++++ b/verify.c
+@@ -343,10 +343,10 @@
+  * Check whether the binary signature or hash are present in db or MokList
+  */
+ static EFI_STATUS
+-check_allowlist(WIN_CERTIFICATE_EFI_PKCS *cert, UINT8 *sha256hash,
+-                UINT8 *sha1hash)
++check_allowlist(WIN_CERTIFICATE_EFI_PKCS *cert UNUSED, UINT8 *sha256hash UNUSED,
++                UINT8 *sha1hash UNUSED)
+ {
+-	if (!ignore_db) {
++/*	if (!ignore_db) {
+ 		if (check_db_hash(L"db", EFI_SECURE_BOOT_DB_GUID, sha256hash, SHA256_DIGEST_SIZE,
+ 					EFI_CERT_SHA256_GUID) == DATA_FOUND) {
+ 			update_verification_method(VERIFIED_BY_HASH);
+@@ -414,6 +414,7 @@
+ 	} else if (cert) {
+ 		LogError(L"check_db_cert(MokListRT, sha256hash) != DATA_FOUND\n");
+ 	}
++*/
+ 
+ 	update_verification_method(VERIFIED_BY_NOTHING);
+ 	return EFI_NOT_FOUND;
